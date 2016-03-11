@@ -1,21 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Generals.business.Components;
 using Generals.business.Entities;
 using System.Configuration;
-using System.Web.Security;
-using Generals.framework.Exceptions;
 using Generals.business.UserEntities;
 using Generals.business.Common;
 using System.IO;
 using Generals.Web.controls;
 using System.Security.Cryptography;
 using System.Text;
-using Generals.business;
 
 namespace Generals.Web
 {
@@ -352,7 +347,7 @@ namespace Generals.Web
             }
             catch (Exception ex)
             {
-                ExceptionManager.HandleException(ex, 1, 5000, 1);
+              //  ExceptionManager.HandleException(ex, 1, 5000, 1);
                 throw (ex);
             }
         }

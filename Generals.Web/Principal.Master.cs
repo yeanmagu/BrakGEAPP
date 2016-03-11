@@ -1,18 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.IO;
 using System.Web.Security;
-using Generals.business;
 using Generals.business.Entities;
 using System.Globalization;
-using Generals.framework.Exceptions;
-using System.Collections;
-using Generals.framework.DataAccess;
-using System.Data;
 
 
 
@@ -158,7 +149,7 @@ namespace Generals.Web
             catch (Exception ex)
             {
                 Exception e = new Exception("Error al intentar registar la Bitacora.", ex);
-                ExceptionManager.HandleException(e, 1, 5000, 1);
+                //ExceptionManager.HandleException(e, 1, 5000, 1);
                 ((Label)FindControl("lblMensaje")).Text = ex.Message;
             }
         }

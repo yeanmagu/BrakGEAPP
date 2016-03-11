@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Generals.business.Entities;
-using Generals.framework.Exceptions;
 using Generals.business.UserEntities;
 using Generals.business.Common;
 
