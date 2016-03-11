@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:oldtns2="http://grupobbva.com.pe/portalinmobiliario/xsd/u360/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:oldtns1="http://grupobbva.com.pe/portalinmobiliario/xsd/b402/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://grupobbva.com.pe/portal_inmobiliario/" name="MS_BBVA_PORTAL_INMOBILIARIO" targetNamespace="http://grupobbva.com.pe/portal_inmobiliario/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <binding hasEncoding="false" imported="true" name="MS_BBVA_PORTAL_INMOBILIARIOSOAP_HTTP_Binding" originalBindingStyle="document" />
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema xmlns:mrm="http://grupobbva.com.pe/portal_inmobiliario/" targetNamespace="http://grupobbva.com.pe/portal_inmobiliario/">
+      <xsd:import schemaLocation="xsd/b402/consultaSaldos.mxsd" namespace="http://grupobbva.com.pe/portalinmobiliario/xsd/b402/" />
+      <xsd:import schemaLocation="xsd/u360/consultaPrestamo.mxsd" namespace="http://grupobbva.com.pe/portalinmobiliario/xsd/u360/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="consultaSaldos_in">
+    <wsdl:part name="consultaSaldosRq" element="oldtns1:consultaSaldosRq" />
+  </wsdl:message>
+  <wsdl:message name="consultaSaldos_out">
+    <wsdl:part name="consultaSaldosRs" element="oldtns1:consultaSaldosRs" />
+  </wsdl:message>
+  <wsdl:message name="consultaPrestamo_in">
+    <wsdl:part name="consultaPrestamoRq" element="oldtns2:consultaPrestamoRq" />
+  </wsdl:message>
+  <wsdl:message name="consultaPrestamo_out">
+    <wsdl:part name="consultaPrestamoRs" element="oldtns2:consultaPrestamoRs" />
+  </wsdl:message>
+  <wsdl:portType name="MS_BBVA_PORTAL_INMOBILIARIOPortType">
+    <wsdl:operation name="consultaSaldos">
+      <wsdl:input name="consultaSaldos_Input" message="tns:consultaSaldos_in" />
+      <wsdl:output name="consultaSaldos_Output" message="tns:consultaSaldos_out" />
+    </wsdl:operation>
+    <wsdl:operation name="consultaPrestamo">
+      <wsdl:input name="consultaPrestamo_Input" message="tns:consultaPrestamo_in" />
+      <wsdl:output name="consultaPrestamo_Output" message="tns:consultaPrestamo_out" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MS_BBVA_PORTAL_INMOBILIARIOSOAP_HTTP_Binding" type="tns:MS_BBVA_PORTAL_INMOBILIARIOPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="consultaSaldos">
+      <soap:operation soapAction="http://grupobbva.com.pe/portal_inmobiliario/consultaSaldos" />
+      <wsdl:input name="consultaSaldos_Input">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="consultaSaldos_Output">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultaPrestamo">
+      <soap:operation soapAction="http://grupobbva.com.pe/portal_inmobiliario/consultaPrestamo" />
+      <wsdl:input name="consultaPrestamo_Input">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="consultaPrestamo_Output">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MS_BBVA_PORTAL_INMOBILIARIOSOAP_HTTP_Service">
+    <wsdl:port name="MS_BBVA_PORTAL_INMOBILIARIOSOAP_HTTP_Port" binding="tns:MS_BBVA_PORTAL_INMOBILIARIOSOAP_HTTP_Binding">
+      <soap:address location="http://localhost:7800/portal_inmobiliario" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

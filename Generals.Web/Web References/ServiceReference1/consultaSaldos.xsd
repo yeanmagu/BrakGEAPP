@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:tns="http://grupobbva.com.pe/portalinmobiliario/xsd/b402/" xmlns:pref="http://grupobbva.com.pe/portalinmobiliario/xsd/ps9/" elementFormDefault="qualified" targetNamespace="http://grupobbva.com.pe/portalinmobiliario/xsd/b402/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="../ps9/PS9_v01.mxsd" namespace="http://grupobbva.com.pe/portalinmobiliario/xsd/ps9/" />
+  <xsd:element name="consultaSaldosRq" type="tns:consultaSaldosRq">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/consultaSaldosRq;XSDElementDeclaration$MRObject" />
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="consultaSaldosRq">
+    <xsd:sequence>
+      <xsd:element name="header" type="pref:ctHeaderRq" />
+      <xsd:element name="body" type="tns:BodyConsultaSaldosRq" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="consultaSaldosRs" type="tns:consultaSaldosRs">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/consultaSaldosRs;XSDElementDeclaration=1$MRObject" />
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="consultaSaldosRs">
+    <xsd:sequence>
+      <xsd:element name="header" type="pref:ctHeaderRs" />
+      <xsd:element name="body" type="tns:BodyConsultaSaldosRs" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BodyConsultaSaldosRq">
+    <xsd:sequence>
+      <xsd:element name="codigoCuentaCliente" type="xsd:string" />
+      <xsd:element name="opcion" type="xsd:string" />
+      <xsd:element name="cobComision" type="xsd:string" />
+      <xsd:element name="papel" type="xsd:string" />
+      <xsd:element name="libre" type="xsd:string" />
+      <xsd:element name="tarjeta" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BodyConsultaSaldosRs">
+    <xsd:sequence>
+      <xsd:element name="saldoDisponible" type="xsd:string" />
+      <xsd:element name="saldoContable" type="xsd:string" />
+      <xsd:element name="saldoActual" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

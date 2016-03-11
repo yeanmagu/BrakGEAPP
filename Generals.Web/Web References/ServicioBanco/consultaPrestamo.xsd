@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:tns="http://grupobbva.com.pe/portalinmobiliario/xsd/u360/" xmlns:pref="http://grupobbva.com.pe/portalinmobiliario/xsd/ps9/" elementFormDefault="qualified" targetNamespace="http://grupobbva.com.pe/portalinmobiliario/xsd/u360/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="../ps9/PS9_v01.mxsd" namespace="http://grupobbva.com.pe/portalinmobiliario/xsd/ps9/" />
+  <xsd:element name="consultaPrestamoRq" type="tns:consultaPrestamoRq">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/consultaPrestamoRq;XSDElementDeclaration$MRObject" />
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="consultaPrestamoRs" type="tns:consultaPrestamoRs">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/consultaPrestamoRs;XSDElementDeclaration=1$MRObject" />
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="consultaPrestamoRq">
+    <xsd:sequence>
+      <xsd:element name="header" type="pref:ctHeaderRq" />
+      <xsd:element name="body" type="tns:BodyConsultaPrestamoRq" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaPrestamoRs">
+    <xsd:sequence>
+      <xsd:element name="header" type="pref:ctHeaderRs" />
+      <xsd:element name="body" type="tns:BodyConsultaPrestamoRs" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BodyConsultaPrestamoRq">
+    <xsd:sequence>
+      <xsd:element name="codigoCuentaCliente" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BodyConsultaPrestamoRs">
+    <xsd:sequence>
+      <xsd:element name="contratoPrestamo" type="xsd:string" />
+      <xsd:element name="codigoCliente" type="xsd:string" />
+      <xsd:element name="oficinaTitular" type="xsd:string" />
+      <xsd:element name="gestor" type="xsd:string" />
+      <xsd:element name="importePrestamo" type="xsd:string" />
+      <xsd:element name="plazoPrestamo" type="xsd:string" />
+      <xsd:element name="unidadPlazo" type="xsd:string" />
+      <xsd:element name="diaPago" type="xsd:string" />
+      <xsd:element name="periodoGracia" type="xsd:string" />
+      <xsd:element name="unidadPeriodo" type="xsd:string" />
+      <xsd:element name="monedaPrestamo" type="xsd:string" />
+      <xsd:element name="tasaPrestamo" type="xsd:string" />
+      <xsd:element name="productoGestion" type="xsd:string" />
+      <xsd:element name="subprodPrestamo" type="xsd:string" />
+      <xsd:element name="descripcionPrestamo" type="xsd:string" />
+      <xsd:element name="tipoDOI" type="xsd:string" />
+      <xsd:element name="numeroDOI" type="xsd:string" />
+      <xsd:element name="nombreCliente" type="xsd:string" />
+      <xsd:element name="apellidoPaterno" type="xsd:string" />
+      <xsd:element name="apellidoMaterno" type="xsd:string" />
+      <xsd:element name="estadoCivil" type="xsd:string" />
+      <xsd:element name="sexo" type="xsd:string" />
+      <xsd:element name="fechaNacimiento" type="xsd:string" />
+      <xsd:element name="paisNacimiento" type="xsd:string" />
+      <xsd:element name="nombreGestor" type="xsd:string" />
+      <xsd:element name="segmentoCliente" type="xsd:string" />
+      <xsd:element name="codigoEstudio" type="xsd:string" />
+      <xsd:element name="profesion" type="xsd:string" />
+      <xsd:element name="direccion" type="xsd:string" />
+      <xsd:element name="correo" type="xsd:string" />
+      <xsd:element name="codigoDistrito" type="xsd:string" />
+      <xsd:element name="nombreDistrito" type="xsd:string" />
+      <xsd:element name="codigoProvincia" type="xsd:string" />
+      <xsd:element name="nombreProvincia" type="xsd:string" />
+      <xsd:element name="codigoDepartamento" type="xsd:string" />
+      <xsd:element name="nombreDepartamento" type="xsd:string" />
+      <xsd:element name="telefono1" type="xsd:string" />
+      <xsd:element name="telefono2" type="xsd:string" />
+      <xsd:element name="telefono3" type="xsd:string" />
+      <xsd:element name="centroTrabajo" type="xsd:string" />
+      <xsd:element name="descripcionPuesto" type="xsd:string" />
+      <xsd:element name="antEmpl" type="xsd:string" />
+      <xsd:element name="rvgl" type="xsd:string" />
+      <xsd:element name="fechaAprobacion" type="xsd:string" />
+      <xsd:element name="importeAprobacion" type="xsd:string" />
+      <xsd:element name="tipoPlazo" type="xsd:string" />
+      <xsd:element name="fechaIngreso" type="xsd:string" />
+      <xsd:element name="codigoFuncionario" type="xsd:string" />
+      <xsd:element name="nombreFuncionario" type="xsd:string" />
+      <xsd:element name="porcentajeDeuda" type="xsd:string" />
+      <xsd:element name="egresos" type="xsd:string" />
+      <xsd:element name="ingresos" type="xsd:string" />
+      <xsd:element name="dictamen" type="xsd:string" />
+      <xsd:element name="importeDesembolso" type="xsd:string" />
+      <xsd:element name="fechaDesembolso" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="listaIntervinientes" type="tns:interviniente" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="listaGarantias" type="tns:garantia" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="listaCuotasAdicionales" type="tns:cuotasAdicionales" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="interviniente">
+    <xsd:sequence>
+      <xsd:element name="tipoInterviniente" type="xsd:string" />
+      <xsd:element name="secuenciaInterviniente" type="xsd:string" />
+      <xsd:element name="codigoClienteInterviniente" type="xsd:string" />
+      <xsd:element name="tipoDOIInterviniente" type="xsd:string" />
+      <xsd:element name="nroDOIInterviniente" type="xsd:string" />
+      <xsd:element name="nombrePaisInterviniente" type="xsd:string" />
+      <xsd:element name="fechaNacInterviniente" type="xsd:string" />
+      <xsd:element name="nombreInterviniente" type="xsd:string" />
+      <xsd:element name="apellidoPatInterviniente" type="xsd:string" />
+      <xsd:element name="apellidoMatInterviniente" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="garantia">
+    <xsd:sequence>
+      <xsd:element name="contratoGarantia" type="xsd:string" />
+      <xsd:element name="tipoGarantia" type="xsd:string" />
+      <xsd:element name="situacionGarantia" type="xsd:string" />
+      <xsd:element name="monedaGarantia" type="xsd:string" />
+      <xsd:element name="importeGarantia" type="xsd:string" />
+      <xsd:element name="fecVinculacionGarantia" type="xsd:string" />
+      <xsd:element name="descripcionGarantia" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="listaDetalles" type="tns:detalle" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="detalle">
+    <xsd:sequence>
+      <xsd:element name="parte1DetalleGarantia" type="xsd:string" />
+      <xsd:element name="parte2DetalleGarantia" type="xsd:string" />
+      <xsd:element name="parte3DetalleGarantia" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="cuotasAdicionales">
+    <xsd:sequence>
+      <xsd:element name="cuotaEnero" type="xsd:string" />
+      <xsd:element name="cuotaFebrero" type="xsd:string" />
+      <xsd:element name="cuotaMarzo" type="xsd:string" />
+      <xsd:element name="cuotaAbril" type="xsd:string" />
+      <xsd:element name="cuotaMayo" type="xsd:string" />
+      <xsd:element name="cuotaJunio" type="xsd:string" />
+      <xsd:element name="cuotaJulio" type="xsd:string" />
+      <xsd:element name="cuotaAgosto" type="xsd:string" />
+      <xsd:element name="cuotaSetiembre" type="xsd:string" />
+      <xsd:element name="cuotaOctubre" type="xsd:string" />
+      <xsd:element name="cuotaNoviembre" type="xsd:string" />
+      <xsd:element name="cuotaDiciembre" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

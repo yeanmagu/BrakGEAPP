@@ -1,0 +1,10 @@
+ERROR 2016-02-10 10:51:11,283 - Mensaje:No connection string named 'dbBrakGEEntities1' could be found in the application config file., Inner:NA
+ERROR 2016-02-10 10:54:01,146 - Mensaje:No connection string named 'dbBrakGEEntities1' could be found in the application config file., Inner:NA
+ERROR 2016-02-10 10:56:39,493 - Mensaje:No connection string named 'dbBrakGEEntities1' could be found in the application config file., Inner:NA
+ERROR 2016-02-10 11:11:51,375 - Mensaje:No connection string named 'dbBrakGEEntities' could be found in the application config file., Inner:NA
+ERROR 2016-02-10 11:21:03,624 - Mensaje:No connection string named 'dbBrakGEEntities' could be found in the application config file., Inner:NA
+ERROR 2016-02-10 11:58:54,470 - Mensaje:No connection string named 'dbBrakGEEntities' could be found in the application config file., Inner:NA
+ERROR 2016-02-10 12:03:48,833 - Mensaje:No connection string named 'dbBrakGEEntities' could be found in the application config file., Inner:NA
+ERROR 2016-02-10 15:08:57,130 - Mensaje:No connection string named 'dbBrakGEEntities' could be found in the application config file., Inner:NA
+ERROR 2016-02-10 15:10:19,682 - Mensaje:No connection string named 'dbBrakGEEntities' could be found in the application config file., Inner:NA
+ERROR 2016-02-10 16:24:52,320 - Mensaje:No connection string named 'dbBrakGEEntities' could be found in the application config file., Inner:NA

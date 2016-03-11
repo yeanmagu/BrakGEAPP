@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="47916c94701f46ff88e9835163aaab6f" Name="Diagram1" ZoomLevel="54">
+        <EntityTypeShape EntityType="dbBrakGEModel.Acta" Width="1.5" PointX="6" PointY="24.375" />
+        <EntityTypeShape EntityType="dbBrakGEModel.Bodega" Width="1.5" PointX="6" PointY="33" />
+        <EntityTypeShape EntityType="dbBrakGEModel.Color" Width="1.5" PointX="3" PointY="28.5" />
+        <EntityTypeShape EntityType="dbBrakGEModel.ControlDeProceso" Width="1.5" PointX="23.25" PointY="27.75" />
+        <EntityTypeShape EntityType="dbBrakGEModel.ControlEntregasInterna" Width="1.5" PointX="15.75" PointY="28.375" />
+        <EntityTypeShape EntityType="dbBrakGEModel.DetalleActa" Width="1.5" PointX="8.25" PointY="24.5" />
+        <EntityTypeShape EntityType="dbBrakGEModel.DetalleDocumento" Width="1.5" PointX="10.5" PointY="38.125" />
+        <EntityTypeShape EntityType="dbBrakGEModel.DetalleRemisione" Width="1.5" PointX="18" PointY="37.125" />
+        <EntityTypeShape EntityType="dbBrakGEModel.Documento" Width="1.5" PointX="13.5" PointY="27.375" />
+        <EntityTypeShape EntityType="dbBrakGEModel.DPTO" Width="1.5" PointX="1.5" PointY="41.375" />
+        <EntityTypeShape EntityType="dbBrakGEModel.Empresa" Width="1.5" PointX="3.75" PointY="36.75" />
+        <EntityTypeShape EntityType="dbBrakGEModel.EstadoDocumento" Width="1.5" PointX="11.25" PointY="21.5" />
+        <EntityTypeShape EntityType="dbBrakGEModel.EstadoEnvio" Width="1.5" PointX="13.5" PointY="24.25" />
+        <EntityTypeShape EntityType="dbBrakGEModel.FomaDePago" Width="1.5" PointX="11.25" PointY="29" />
+        <EntityTypeShape EntityType="dbBrakGEModel.FotosItem" Width="1.5" PointX="10.5" PointY="35.625" />
+        <EntityTypeShape EntityType="dbBrakGEModel.Grupo" Width="1.5" PointX="3.75" PointY="12.75" />
+        <EntityTypeShape EntityType="dbBrakGEModel.Inventario" Width="1.5" PointX="5.75" PointY="1.75" />
+        <EntityTypeShape EntityType="dbBrakGEModel.Item" Width="1.5" PointX="8.25" PointY="34.375" />
+        <EntityTypeShape EntityType="dbBrakGEModel.Iva" Width="1.5" PointX="3" PointY="21.5" />
+        <EntityTypeShape EntityType="dbBrakGEModel.Marca" Width="1.5" PointX="6" PointY="28.75" />
+        <EntityTypeShape EntityType="dbBrakGEModel.Materiale" Width="1.5" PointX="8.25" PointY="21.125" />
+        <EntityTypeShape EntityType="dbBrakGEModel.MaterialesActaDetalle" Width="1.5" PointX="10.5" PointY="24.5" />
+        <EntityTypeShape EntityType="dbBrakGEModel.Modificacione" Width="1.5" PointX="18.75" PointY="28.5" />
+        <EntityTypeShape EntityType="dbBrakGEModel.MotivoModificacione" Width="1.5" PointX="16.5" PointY="25.25" />
+        <EntityTypeShape EntityType="dbBrakGEModel.Municipio" Width="1.5" PointX="3.75" PointY="41.25" />
+        <EntityTypeShape EntityType="dbBrakGEModel.Pais" Width="1.5" PointX="1.5" PointY="38.375" />
+        <EntityTypeShape EntityType="dbBrakGEModel.Perfile" Width="1.5" PointX="3" PointY="44.625" />
+        <EntityTypeShape EntityType="dbBrakGEModel.Persona" Width="1.5" PointX="3" PointY="2.125" />
+        <EntityTypeShape EntityType="dbBrakGEModel.Proceso" Width="1.5" PointX="18.75" PointY="32.5" />
+        <EntityTypeShape EntityType="dbBrakGEModel.ProgramacionTarea" Width="1.5" PointX="21" PointY="29.5" />
+        <EntityTypeShape EntityType="dbBrakGEModel.RecibosCaja" Width="1.5" PointX="3" PointY="47.375" />
+        <EntityTypeShape EntityType="dbBrakGEModel.RemisionesExterna" Width="1.5" PointX="15.75" PointY="33.5" />
+        <EntityTypeShape EntityType="dbBrakGEModel.SubGrupo" Width="1.5" PointX="3" PointY="32.75" />
+        <EntityTypeShape EntityType="dbBrakGEModel.Sw" Width="1.5" PointX="6" PointY="21.375" />
+        <EntityTypeShape EntityType="dbBrakGEModel.sysdiagram" Width="1.5" PointX="5.75" PointY="5.75" />
+        <EntityTypeShape EntityType="dbBrakGEModel.Talla" Width="1.5" PointX="3" PointY="52.25" />
+        <EntityTypeShape EntityType="dbBrakGEModel.TipoActa" Width="1.5" PointX="3.75" PointY="17.125" />
+        <EntityTypeShape EntityType="dbBrakGEModel.TipoCliente" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="dbBrakGEModel.TipoDocumento" Width="1.5" PointX="0.75" PointY="7.25" />
+        <EntityTypeShape EntityType="dbBrakGEModel.TipoMOntaje" Width="1.5" PointX="6" PointY="18.25" />
+        <EntityTypeShape EntityType="dbBrakGEModel.TipoMovimiento" Width="1.5" PointX="8.25" PointY="30.375" />
+        <EntityTypeShape EntityType="dbBrakGEModel.TipoPersona" Width="1.5" PointX="0.75" PointY="4" />
+        <EntityTypeShape EntityType="dbBrakGEModel.TipoProceso" Width="1.5" PointX="16.5" PointY="40.25" />
+        <EntityTypeShape EntityType="dbBrakGEModel.User" Width="1.5" PointX="0.75" PointY="26.75" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Actas_Documentos" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Actas_TipoActa" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Actas_Usuarios" />
+        <AssociationConnector Association="dbBrakGEModel.FK_DetalleActa_Actas" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Bodega_Empresa" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Bodega_Municipio" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Bodega_Usuarios" />
+        <AssociationConnector Association="dbBrakGEModel.FK_TipoMovimiento_Bodega" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Color_Usuarios" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Item_Color" />
+        <AssociationConnector Association="dbBrakGEModel.FK_ControlDeProcesos_ProgramacionTarea" />
+        <AssociationConnector Association="dbBrakGEModel.FK_ControlDeProcesos_Usuarios" />
+        <AssociationConnector Association="dbBrakGEModel.FK_ControlEntregasInternas_Documentos" />
+        <AssociationConnector Association="dbBrakGEModel.FK_ControlEntregasInternas_EstadoEnvio" />
+        <AssociationConnector Association="dbBrakGEModel.FK_ControlEntregasInternas_Usuarios" />
+        <AssociationConnector Association="dbBrakGEModel.FK_DetalleActa_TipoMOntaje" />
+        <AssociationConnector Association="dbBrakGEModel.FK_MaterialesActaDetalle_DetalleActa" />
+        <AssociationConnector Association="dbBrakGEModel.FK_DetalleDocumento_Item" />
+        <AssociationConnector Association="dbBrakGEModel.FK_DetalleRemisiones_RemisionesExternas" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Documentos_EstadoDocumento" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Documentos_FomaDePago" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Documentos_TipoMovimiento" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Documentos_Usuarios" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Modificaciones_Documentos" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Procesos_Documentos" />
+        <AssociationConnector Association="dbBrakGEModel.FK_ProgramacionTarea_Documentos" />
+        <AssociationConnector Association="dbBrakGEModel.FK_RemisionesExternas_Documentos" />
+        <AssociationConnector Association="dbBrakGEModel.FK_DPTO_Paises" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Municipio_DPTO" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Grupo_Empresa" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Marcas_Empresa" />
+        <AssociationConnector Association="dbBrakGEModel.FK_FotosItems_Item" />
+        <AssociationConnector Association="dbBrakGEModel.FK_SubGrupo_Grupo" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Item_Iva" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Item_Marcas" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Item_SubGrupo" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Item_Talla" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Item_Usuarios" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Iva_Usuarios" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Marcas_Usuarios" />
+        <AssociationConnector Association="dbBrakGEModel.FK_MaterialesActaDetalle_Materiales" />
+        <AssociationConnector Association="dbBrakGEModel.FK_MaterialesActaDetalle_Materiales1" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Modificaciones_MotivoModificaciones" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Modificaciones_Usuarios" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Modificaciones_Usuarios1" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Roles_Usuarios" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Cliente_TipoCliente" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Cliente_TipoDocumento" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Cliente_TipoPersona" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Procesos_TipoProceso" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Procesos_Usuarios" />
+        <AssociationConnector Association="dbBrakGEModel.FK_ProgramacionTarea_Procesos" />
+        <AssociationConnector Association="dbBrakGEModel.FK_ProgramacionTarea_Usuarios" />
+        <AssociationConnector Association="dbBrakGEModel.FK_RecibosCaja_Usuarios" />
+        <AssociationConnector Association="dbBrakGEModel.FK_RecibosCaja_Usuarios1" />
+        <AssociationConnector Association="dbBrakGEModel.FK_RemisionesExternas_Usuarios" />
+        <AssociationConnector Association="dbBrakGEModel.FK_SubGrupo_Usuarios" />
+        <AssociationConnector Association="dbBrakGEModel.FK_TipoMovimiento_Sw" />
+        <AssociationConnector Association="dbBrakGEModel.FK_Talla_Usuarios" />
+        <AssociationConnector Association="dbBrakGEModel.FK_TipoMovimiento_Usuarios" />
+        <AssociationConnector Association="dbBrakGEModel.GrupoMarcas" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

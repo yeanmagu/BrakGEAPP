@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="622c8fba-4bc7-4449-b4e2-bdf18453ac85" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="C:\Users\darwin_leon\Downloads\wsdlBbva\Servicios Consulta Datos de Préstamo y Consulta de Saldos\WSDL - Mxsd\MS_BBVA_PORTAL_INMOBILIARIOService.wsdl" Protocol="file" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="consultaSaldos.xsd" MetadataType="Schema" ID="c2623dad-28b9-42f8-817d-1198e35f1026" SourceId="1" SourceUrl="file:///C:/Users/darwin_leon/Downloads/wsdlBbva/Servicios Consulta Datos de Préstamo y Consulta de Saldos/WSDL - Mxsd/xsd/b402/consultaSaldos.mxsd" />
+    <MetadataFile FileName="PS9_v01.xsd" MetadataType="Schema" ID="a78d7724-735e-4138-8d18-0a33f7ca87bc" SourceId="1" SourceUrl="file:///C:/Users/darwin_leon/Downloads/wsdlBbva/Servicios Consulta Datos de Préstamo y Consulta de Saldos/WSDL - Mxsd/xsd/ps9/PS9_v01.mxsd" />
+    <MetadataFile FileName="MS_BBVA_PORTAL_INMOBILIARIO.wsdl" MetadataType="Wsdl" ID="2315589f-f8e4-4408-bb7f-eace53214ae6" SourceId="1" SourceUrl="file:///C:/Users/darwin_leon/Downloads/wsdlBbva/Servicios Consulta Datos de Préstamo y Consulta de Saldos/WSDL - Mxsd/MS_BBVA_PORTAL_INMOBILIARIOService.wsdl" />
+    <MetadataFile FileName="consultaPrestamo.xsd" MetadataType="Schema" ID="aa46678e-605c-40ad-8edd-9c300e68fa3c" SourceId="1" SourceUrl="file:///C:/Users/darwin_leon/Downloads/wsdlBbva/Servicios Consulta Datos de Préstamo y Consulta de Saldos/WSDL - Mxsd/xsd/u360/consultaPrestamo.mxsd" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
