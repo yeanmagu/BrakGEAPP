@@ -82,7 +82,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="log4net">
-      <HintPath>..\Resources\log4net.dll</HintPath>
+      <HintPath>D:\Projects\SIISO\SIISO\Resources\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -90,11 +90,11 @@
     </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Resources\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+      <HintPath>D:\Projects\SIISO\SIISO\Resources\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Resources\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <HintPath>D:\Projects\SIISO\SIISO\Resources\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -102,15 +102,15 @@
     </Reference>
     <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Resources\Microsoft.Practices.Unity.Interception.dll</HintPath>
+      <HintPath>D:\Projects\SIISO\SIISO\Resources\Microsoft.Practices.Unity.Interception.dll</HintPath>
     </Reference>
     <Reference Include="NVelocity, Version=0.5.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Resources\NVelocity.dll</HintPath>
+      <HintPath>D:\Projects\SIISO\SIISO\Resources\NVelocity.dll</HintPath>
     </Reference>
     <Reference Include="NVelocityTemplateEngine, Version=1.0.0.0, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Resources\NVelocityTemplateEngine.dll</HintPath>
+      <HintPath>D:\Projects\SIISO\SIISO\Resources\NVelocityTemplateEngine.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
