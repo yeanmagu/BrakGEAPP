@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using Generals.business.Entities;
-using Generals.framework.Exceptions;
 using Generals.business.UserEntities;
 using Generals.business.Common;
-using System.Drawing;
-using System.Web.Script.Serialization;
 
 namespace Generals.Web
 {

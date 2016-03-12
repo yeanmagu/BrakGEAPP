@@ -242,6 +242,11 @@
     <Content Include="Views\Admin\TipoProceso.aspx" />
     <Content Include="Views\Admin\TipoPersona2.aspx" />
     <Content Include="Views\ControllersAngular\Clientes.js" />
+    <Content Include="Views\ControllersAngular\Iva.js" />
+    <Content Include="Views\ControllersAngular\Materiales.js" />
+    <Content Include="Views\ControllersAngular\MotivoModificaciones.js" />
+    <Content Include="Views\ControllersAngular\Paises.js" />
+    <Content Include="Views\ControllersAngular\TipoActa.js" />
     <Content Include="Views\ControllersAngular\TipoClientes.js" />
     <Content Include="Views\ControllersAngular\TipoDocumento.js" />
     <Content Include="Views\ControllersAngular\TipoProceso.js" />
@@ -4251,6 +4256,13 @@
     <Content Include="Views\js\scripts.js" />
     <Content Include="Views\js\toastr.min.js" />
     <Content Include="Views\js\ui-bootstrap-tpls-0.11.0.js" />
+    <Content Include="Views\Parametrizacion\Iva.aspx" />
+    <Content Include="Views\Parametrizacion\Municipios.aspx" />
+    <Content Include="Views\Parametrizacion\Materiales.aspx" />
+    <Content Include="Views\Parametrizacion\MotivoModificaciones.aspx" />
+    <Content Include="Views\Parametrizacion\Paises.aspx" />
+    <Content Include="Views\Parametrizacion\TipoActa.aspx" />
+    <Content Include="Views\Procesos\Actas.aspx" />
     <Content Include="Views\plugins\animate-css\animate.css" />
     <Content Include="Views\plugins\animate-css\animate.min.css" />
     <Content Include="Views\plugins\bootbox\bootbox.js" />
@@ -5906,6 +5918,55 @@
     </Compile>
     <Compile Include="Views\Admin\TipoPersona2.aspx.designer.cs">
       <DependentUpon>TipoPersona2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\Iva.aspx.cs">
+      <DependentUpon>Iva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\Iva.aspx.designer.cs">
+      <DependentUpon>Iva.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\Municipios.aspx.cs">
+      <DependentUpon>Municipios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\Municipios.aspx.designer.cs">
+      <DependentUpon>Municipios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\Materiales.aspx.cs">
+      <DependentUpon>Materiales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\Materiales.aspx.designer.cs">
+      <DependentUpon>Materiales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\MotivoModificaciones.aspx.cs">
+      <DependentUpon>MotivoModificaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\MotivoModificaciones.aspx.designer.cs">
+      <DependentUpon>MotivoModificaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\Paises.aspx.cs">
+      <DependentUpon>Paises.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\Paises.aspx.designer.cs">
+      <DependentUpon>Paises.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\TipoActa.aspx.cs">
+      <DependentUpon>TipoActa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\TipoActa.aspx.designer.cs">
+      <DependentUpon>TipoActa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Procesos\Actas.aspx.cs">
+      <DependentUpon>Actas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Procesos\Actas.aspx.designer.cs">
+      <DependentUpon>Actas.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebCambioClave.aspx.cs">
       <DependentUpon>WebCambioClave.aspx</DependentUpon>

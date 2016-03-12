@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Data;
 using System.Data.Common;
 using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
 using Microsoft.Practices.EnterpriseLibrary.Data;
+
 namespace Generals.framework.DataAccess
 {
     /// <summary>

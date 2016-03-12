@@ -163,7 +163,7 @@ namespace BBVA.Finalista
             }
             catch (Exception ex)
             {
-                ExceptionManager.HandleException(ex, 1, 5000, 1);
+                //ExceptionManager.HandleException(ex, 1, 5000, 1);
                 throw (ex);
             }
         }

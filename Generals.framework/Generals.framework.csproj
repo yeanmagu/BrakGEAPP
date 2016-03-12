@@ -64,11 +64,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\presto.web\DLLS\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data">
-      <HintPath>D:\Projects\SIISO\SIISO\Generals.framework\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files (x86)\Microsoft Enterprise Library 5.0\Bin\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation">
-      <HintPath>D:\Projects\SIISO\SIISO\Generals.framework\bin\Debug\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <HintPath>..\Resources\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -126,43 +127,18 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Scripts\angular-resource.min.js.map" />
-    <None Include="Scripts\angular-route.min.js.map" />
-    <None Include="Scripts\angular.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Debug\Generals.framework.dll" />
-    <Content Include="bin\Debug\Generals.framework.dll.CodeAnalysisLog.xml" />
-    <Content Include="bin\Debug\Generals.framework.pdb" />
-    <Content Include="bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
-    <Content Include="bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll" />
-    <Content Include="bin\Debug\Microsoft.Practices.ServiceLocation.dll" />
-    <Content Include="bin\Debug\Microsoft.Practices.Unity.dll" />
-    <Content Include="bin\Debug\presto.framework.dll" />
-    <Content Include="bin\Debug\presto.framework.pdb" />
-    <Content Include="bin\Debug\System.Data.DataSetExtensions.dll" />
-    <Content Include="bin\Debug\System.Data.dll" />
-    <Content Include="bin\Debug\System.dll" />
-    <Content Include="bin\Debug\System.Xml.dll" />
-    <Content Include="bin\Debug\System.Xml.Linq.dll" />
-    <Content Include="Scripts\angular-mocks.js" />
-    <Content Include="Scripts\angular-resource.js" />
-    <Content Include="Scripts\angular-resource.min.js" />
-    <Content Include="Scripts\angular-route.js" />
-    <Content Include="Scripts\angular-route.min.js" />
-    <Content Include="Scripts\angular.js" />
-    <Content Include="Scripts\angular.min.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="bin\Release\" />
+    <Content Include="Microsoft.Practices.EnterpriseLibrary.Common.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
