@@ -44,8 +44,8 @@
 	<!--=================================================-->
 
 	<!--Page Load Progress Bar [ OPTIONAL ]-->
-	<link href="template/plugins/pace/pace.min.css" rel="stylesheet">
-	<script src="template/plugins/pace/pace.min.js"></script>
+<%--	<link href="template/plugins/pace/pace.min.css" rel="stylesheet">
+	<script src="template/plugins/pace/pace.min.js"></script>--%>
     <style>
         #floating-top-right 
         {
@@ -55,9 +55,9 @@
     <script type="text/javascript">
        
     </script>
-    <link href="css/toastr.min.css" rel="stylesheet" />
+   <%-- <link href="css/toastr.min.css" rel="stylesheet" />
 
-    <script src="Views/js/jquery-2.1.1.min.js"></script>
+    <script src="Views/js/jquery-2.1.1.min.js"></script>--%>
       <script src="../../Scripts/angular-mocks.js"></script>
     <script src="../../Scripts/angular.js"></script>
     <script src="../../Scripts/angular.min.js"></script>
@@ -385,9 +385,9 @@
 	<!--Specify page [ SAMPLE ]-->
 	<script src="../../js/demo/dashboard.js"></script>
 
-        <script src="Views/js/toastr.min.js"></script>
+       <%-- <script src="Views/js/toastr.min.js"></script>
 
-             <script src="js/toastr.min.js"></script>
+             <script src="js/toastr.min.js"></script>--%>
 
     <script>
         $(document).ready(function () {

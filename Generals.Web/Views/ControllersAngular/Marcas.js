@@ -6,7 +6,6 @@ myapp.controller('MarcasController', function ($scope, $http) {
 
     initialize();
     getall();
-    CargarCombos();
     Mostrar(true, false);
     function getall() {
 
@@ -16,7 +15,7 @@ myapp.controller('MarcasController', function ($scope, $http) {
 
             $scope.result = response;
             //alert(JSON.stringify($scope.result));
-            $scope.predicate = 'Nombre';
+            $scope.predicate = 'Descripcion';
             $scope.reverse = true;
             $scope.currentPage = 1;
             $scope.order = function (predicate) {
@@ -38,65 +37,19 @@ myapp.controller('MarcasController', function ($scope, $http) {
         });
 
     }
-    $scope.Cliente = {}
+    $scope.Marca = {}
 
     function initialize()
     {
-        $scope.Cliente =
+        $scope.Marca =
             {
                 ID: "",
-                TipoDocumento: "",
-                NroDocumento: "",
-                Nombre: "",
-                Apellido: "",
-                Telefono: "",
-                Email: "",
-                Estado: "",
-                Tipo: "2",
-                RegimenSimplificado: "False" ,           
-                Celular :"",
-                FechaNacimiento:"",
-                CiudadResidencia:"",
-                Nota : "" ,            
-                TipoMarcas :"",           
-                IdEmpesa:"",
-                Autoretenedores: "False",
-                AplicaAIU: "False",
-                Contacto:"",
-                RecibirEmail: "False",
-                FechaCreacion:"",
-                IdUsuario:""
+                Descripcion: ""
+               
             }
     }
 
-    function CargarCombos()
-    {
-        $http.get(uri + '/TipoDocumento').success(function (response) {
-            
-            $scope.Documentos = response;
-            
-        });
-        $http.get(uri + '/TipoMarcas').success(function (response) {
-           
-           
-            $scope.TipoMarcass = response;
-
-        });
-        $http.get(uri + '/Dpto').success(function (response)
-        {
-            $scope.Dptos = response;
-
-        });
-    }
-
-    $scope.CargarMunicipios = function ()
-    {
-        alert($scope.Cliente.Dpto);
-        $http.get(uri + '/Municipios/GetByDpto?id=' + ).success(function (response)
-        {
-            $scope.Municipios = response;
-        });
-    }
+   
     $scope.nuevo = function ()
     {
         $scope.one = false;
@@ -109,18 +62,16 @@ myapp.controller('MarcasController', function ($scope, $http) {
     $scope.add = function ()
     {
         //if ($scope.nombre) {
-        var Cliente = {
+        var Marcas = {
 
             Descripcion: $scope.descripcion,
             Estado: $scope.estado
 
         }
 
-        if (Cliente.Estado != true) {
-            Cliente.Estado = 'False';
-        }
+   
 
-        $http.post(uri + '/Marcas/Post', Cliente).
+        $http.post(uri + '/Marcas/Post', Marcas).
             success(function (data, status, headers, config) {
 
                 Mostrar(true, false);
@@ -148,18 +99,15 @@ myapp.controller('MarcasController', function ($scope, $http) {
     }
     $scope.Update = function () {
 
-        var Cliente =
+        var Marca =
             {
                 Id: $scope.id,
                 Descripcion: $scope.descripcion,
-                Estado: $scope.estado
-
+               
             }
-        if (Cliente.Estado != 'true') {
-            Cliente.Estado = 'False';
-        }
+      
 
-        $http.put(uri + '/Marcas/PUT', Cliente).success(function (data, status, headers, config) {
+        $http.put(uri + '/Marcas/PUT', Marca).success(function (data, status, headers, config) {
             getall();
             Clean()
             Mostrar(true, false);
@@ -192,14 +140,11 @@ myapp.controller('MarcasController', function ($scope, $http) {
 
     }
 
-    $scope.GetByID = function (Cliente) {
+    $scope.GetByID = function (Marca) {
 
-        $scope.descripcion = Cliente.Descripcion;
+        $scope.descripcion = Marca.Descripcion;
 
-        $scope.id = Cliente.ID;
-
-        $scope.estado = Cliente.Estado;
-        $scope.Check = $scope.estado;
+        $scope.id = Marca.ID;
 
         Mostrar(false, true);
         $scope.Guardar = false;
