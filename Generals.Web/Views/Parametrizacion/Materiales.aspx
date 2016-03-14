@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Materiales.aspx.cs" Inherits="Generals.Web.Views.Parametrizacion.Materiales" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-          <script src="../ControllersAngular/Iva.js"></script>  
+          <script src="../ControllersAngular/Materiales.js"></script>  
     <script src="../js/jquery-2.1.1.min.js"></script>
     <script src="../../template/plugins/pace/pace.min.js"></script>
     <script src="../js/angular.js"></script>
@@ -15,7 +15,7 @@
                     <div class="table-responsive">
                         <div class="panel formgrid" >
                               <div class="panel-body">
-                               <h4 class="text-thin">Tipo Proceso</h4>
+                               <h4 class="text-thin">Materiales</h4>
                                 <hr>
                                 <div class="col-md-12">                                     
                                     <div class="row">                                        

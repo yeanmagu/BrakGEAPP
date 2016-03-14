@@ -215,6 +215,9 @@
     <Content Include="App_Themes\Skin\SkinControles.skin" />
     <Content Include="css\toastr.min.css" />
     <Content Include="js\toastr.min.js" />
+    <Content Include="Views\ControllersAngular\Actas.js" />
+    <Content Include="Views\Admin\Bodega.aspx" />
+    <Content Include="Views\Admin\Empresa.aspx" />
     <Content Include="Views\Admin\TipoClientes.aspx" />
     <Content Include="Views\Admin\TipoMontaje.aspx" />
     <Content Include="Content\css\bootstrap-theme.css" />
@@ -241,10 +244,19 @@
     <Content Include="Views\Admin\Clientes.aspx" />
     <Content Include="Views\Admin\TipoProceso.aspx" />
     <Content Include="Views\Admin\TipoPersona2.aspx" />
+    <Content Include="Views\ControllersAngular\Bodega.js" />
     <Content Include="Views\ControllersAngular\Clientes.js" />
+    <Content Include="Views\ControllersAngular\Color.js" />
+    <Content Include="Views\ControllersAngular\Empresa.js" />
+    <Content Include="Views\ControllersAngular\EstadoDocumento.js" />
+    <Content Include="Views\ControllersAngular\EstadoEnvio.js" />
+    <Content Include="Views\ControllersAngular\FormadePago.js" />
     <Content Include="Views\ControllersAngular\Iva.js" />
+    <Content Include="Views\ControllersAngular\Marcas.js" />
     <Content Include="Views\ControllersAngular\Materiales.js" />
+    <Content Include="Views\ControllersAngular\Modificaciones.js" />
     <Content Include="Views\ControllersAngular\MotivoModificaciones.js" />
+    <Content Include="Views\ControllersAngular\Municipos.js" />
     <Content Include="Views\ControllersAngular\Paises.js" />
     <Content Include="Views\ControllersAngular\TipoActa.js" />
     <Content Include="Views\ControllersAngular\TipoClientes.js" />
@@ -4256,7 +4268,12 @@
     <Content Include="Views\js\scripts.js" />
     <Content Include="Views\js\toastr.min.js" />
     <Content Include="Views\js\ui-bootstrap-tpls-0.11.0.js" />
+    <Content Include="Views\Parametrizacion\Color.aspx" />
+    <Content Include="Views\Parametrizacion\EstadoDocumento.aspx" />
+    <Content Include="Views\Parametrizacion\EstadoEnvio.aspx" />
+    <Content Include="Views\Parametrizacion\FormaDePago.aspx" />
     <Content Include="Views\Parametrizacion\Iva.aspx" />
+    <Content Include="Views\Parametrizacion\Marcas.aspx" />
     <Content Include="Views\Parametrizacion\Municipios.aspx" />
     <Content Include="Views\Parametrizacion\Materiales.aspx" />
     <Content Include="Views\Parametrizacion\MotivoModificaciones.aspx" />
@@ -5125,6 +5142,9 @@
     <Content Include="Views\plugins\x-editable\img\loading.gif" />
     <Content Include="Views\plugins\x-editable\js\bootstrap-editable.js" />
     <Content Include="Views\plugins\x-editable\js\bootstrap-editable.min.js" />
+    <Content Include="Views\Procesos\ControldeEntregasInternas.aspx" />
+    <Content Include="Views\Procesos\ControldeProcesos.aspx" />
+    <Content Include="Views\Procesos\Modificaciones.aspx" />
     <Content Include="Views\Scripts\AjaxControlToolkit.dll" />
     <Content Include="Views\Scripts\angular-animate.js" />
     <Content Include="Views\Scripts\angular-loader.js" />
@@ -5757,6 +5777,20 @@
     <Content Include="Views\Scripts\jquery-2.2.0.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Views\Admin\Bodega.aspx.cs">
+      <DependentUpon>Bodega.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Bodega.aspx.designer.cs">
+      <DependentUpon>Bodega.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Empresa.aspx.cs">
+      <DependentUpon>Empresa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Empresa.aspx.designer.cs">
+      <DependentUpon>Empresa.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Admin\TipoClientes.aspx.cs">
       <DependentUpon>TipoClientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -5919,12 +5953,47 @@
     <Compile Include="Views\Admin\TipoPersona2.aspx.designer.cs">
       <DependentUpon>TipoPersona2.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Parametrizacion\Color.aspx.cs">
+      <DependentUpon>Color.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\Color.aspx.designer.cs">
+      <DependentUpon>Color.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\EstadoDocumento.aspx.cs">
+      <DependentUpon>EstadoDocumento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\EstadoDocumento.aspx.designer.cs">
+      <DependentUpon>EstadoDocumento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\EstadoEnvio.aspx.cs">
+      <DependentUpon>EstadoEnvio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\EstadoEnvio.aspx.designer.cs">
+      <DependentUpon>EstadoEnvio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\FormaDePago.aspx.cs">
+      <DependentUpon>FormaDePago.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\FormaDePago.aspx.designer.cs">
+      <DependentUpon>FormaDePago.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Parametrizacion\Iva.aspx.cs">
       <DependentUpon>Iva.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Parametrizacion\Iva.aspx.designer.cs">
       <DependentUpon>Iva.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\Marcas.aspx.cs">
+      <DependentUpon>Marcas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\Marcas.aspx.designer.cs">
+      <DependentUpon>Marcas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Parametrizacion\Municipios.aspx.cs">
       <DependentUpon>Municipios.aspx</DependentUpon>
@@ -5967,6 +6036,27 @@
     </Compile>
     <Compile Include="Views\Procesos\Actas.aspx.designer.cs">
       <DependentUpon>Actas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Procesos\ControldeEntregasInternas.aspx.cs">
+      <DependentUpon>ControldeEntregasInternas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Procesos\ControldeEntregasInternas.aspx.designer.cs">
+      <DependentUpon>ControldeEntregasInternas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Procesos\ControldeProcesos.aspx.cs">
+      <DependentUpon>ControldeProcesos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Procesos\ControldeProcesos.aspx.designer.cs">
+      <DependentUpon>ControldeProcesos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Procesos\Modificaciones.aspx.cs">
+      <DependentUpon>Modificaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Procesos\Modificaciones.aspx.designer.cs">
+      <DependentUpon>Modificaciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebCambioClave.aspx.cs">
       <DependentUpon>WebCambioClave.aspx</DependentUpon>
