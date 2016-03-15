@@ -25,7 +25,8 @@
                                                         <tr class="morris-hover-row-label">
                                                             <th ><a href="" ng-click="order('Id')">ID</a>  </th>
                                                             <th ><a href="" ng-click="order('Descripcion')">Descripcion</a>  </th>
-                                                          
+                                                          <th >Activo</th>
+                                                            <th >Acciones</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>

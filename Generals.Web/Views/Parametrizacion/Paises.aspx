@@ -26,7 +26,6 @@
                                                             <th ><a href="" ng-click="order('Id')">ID</a>  </th>
                                                             <th ><a href="" ng-click="order('Nombre')">Nombre</a>  </th>
                                                             <th ><a href="" ng-click="order('CodigoPostal')">Codigo Postal</a>  </th>
-                                                         
                                                             <th >Activo</th>
                                                             <th >Acciones</th>
                                                         </tr>

@@ -114,9 +114,10 @@ namespace Generals.Web
                     }
                     else
                     {
-
-                       
-                            Response.Redirect("Default.aspx", false);
+                    string idUser = Usuario.id_usuario.ToString();                        ;
+                    ClientScript.RegisterStartupScript(  GetType(),"comprueba", "comprueba();", true);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "comprueba", "comprueba()", true);
+                    Response.Redirect("Default.aspx", false);
                         
                         
                     }

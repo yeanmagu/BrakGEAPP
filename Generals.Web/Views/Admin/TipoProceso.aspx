@@ -16,7 +16,7 @@
                         <div class="panel formgrid" >
                               <div class="panel-body">
                                    <h4 class="text-thin">Tipo Proceso</h4>
-										                        <hr>
+								<hr>
                                 <div class="col-md-12">                                     
                                     <div class="row">                                        
                                         <div class="col-md-12">
@@ -32,7 +32,6 @@
                                                     </thead>
                                                     <tbody>
                                                          <tr>  
-                                                      
                                                              <td> <input type="text" ng-model="search.ID" /></td>  
                                                              <td> <input type="text" ng-model="search.Descripcion" /> </td>  
                                                               <td></td>

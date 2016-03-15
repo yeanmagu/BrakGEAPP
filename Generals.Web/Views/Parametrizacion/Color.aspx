@@ -24,31 +24,31 @@
                                                     <thead>
                                                         <tr class="morris-hover-row-label">
                                                             <th ><a href="" ng-click="order('Id')">ID</a>  </th>
-                                                             <th ><a href="" ng-click="order('CodigoColor')">Color</a>  </th>
                                                             <th ><a href="" ng-click="order('Descripcion')">Descripcion</a>  </th>
+                                                            <th ><a href="" ng-click="order('CodigoColor')">Codigo</a>  </th>
+                                                         
+                                                            <th >Acciones</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                          <tr>  
                                                       
                                                              <td> <input type="text" ng-model="search.ID" /></td>
-                                                             <td> <input type="text" ng-model="search.Color" /> </td> 
                                                              <td> <input type="text" ng-model="search.Descripcion" /> </td> 
+                                                              <td> <input type="text" ng-model="search.CodigoColor" /> </td> 
                                                               <td></td>
                                                             
                                                              <td></td>
                                                            </tr> 
                                                          <tr ng-repeat="Color in result | orderBy:predicate:reverse | filter:paginate| filter:search">
                                                             <td>{{Color.ID}}</td>
-                                                              <td>{{Color.Color}}</td> 
                                                             <td>{{Color.Descripcion}}</td> 
-                                                            <td >
-                                                                <input type="checkbox" class="checkbox form-checkbox "   ng-model="Color.Estado" ng-true-value="{{Iva.Estado}}" />
-                                                            </td>
+                                                                <td>{{Color.CodigoColor}}</td> 
+                                                           
                                                             <td>
                                                                 <input type="button" value="Eliminar" class="btn btn-danger btn-icon " ng-click="removeRow(Color.ID)" />
-                                                                  <input type="button" value="Modificar" class="btn btn-mint btn-icon  icon-lg fa fa-trash" ng-model="Color" ng-click="GetByID(Color)" />
-                                                                 <%--<button class="btn btn-danger btn-icon btn-circle icon-lg fa fa-trash"  ></button>--%>   
+                                                                 <input type="button" value="Modificar" class="btn btn-mint btn-icon  icon-lg fa fa-trash" ng-model="Color" ng-click="GetByID(Color)" />
+                                                              
                                                             </td>
 
                                                         </tr>
@@ -91,13 +91,13 @@
                                                                          <div class="form-group">
                                                                            <label class="control-label">Descripcion</label>
                                                                          <input type="text" class="form-control"  ng-model="descripcion" required="required"  placeholder="Descripcion">
-                                                                             <input type="text" class="form-control" ng-show="false"  ng-model="id"  >
+                                                                         <input type="text" class="form-control" ng-show="false"  ng-model="ID"  >
                                                                          </div>
                                                                      </div>    
                                                                       <div class="col-md-3">
                                                                          <div class="form-group">
                                                                          <label class="control-label">Codigo del Color</label>
-                                                                         <input type="text" class="form-control"  ng-model="Color" required="required">
+                                                                         <input type="text" class="form-control"  ng-model="CodigoColor" required="required">
                                                                          </div>
                                                                      </div> 
                                                                  </div>                

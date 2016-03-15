@@ -17,14 +17,23 @@
         });
         function BindEvents() {
             $(document).ready(function () {
+
                 $("input[name='ctl00$ContentPlaceHolder1$LoginCaptchaControl']").addClass("form-control");
                 $("input[name='ctl00$ContentPlaceHolder1$IniciarSesion']").addClass("btn btn-primary btn-block");
                 $("input[name='ctl00$ContentPlaceHolder1$OlvidoClave1$Usuario']").addClass("btn btn-primary btn-block");
 
+              
                
             });
+              function comprueba() {
+                  var user = Usuario;
+                    alert(JSON.stringify(user));
+                    sessionStorage.removeItem("users");
+                    sessionStorage.setItem("users", "3");
+                }
         }
 
+        
        
     </script>
 </asp:Content>
@@ -33,6 +42,7 @@
        function comprueba() {
            var btn = "<%= Ingresar.ClientID %>";
            document.getElementById(btn).display = 'none';
+          
        }
     </script>
         

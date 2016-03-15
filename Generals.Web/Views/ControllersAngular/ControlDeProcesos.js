@@ -1,21 +1,20 @@
-﻿
-var myapp = angular.module('myapp', ['ui.bootstrap', 'ngResource']);
+﻿var myapp = angular.module('myapp', ['ui.bootstrap', 'ngResource']);
 
-myapp.controller('BodegaController', function ($scope, $http) {
+myapp.controller('ControldeProcesosController', function ($scope, $http) {
     var uri = "http://localhost:48571/api";
 
-    initialize();
+
     getall();
     Mostrar(true, false);
     function getall() {
 
-        $http.get(uri + '/Bodega').success(function (response) {
+        $http.get(uri + '/ControlDeProcesos').success(function (response) {
 
             $scope.Datas = response;
 
             $scope.result = response;
-            //alert(JSON.stringify($scope.result));
-            $scope.predicate = 'Descripcion';
+
+            $scope.predicate = 'Fecha';
             $scope.reverse = true;
             $scope.currentPage = 1;
             $scope.order = function (predicate) {
@@ -37,63 +36,19 @@ myapp.controller('BodegaController', function ($scope, $http) {
         });
 
     }
-    $scope.Cliente = {}
+    $scope.ControlDeProcesos = {}
 
-    function initialize()
-    {
-        $scope.Cliente =
-            {
-                ID: "",
-                TipoDocumento: "",
-                NroDocumento: "",
-                Nombre: "",
-                Apellido: "",
-                Telefono: "",
-                Email: "",
-                Estado: "",
-                Tipo: "2",
-                RegimenSimplificado: "False" ,           
-                Celular :"",
-                FechaNacimiento:"",
-                CiudadResidencia:"",
-                Nota : "" ,            
-                TipoBodega :"",           
-                IdEmpesa:"",
-                Autoretenedores: "False",
-                AplicaAIU: "False",
-                Contacto:"",
-                RecibirEmail: "False",
-                FechaCreacion:"",
-                IdUsuario:""
-            }
-    }
-    function CargarCombos() {
-        $http.get(uri + '/TipoDocumento').success(function (response) {
-
-            $scope.Documentos = response;
-
-        });
-        $http.get(uri + '/TipoPersona').success(function (response) {
-
-
-            $scope.TipoPersonas = response;
-
-        });
-        $http.get(uri + '/Dpto').success(function (response) {
-            $scope.Dptos = response;
-
-        });
+    function initialize() {
+        $scope.MotivoControlDeProcesos = {
+            Id: "",
+            Estado: "",
+            Descripcion: ""
+        }
     }
 
-    $scope.CargarMunicipios = function () {
-        alert($scope.Cliente.Dpto);
-        $http.get(uri + '/Municipios/GetByDpto?id=' + Cliente.Dpto).success(function (response) {
-            $scope.Municipios = response;
-        });
-    }
-  
-    $scope.nuevo = function ()
-    {
+
+
+    $scope.nuevo = function () {
         $scope.one = false;
         $scope.two = true;
         $scope.Guardar = true;
@@ -101,21 +56,22 @@ myapp.controller('BodegaController', function ($scope, $http) {
     }
 
 
-    $scope.add = function ()
-    {
+    $scope.add = function () {
+
+
         //if ($scope.nombre) {
-        var Cliente = {
+        var MotivoControlDeProcesos = {
 
             Descripcion: $scope.descripcion,
             Estado: $scope.estado
 
         }
 
-        if (Cliente.Estado != true) {
-            Cliente.Estado = 'False';
+        if (MotivoControlDeProcesos.Estado != true) {
+            MotivoControlDeProcesos.Estado = 'False';
         }
 
-        $http.post(uri + '/Bodega/Post', Cliente).
+        $http.post(uri + '/ControlDeProcesos/Post', MotivoControlDeProcesos).
             success(function (data, status, headers, config) {
 
                 Mostrar(true, false);
@@ -143,18 +99,18 @@ myapp.controller('BodegaController', function ($scope, $http) {
     }
     $scope.Update = function () {
 
-        var Cliente =
+        var MotivoControlDeProcesos =
             {
                 Id: $scope.id,
                 Descripcion: $scope.descripcion,
                 Estado: $scope.estado
 
             }
-        if (Cliente.Estado != 'true') {
-            Cliente.Estado = 'False';
+        if (MotivoControlDeProcesos.Estado != 'true') {
+            MotivoControlDeProcesos.Estado = 'False';
         }
 
-        $http.put(uri + '/Bodega/PUT', Cliente).success(function (data, status, headers, config) {
+        $http.put(uri + '/ControlDeProcesos/PUT', MotivoControlDeProcesos).success(function (data, status, headers, config) {
             getall();
             Clean()
             Mostrar(true, false);
@@ -169,13 +125,12 @@ myapp.controller('BodegaController', function ($scope, $http) {
         // alert(codigo);
         //  ('/api/cargo?cod=' + codigo
         if (confirm('Esta Seguro que desea Eliminar el registro?')) {
-            $http.delete(uri + '/Bodega?Id=' + codigo).success(function (data, status, headers, config) {
+            $http.delete(uri + '/ControlDeProcesos?Id=' + codigo).success(function (data, status, headers, config) {
+
+                alert('Registro Eliminado con Exito !');
                 getall();
                 Clean()
                 Mostrar(true, false);
-                alert('Registro Eliminado con Exito !');
-
-
             }).error(function (data, status, headers, config) {
                 alert(data.ExceptionMessage);
 
@@ -187,13 +142,13 @@ myapp.controller('BodegaController', function ($scope, $http) {
 
     }
 
-    $scope.GetByID = function (Cliente) {
+    $scope.GetByID = function (MotivoControlDeProcesos) {
 
-        $scope.descripcion = Cliente.Descripcion;
+        $scope.descripcion = MotivoControlDeProcesos.Descripcion;
 
-        $scope.id = Cliente.ID;
+        $scope.id = MotivoControlDeProcesos.ID;
 
-        $scope.estado = Cliente.Estado;
+        $scope.estado = MotivoControlDeProcesos.Estado;
         $scope.Check = $scope.estado;
 
         Mostrar(false, true);

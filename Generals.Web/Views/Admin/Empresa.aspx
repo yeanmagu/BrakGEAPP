@@ -29,6 +29,8 @@
                                                             <th ><a href="" ng-click="order('Direccion')">Direccion</a></th>
                                                             <th ><a href="" ng-click="order('Telefono')">Telefono</a></th>
                                                             <th ><a href="" ng-click="order('Resolucion')">Resolucion</a></th>
+                                                            <th></th>
+                                                            <th></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -39,9 +41,9 @@
                                                              <td> <input type="text" ng-model="search.Direccion" /> </td>
                                                               <td> <input type="text" ng-model="search.Telefono" /></td>  
                                                              <td> <input type="text" ng-model="search.Resolucion" /> </td>
-                                                              <td></td>
+                                                              <td>Activo</td>
                                                             
-                                                             <td></td>
+                                                             <td>Acciones</td>
                                                            </tr> 
                                                          <tr ng-repeat="Empresa in result | orderBy:predicate:reverse | filter:paginate| filter:search">
                                                             <td>{{Empresa.ID}}</td>
@@ -50,7 +52,7 @@
                                                             <td>{{Empresa.Direccion}}</td>
                                                             <td>{{Empresa.Telefono}}</td> 
                                                             <td>{{Empresa.Resolucion}}</td> 
-                                                          
+                                                             <td ><input type="checkbox" class="btn" ng-model="TipoPersona.Estado" ng-true-value="{{TipoPersona.Estado}}" /></td>
                                                             <td>
                                                                 <input type="button" value="Eliminar" class="btn btn-danger btn-icon " ng-click="removeRow(Empresa.ID)" />
                                                                   <input type="button" value="Modificar" class="btn btn-mint btn-icon  icon-lg fa fa-trash" ng-model="Empresa" ng-click="GetByID(Empresa)" />

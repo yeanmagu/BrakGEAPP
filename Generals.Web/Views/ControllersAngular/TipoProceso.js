@@ -1,16 +1,17 @@
 ﻿
 var myapp = angular.module('myapp', ['ui.bootstrap', 'ngResource']);
                   
-myapp.controller('MaterialesController', function ($scope, $http) {
+myapp.controller('TipoProcesoController', function ($scope, $http) {
     var uri = "http://localhost:48571/api";
-  
+    //sessionStorage.setItem("users", JSON.stringify({ "id": 3 }));
+    alert(sessionStorage.getItem("users"));
 
     getall();
     Mostrar(true, false);
     function getall()
     {
        
-        $http.get(uri + '/Materiales').success(function (response) {
+        $http.get(uri + '/TipoProceso').success(function (response) {
             
             $scope.Datas = response;
             
@@ -38,18 +39,16 @@ myapp.controller('MaterialesController', function ($scope, $http) {
         });
        
     }
-    $scope.Materiales = {}
+    $scope.TipoProceso = {}
 
     function initialize() {
-        $scope.Materiales = {
+        $scope.TipoProceso = {
             Id: "",
             Estado: "",
             Descripcion:""
         }
     }
   
-   
-
     $scope.nuevo = function ()
     {
         $scope.one = false;
@@ -60,21 +59,20 @@ myapp.controller('MaterialesController', function ($scope, $http) {
 
 
     $scope.add = function () {
-       
-       
+
         //if ($scope.nombre) {
-        var Materiales = {
+        var TipoProceso = {
             
             Descripcion: $scope.descripcion,
             Estado: $scope.estado
 
         }
      
-        if (Materiales.Estado != true) {
-            Materiales.Estado = 'False';
+        if (TipoProceso.Estado != true) {
+            TipoProceso.Estado = 'False';
         }
        
-        $http.post(uri+'/Materiales/Post', Materiales).
+        $http.post(uri+'/TipoProceso/Post', TipoProceso).
             success(function (data, status, headers, config) {
           
                 Mostrar(true, false);
@@ -102,18 +100,18 @@ myapp.controller('MaterialesController', function ($scope, $http) {
     }
     $scope.Update = function () {
        
-        var Materiales =
+        var TipoProceso =
             {
                 Id:$scope.id,
                 Descripcion: $scope.descripcion,
                 Estado: $scope.estado
         
             }
-            if (Materiales.Estado != 'true') {
-                Materiales.Estado = 'False';
+            if (TipoProceso.Estado != 'true') {
+                TipoProceso.Estado = 'False';
             }
                        
-            $http.put(uri+'/Materiales/PUT', Materiales).success(function (data, status, headers, config) {
+            $http.put(uri+'/TipoProceso/PUT', TipoProceso).success(function (data, status, headers, config) {
                 getall();
                 Clean()
                 Mostrar(true, false);
@@ -128,7 +126,7 @@ myapp.controller('MaterialesController', function ($scope, $http) {
         // alert(codigo);
         //  ('/api/cargo?cod=' + codigo
         if (confirm('Esta Seguro que desea Eliminar el registro?')) {
-            $http.delete(uri + '/Materiales?Id=' + codigo).success(function (data, status, headers, config) {
+            $http.delete(uri + '/TipoProceso?Id=' + codigo).success(function (data, status, headers, config) {
 
                 alert('Registro Eliminado con Exito !');
                 getall();
@@ -146,13 +144,13 @@ myapp.controller('MaterialesController', function ($scope, $http) {
       
     }
 
-    $scope.GetByID = function (Materiales) {
+    $scope.GetByID = function (TipoProceso) {
        
-        $scope.descripcion = Materiales.Descripcion;
+        $scope.descripcion = TipoProceso.Descripcion;
       
-        $scope.id = Materiales.ID;
+        $scope.id = TipoProceso.ID;
         
-        $scope.estado = Materiales.Estado;
+        $scope.estado = TipoProceso.Estado;
         $scope.Check = $scope.estado;
        
         Mostrar(false, true);

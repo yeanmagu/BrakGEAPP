@@ -15,7 +15,7 @@ myapp.controller('ColorController', function ($scope, $http) {
 
             $scope.result = response;
             //alert(JSON.stringify($scope.result));
-            $scope.predicate = 'Nombre';
+            $scope.predicate = 'Descripcion';
             $scope.reverse = true;
             $scope.currentPage = 1;
             $scope.order = function (predicate) {
@@ -37,40 +37,17 @@ myapp.controller('ColorController', function ($scope, $http) {
         });
 
     }
-    $scope.Cliente = {}
+    $scope.Color = {}
 
-    function initialize()
-    {
-        $scope.Cliente =
+    function initialize() {
+        $scope.Color =
             {
                 ID: "",
-                TipoDocumento: "",
-                NroDocumento: "",
-                Nombre: "",
-                Apellido: "",
-                Telefono: "",
-                Email: "",
-                Estado: "",
-                Tipo: "2",
-                RegimenSimplificado: "False" ,           
-                Celular :"",
-                FechaNacimiento:"",
-                CiudadResidencia:"",
-                Nota : "" ,            
-                TipoColor :"",           
-                IdEmpesa:"",
-                Autoretenedores: "False",
-                AplicaAIU: "False",
-                Contacto:"",
-                RecibirEmail: "False",
-                FechaCreacion:"",
-                IdUsuario:""
+                Descripcion: "",
+                CodigoColor: ""
             }
     }
 
-  
-
-   
     $scope.nuevo = function ()
     {
         $scope.one = false;
@@ -82,25 +59,19 @@ myapp.controller('ColorController', function ($scope, $http) {
 
     $scope.add = function ()
     {
-        //if ($scope.nombre) {
-        var Cliente = {
+        var Color = {
 
             Descripcion: $scope.descripcion,
-            Estado: $scope.estado
-
+            CodigoColor: $scope.CodigoColor
         }
 
-        if (Cliente.Estado != true) {
-            Cliente.Estado = 'False';
-        }
-
-        $http.post(uri + '/Color/Post', Cliente).
+        $http.post(uri + '/Color/Post', Color).
             success(function (data, status, headers, config) {
 
                 Mostrar(true, false);
                 Clean();
                 getall();
-                alert("Registro Guardado Con exito!");
+                alert("Registro Guardado Con exito !");
 
             }).error(function (data, status, headers, config) {
                 alert(data.ExceptionMessage);
@@ -122,18 +93,14 @@ myapp.controller('ColorController', function ($scope, $http) {
     }
     $scope.Update = function () {
 
-        var Cliente =
+        var Color =
             {
-                Id: $scope.id,
+                ID: $scope.ID,
                 Descripcion: $scope.descripcion,
-                Estado: $scope.estado
-
+                CodigoColor: $scope.CodigoColor
             }
-        if (Cliente.Estado != 'true') {
-            Cliente.Estado = 'False';
-        }
-
-        $http.put(uri + '/Color/PUT', Cliente).success(function (data, status, headers, config) {
+      //  alert(Color.ID);
+        $http.put(uri + '/Color/PUT', Color).success(function (data, status, headers, config) {
             getall();
             Clean()
             Mostrar(true, false);
@@ -148,33 +115,24 @@ myapp.controller('ColorController', function ($scope, $http) {
         // alert(codigo);
         //  ('/api/cargo?cod=' + codigo
         if (confirm('Esta Seguro que desea Eliminar el registro?')) {
-            $http.delete(uri + '/Color?Id=' + codigo).success(function (data, status, headers, config) {
+            $http.delete(uri + '/Color?Codigo=' + codigo).success(function (data, status, headers, config) {
                 getall();
                 Clean()
                 Mostrar(true, false);
                 alert('Registro Eliminado con Exito !');
-
-
             }).error(function (data, status, headers, config) {
                 alert(data.ExceptionMessage);
-
             });
         } else {
             return;
-        }
-        ;
-
+        };
     }
 
-    $scope.GetByID = function (Cliente) {
-
-        $scope.descripcion = Cliente.Descripcion;
-
-        $scope.id = Cliente.ID;
-
-        $scope.estado = Cliente.Estado;
-        $scope.Check = $scope.estado;
-
+    $scope.GetByID = function (Color) {
+   
+        $scope.ID = Color.ID;
+        $scope.descripcion = Color.Descripcion;
+        $scope.CodigoColor = Color.CodigoColor;
         Mostrar(false, true);
         $scope.Guardar = false;
         $scope.Modificar = true;

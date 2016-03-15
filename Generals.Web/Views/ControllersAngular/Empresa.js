@@ -1,6 +1,6 @@
 ﻿var myapp = angular.module('myapp', ['ui.bootstrap', 'ngResource']);
 
-myapp.controller('MotivoEmpresaController', function ($scope, $http) {
+myapp.controller('EmpresaController', function ($scope, $http) {
     var uri = "http://localhost:48571/api";
 
 

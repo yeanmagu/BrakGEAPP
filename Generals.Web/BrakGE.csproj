@@ -5143,7 +5143,9 @@
     <Content Include="Views\plugins\x-editable\js\bootstrap-editable.js" />
     <Content Include="Views\plugins\x-editable\js\bootstrap-editable.min.js" />
     <Content Include="Views\Procesos\ControldeEntregasInternas.aspx" />
+    <Content Include="Views\ControllersAngular\ControldeEntregasinternas.js" />
     <Content Include="Views\Procesos\ControldeProcesos.aspx" />
+    <Content Include="Views\ControllersAngular\ControlDeProcesos.js" />
     <Content Include="Views\Procesos\Modificaciones.aspx" />
     <Content Include="Views\Scripts\AjaxControlToolkit.dll" />
     <Content Include="Views\Scripts\angular-animate.js" />

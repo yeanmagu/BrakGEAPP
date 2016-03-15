@@ -1,5 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MastePage.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Generals.Web.Default" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+        function comprueba() {
+            var user = "<%=Usuario.id_usuario%>";
+            alert(JSON.stringify(user));
+            sessionStorage.removeItem("users");
+            sessionStorage.setItem("users", user);
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="page-content">

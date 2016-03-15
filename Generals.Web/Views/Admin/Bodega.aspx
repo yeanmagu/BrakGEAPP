@@ -30,6 +30,8 @@
                                                             <th ><a href="" ng-click="order('Telefono')">Telefono</a>  </th>
                                                             <th ><a href="" ng-click="order('Publicidad')">Publicidad</a>  </th>
                                                             <th ><a href="" ng-click="order('Responsable')">Responsable</a>  </th>
+                                                            <th>Activo</th>
+                                                            <th>Acciones</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -41,9 +43,9 @@
                                                              <td> <input type="text" ng-model="search.Direccion" /> </td>
                                                               <td> <input type="text" ng-model="search.Telefono" /></td>  
                                                              <td> <input type="text" ng-model="search.Publicidad" /> </td>
-                                                              <td> <input type="text" ng-model="search.Nota" /></td>  
+                                                         
                                                              <td> <input type="text" ng-model="search.FechaModificacion" /> </td>
-                                                              <td></td>
+                                                               <td></td>
                                                             
                                                              <td></td>
                                                            </tr> 
@@ -54,7 +56,6 @@
                                                             <td>{{Bodega.Direccion}}</td>
                                                             <td>{{Bodega.Telefono}}</td> 
                                                             <td>{{Bodega.Publicidad}}</td> 
-                                                            <td>{{Bodega.Nota}}</td> 
                                                              <td>{{Bodega.Responsable}}</td>
                                                             <td >
                                                                 <input type="checkbox" class="checkbox form-checkbox "   ng-model="Bodega.Estado" ng-true-value="{{Iva.Estado}}" />
@@ -62,7 +63,7 @@
                                                             <td>
                                                                 <input type="button" value="Eliminar" class="btn btn-danger btn-icon " ng-click="removeRow(Bodega.ID)" />
                                                                   <input type="button" value="Modificar" class="btn btn-mint btn-icon  icon-lg fa fa-trash" ng-model="Bodega" ng-click="GetByID(Bodega)" />
-                                                                 <%--<button class="btn btn-danger btn-icon btn-circle icon-lg fa fa-trash"  ></button>--%>   
+                                                               
                                                             </td>
 
                                                         </tr>
@@ -137,45 +138,56 @@
                                                                          </div>
                                                                      </div>  
                                                                       <div class="col-sm-3">
-												                        <div class="form-group">
-													                       <label class="col-lg-1 control-label">Municipio</label>
-                                                                             <select class="form-control" ng-model="Municipio.Dtpo" <%--ng-options="Documento as Documento.Descripcion for Documento in Documentos track by Documento.Id"--%> >
-                                                                                           <option value="">--Elige opcion--</option>
-                                                                                       <option ng-repeat="doc in Documentos" value="doc.Id">{{Municipio.Dtpo}}</option>
-                                                                             </select>
-												                         </div>
-											                          </div>  
-                                                                      <div class="col-md-3">
+												                                <div class="form-group">
+													                                <label class="control-label">Dpto.</label>
+													                                <select class="form-control" ng-model="Cliente.Dpto" ng-change="CargarMunicipios()" <%--ng-options="Dpto as Dpto.Nombre for Dpto in Dptos track by Dpto.Id"--%>>
+                                                                                             <option value="">--Elige opcion--</option>
+                                                                                            <option ng-repeat="dpto in Dptos" value="dpto.Id "  >{{dpto.Nombre}}</option>
+                                                                                    </select>
+												                                </div>
+											                                </div>
+											                                <div class="col-sm-3">
+												                                <div class="form-group">
+													                               <label class="control-label">Ciudad Res.</label>
+													                               <select class="form-control" ng-model="Cliente.CiudadResidencia" <%--ng-options="Dpto as Dpto.Nombre for Dpto in Dptos track by Dpto.Id"--%>>
+                                                                                             <option value="">--Elige opcion--</option>
+                                                                                            <option ng-repeat="mun in Municipios" value="mun.Id"  >{{mun.Nombre}}</option>
+                                                                                    </select>
+												                                </div>
+											                                </div> 
+                                                                       <div class="col-md-3">
+                                                                  <div class="form-group">
+                                                                    <label class="col-lg-1 control-label">Responsable</label>
+                                                                      <input  class="form-control"  ng-model="responsable" > 
+                                                                    </div>
+                                                                  </div> 
+                                                                     
+                                                                 </div>                
+                                                             </div>
+                                                             <div class="col-md-12">
+                                                               <div class="row">  
+                                                                 <div class="col-md-3">
+                                                                         <div class="form-group">
+                                                                         <label class="control-label">Fecha de Modificacion</label>
+                                                                         <input type="date" style="height:34px" class="form-control"  ng-model="FechaModificacion">
+                                                                         </div>
+                                                                     </div> 
+                                                                   <div class="col-md-3">
                                                                          <div class="form-group">
                                                                            <label class="col-lg-1 control-label">Nota</label>
                                                                            <textarea  class="form-control"  ng-model="nota" > </textarea>
                                                                          </div>
                                                                      </div>  
-                                                                      <div class="col-md-3">
-                                                                         <div class="form-group">
-                                                                         <label class="control-label">Fecha de Modificacion</label>
-                                                                         <input type="datetime" class="form-control"  ng-model="FechaModificacion">
-                                                                         </div>
-                                                                     </div> 
-                                                                 </div>                
-                                                             </div>
-                                                             <div class="col-md-12">
-                                                               <div class="row">                                   
-                                                                 <div class="col-md-3">
-                                                                   <div class="form-group">
+                                                                    <div class="col-md-3">
+                                                                        <br />
+                                                                   
                                                                      <div class="checkbox">
 														               <label class="form-checkbox form-icon">
 															             <input type="checkbox" ng-model="estado" ng-true-value="{{Bodega.Estado}}" /> Activo
 														               </label>
                                                                      </div>
-                                                                   </div>
+                                                                  
                                                                      </div>
-                                                                 <div class="col-md-3">
-                                                                  <div class="form-group">
-                                                                    <label class="col-lg-1 control-label">Responsable</label>
-                                                                      <textarea  class="form-control"  ng-model="responsable" > </textarea>
-                                                                    </div>
-                                                                  </div> 
                                                                  </div>                
                                                              </div>
                                                                    </div>

@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ControldeEntregasInternas.aspx.cs" Inherits="Generals.Web.Views.Procesos.ControldeEntregasInternas" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="../ControllersAngular/ControldeEntregasinternas.js"></script>
     <script src="../js/jquery-2.1.1.min.js"></script>
     <script src="../../template/plugins/pace/pace.min.js"></script>
     <script src="../js/angular.js"></script>
@@ -8,13 +9,13 @@
     <script src="../js/ui-bootstrap-tpls-0.11.0.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-     <div ng-controller="ControldeProcesosController" class="row" >
+     <div ng-controller="ControlEntregasInternasController" class="row" >
             <div class="row" ng-show="one"  id="Grid">
                 <div class="col-md-12">
                     <div class="table-responsive">
                         <div class="panel formgrid" >
                               <div class="panel-body">
-                                   <h4 class="text-thin">Control de Procesos</h4>
+                                   <h4 class="text-thin">Control de Entregas Internas</h4>
 									<hr>
                                 <div class="col-md-12">                                     
                                     <div class="row">                                        
@@ -28,6 +29,8 @@
                                                              <th ><a href="" ng-click="order('Medida2')">Medida 2</a>  </th>
                                                             <th ><a href="" ng-click="order('Especificaciones')">Especificaciones</a>  </th>
                                                             <th ><a href="" ng-click="order('Elementos')">Elementos</a>  </th>
+                                                            <th >Activo</th>
+                                                            <th >Acciones</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -96,14 +99,14 @@
                                                                      <div class="col-md-3">
                                                                          <div class="form-group">
                                                                            <label class="control-label">Fecha</label>
-                                                                         <input type="datetime" class="form-control"  ng-model="fecha" required="required"  placeholder="Descripcion">
+                                                                         <input type="date" style="height:34px" class="form-control"  ng-model="fecha" >
                                                                              <input type="text" class="form-control" ng-show="false"  ng-model="id"  >
                                                                          </div>
                                                                      </div>    
                                                                       <div class="col-md-3">
                                                                          <div class="form-group">
                                                                          <label class="control-label">Medida 1</label>
-                                                                         <input type="text" class="form-control"  ng-model="nombre" required="required">
+                                                                         <input type="text" class="form-control"  ng-model="nombre">
                                                                          </div>
                                                                      </div> 
                                                                       <div class="col-md-3">
@@ -115,62 +118,35 @@
                                                                      <div class="col-md-3">
                                                                          <div class="form-group">
                                                                            <label class="col-lg-1 control-label">Elementos</label>
-                                                                           <input type="text" class="form-control"  ng-model="telefono" maxlength="1">
+                                                                           <input type="text" class="form-control"  ng-model="telefono">
                                                                          </div>
                                                                      </div>  
                                                                  </div>                
                                                              </div>
                                                               <div class="col-md-12">
-                                                                       <div class="row">                                   
-                                                                     <div class="col-md-3">
-                                                                         <div class="form-group">
-                                                                           <div class="checkbox">
-														                        <label class="form-checkbox form-icon">
-															                        <input type="checkbox" ng-model="estado" ng-true-value="{{ControldeProcesos.Estado}}" /> Soldadura
-														                        </label>
-                                                                         </div>
-                                                                         </div>
-                                                                     </div>  
-                                                                      <div class="col-sm-3">
-												                        <div class="form-group">
+                                                                       <div class="row">   
+                                                                      <div class="col-sm-2">
 													                       <div class="checkbox">
 														                        <label class="form-checkbox form-icon">
 															                        <input type="checkbox" ng-model="estado" ng-true-value="{{ControldeProcesos.Estado}}" /> Exceso de Soldadura
 														                        </label>
                                                                          </div>
-												                         </div>
-											                          </div>  
-                                                                      <div class="col-md-3">
-                                                                         <div class="form-group">
-                                                                          <div class="checkbox">
+                                                                             <div class="checkbox">
 														                        <label class="form-checkbox form-icon">
 															                        <input type="checkbox" ng-model="estado" ng-true-value="{{ControldeProcesos.Estado}}" /> Manchas de Soldadura
 														                        </label>
                                                                          </div>
-                                                                         </div>
-                                                                     </div>  
-                                                                     
-                                                                 </div>                
-                                                             </div>
-                                                                          <div class="col-md-12">
-                                                                       <div class="row">                                   
-                                                                     <div class="col-md-3">
-                                                                         <div class="form-group">
-                                                                          <div class="checkbox">
+											                          </div>  
+                                                                     <div class="col-md-2">
+                                                                        <div class="checkbox">
 														                        <label class="form-checkbox form-icon">
-															                        <input type="checkbox" ng-model="estado" ng-true-value="{{ControldeProcesos.Estado}}" /> Activo
+															                        <input type="checkbox" ng-model="estado" ng-true-value="{{ControldeProcesos.Estado}}" /> Soldadura
 														                        </label>
                                                                          </div>
-                                                                             </div>
                                                                      </div>
-                                                                      <div class="col-md-3">
-                                                                         <div class="form-group">
-                                                                           <label class="col-lg-1 control-label">Responsable</label>
-                                                                           <textarea  class="form-control"  ng-model="responsable" > </textarea>
-                                                                         </div>
-                                                                     </div> 
                                                                  </div>                
                                                              </div>
+                                                                        
                                                                    </div>
 										                        <%--</fieldset>--%>
 										                        <!-- -->

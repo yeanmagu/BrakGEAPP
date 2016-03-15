@@ -25,7 +25,8 @@
                                                         <tr class="morris-hover-row-label">
                                                             <th ><a href="" ng-click="order('Id')">ID</a></th>
                                                             <th ><a href="" ng-click="order('Descripcion')">Descripcion</a></th>
-                                                            
+                                                            <th >Activo</th>
+                                                            <th >Acciones</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -76,7 +77,7 @@
                                             <div class="row">
                                                 <div class="col-md-12">                                                       
                                                     	<div id="demo-bvd-notempty" action="Views/Admin/forms-validation.html" class="form-horizontal">
-									                        <div class="panel-body">
+                                                            <div class="panel-body">
 										                        <h4 class="text-thin">Registrar Estado de Documento</h4>
 										                        <hr>
 										                        <!--NOT EMPTY VALIDATOR-->
@@ -93,13 +94,15 @@
                                                                          </div>
                                                                      </div>    
                                                                      <div class="col-md-3">
-                                                                         <div class="form-group">
+                                                                         <br />
+                                                                  
+                                                                        
                                                                           <div class="checkbox">
 														                        <label class="form-checkbox form-icon">
 															                        <input type="checkbox" ng-model="estado" ng-true-value="{{EstadoDocumento.Estado}}" /> Activo
 														                        </label>
                                                                          </div>
-                                                                             </div>
+                                                                    
                                                                      </div>
                                                                  </div>                
                                                              </div>

@@ -28,6 +28,8 @@
                                                             <th ><a href="" ng-click="order('DiasCredito')">Dias de Credito</a>  </th>
                                                             <th ><a href="" ng-click="order('Descuento')">Descuento</a>  </th>
                                                             <th ><a href="" ng-click="order('PorcentajeCredito')">Porcentaje de Credito</a>  </th>
+                                                            <th >Activo</th>
+                                                            <th >Acciones</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>

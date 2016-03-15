@@ -53,6 +53,15 @@
         }
     </style>
     <script type="text/javascript">
+        $(document).ready(function () {
+
+            alert(JSON.stringify(usuario));
+            sessionStorage.removeItem("users");
+            sessionStorage.setItem("users", JSON.stringify(usuario));
+
+
+        });
+       
        
     </script>
    <%-- <link href="css/toastr.min.css" rel="stylesheet" />
@@ -89,6 +98,7 @@
                 <%--Scripts de Framework--%>
                
                 <%--Scripts del sitio--%>
+
             </Scripts>
         </asp:ScriptManager>
         <script type="text/javascript" lang="javascript">
@@ -400,6 +410,9 @@
                     $(location).attr('href', en);
                 }
             });
+            alert(JSON.stringify(usuario));
+            sessionStorage.removeItem("users");
+            sessionStorage.setItem("users", JSON.stringify(usuario));
         });
 
     </script>

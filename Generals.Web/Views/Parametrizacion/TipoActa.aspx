@@ -27,7 +27,6 @@
                                                             <th ><a href="" ng-click="order('Descripcion')">Descripción</a>  </th>
                                                             <th >Activo</th>
                                                             <th >Acciones</th>
-                                                            
                                                         </tr>
                                                     </thead>
                                                     <tbody>

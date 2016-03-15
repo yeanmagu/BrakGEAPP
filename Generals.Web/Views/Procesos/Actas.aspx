@@ -33,7 +33,6 @@
                                                              <th ><a href="" ng-click="order('Fecha del Sistema')">Fecha del Sistema</a>
                                                             <th >Activo</th>
                                                             <th >Acciones</th>
-                                                            
                                                         </tr>
                                                     </thead>
                                                     <tbody>

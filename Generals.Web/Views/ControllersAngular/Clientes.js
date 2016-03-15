@@ -92,7 +92,7 @@ myapp.controller('ClienteController', function ($scope, $http) {
     $scope.CargarMunicipios = function ()
     {
         alert($scope.Cliente.Dpto);
-        $http.get(uri + '/Municipios/GetByDpto?id=' + ).success(function (response)
+        $http.get(uri + '/Municipios/GetByDpto?id=' + Cliente.Dpto).success(function (response)
         {
             $scope.Municipios = response;
         });

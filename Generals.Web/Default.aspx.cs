@@ -18,7 +18,9 @@ namespace Generals.Web
             {
                 if (!IsPostBack)
                 {
-                    Session["Titulo"] = "Inicio";                   
+                    Usuario = Usuario;
+                    Session["Titulo"] = "Inicio";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "comprueba", "comprueba()", true);
                 }
             }
             catch (Exception ex)

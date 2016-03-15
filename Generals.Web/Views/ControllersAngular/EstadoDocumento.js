@@ -6,7 +6,6 @@ myapp.controller('EstadoDocumentoController', function ($scope, $http) {
 
     initialize();
     getall();
-    CargarCombos();
     Mostrar(true, false);
     function getall() {
 
@@ -16,7 +15,7 @@ myapp.controller('EstadoDocumentoController', function ($scope, $http) {
 
             $scope.result = response;
             //alert(JSON.stringify($scope.result));
-            $scope.predicate = 'Nombre';
+            $scope.predicate = 'Descripcion';
             $scope.reverse = true;
             $scope.currentPage = 1;
             $scope.order = function (predicate) {
@@ -38,64 +37,16 @@ myapp.controller('EstadoDocumentoController', function ($scope, $http) {
         });
 
     }
-    $scope.Cliente = {}
+    $scope.EstadoDocumento = {}
 
     function initialize()
     {
-        $scope.Cliente =
+        $scope.EstadoDocumento =
             {
                 ID: "",
-                TipoDocumento: "",
-                NroDocumento: "",
-                Nombre: "",
-                Apellido: "",
-                Telefono: "",
-                Email: "",
-                Estado: "",
-                Tipo: "2",
-                RegimenSimplificado: "False" ,           
-                Celular :"",
-                FechaNacimiento:"",
-                CiudadResidencia:"",
-                Nota : "" ,            
-                TipoEstadoDocumento :"",           
-                IdEmpesa:"",
-                Autoretenedores: "False",
-                AplicaAIU: "False",
-                Contacto:"",
-                RecibirEmail: "False",
-                FechaCreacion:"",
-                IdUsuario:""
+                Descripcion: ""
+               
             }
-    }
-
-    function CargarCombos()
-    {
-        $http.get(uri + '/TipoDocumento').success(function (response) {
-            
-            $scope.Documentos = response;
-            
-        });
-        $http.get(uri + '/TipoEstadoDocumento').success(function (response) {
-           
-           
-            $scope.TipoEstadoDocumentos = response;
-
-        });
-        $http.get(uri + '/Dpto').success(function (response)
-        {
-            $scope.Dptos = response;
-
-        });
-    }
-
-    $scope.CargarMunicipios = function ()
-    {
-        alert($scope.Cliente.Dpto);
-        $http.get(uri + '/Municipios/GetByDpto?id=' + ).success(function (response)
-        {
-            $scope.Municipios = response;
-        });
     }
     $scope.nuevo = function ()
     {
@@ -109,18 +60,18 @@ myapp.controller('EstadoDocumentoController', function ($scope, $http) {
     $scope.add = function ()
     {
         //if ($scope.nombre) {
-        var Cliente = {
+        var EstadoDocumento = {
 
             Descripcion: $scope.descripcion,
             Estado: $scope.estado
 
         }
 
-        if (Cliente.Estado != true) {
-            Cliente.Estado = 'False';
+        if (EstadoDocumento.Estado != true) {
+            EstadoDocumento.Estado = 'False';
         }
 
-        $http.post(uri + '/EstadoDocumento/Post', Cliente).
+        $http.post(uri + '/EstadoDocumento/Post', EstadoDocumento).
             success(function (data, status, headers, config) {
 
                 Mostrar(true, false);
@@ -148,18 +99,18 @@ myapp.controller('EstadoDocumentoController', function ($scope, $http) {
     }
     $scope.Update = function () {
 
-        var Cliente =
+        var EstadoDocumento =
             {
                 Id: $scope.id,
                 Descripcion: $scope.descripcion,
                 Estado: $scope.estado
 
             }
-        if (Cliente.Estado != 'true') {
-            Cliente.Estado = 'False';
+        if (EstadoDocumento.Estado != 'true') {
+            EstadoDocumento.Estado = 'False';
         }
 
-        $http.put(uri + '/EstadoDocumento/PUT', Cliente).success(function (data, status, headers, config) {
+        $http.put(uri + '/EstadoDocumento/PUT', EstadoDocumento).success(function (data, status, headers, config) {
             getall();
             Clean()
             Mostrar(true, false);
@@ -192,13 +143,14 @@ myapp.controller('EstadoDocumentoController', function ($scope, $http) {
 
     }
 
-    $scope.GetByID = function (Cliente) {
+    $scope.GetByID = function (EstadoDocumento) {
 
-        $scope.descripcion = Cliente.Descripcion;
+     
+        $scope.descripcion = EstadoDocumento.Descripcion;
 
-        $scope.id = Cliente.ID;
+        $scope.id = EstadoDocumento.ID;
 
-        $scope.estado = Cliente.Estado;
+        $scope.estado = EstadoDocumento.Estado;
         $scope.Check = $scope.estado;
 
         Mostrar(false, true);
