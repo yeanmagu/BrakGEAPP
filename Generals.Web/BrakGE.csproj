@@ -3883,6 +3883,7 @@
     <Content Include="Content\assets\scss\_stacked.scss" />
     <Content Include="Content\assets\scss\_variables.scss" />
     <Content Include="Master.Master" />
+    <Content Include="Views\ControllersAngular\Usuario.js" />
     <Content Include="Views\css\bootstrap.min.css" />
     <Content Include="Views\js\angular-resource.js" />
     <Content Include="Views\js\angular.js" />

@@ -55,9 +55,9 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-            alert(JSON.stringify(usuario));
-            sessionStorage.removeItem("users");
-            sessionStorage.setItem("users", JSON.stringify(usuario));
+            //alert(JSON.stringify(usuario));
+            //sessionStorage.removeItem("users");
+            //sessionStorage.setItem("users", JSON.stringify(usuario));
 
 
         });
@@ -82,7 +82,7 @@
     <script src="../../js/jquery.elevateZoom-3.0.8.min.js"></script>
     <script src="../../js/jquery.validationEngine-es.js"></script>
     <script src="../../js/jquery.validationEngine.js"></script>
-                  
+      
 
     
    <%-- dfgjhdjfkg --%>
@@ -410,9 +410,7 @@
                     $(location).attr('href', en);
                 }
             });
-            alert(JSON.stringify(usuario));
-            sessionStorage.removeItem("users");
-            sessionStorage.setItem("users", JSON.stringify(usuario));
+         
         });
 
     </script>

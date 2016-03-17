@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EstadoEnvio.aspx.cs" Inherits="Generals.Web.Views.Parametrizacion.EstadoEnvio" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script src="../ControllersAngular/EstadoEnvio.js"></script>  
+    <script src="../ControllersAngular/EstadoEnvio.js"></script>
     <script src="../js/jquery-2.1.1.min.js"></script>
     <script src="../../template/plugins/pace/pace.min.js"></script>
     <script src="../js/angular.js"></script>
@@ -94,13 +94,13 @@
                                                                          </div>
                                                                      </div>    
                                                                      <div class="col-md-3">
-                                                                       <div class="form-group">
+                                                                      <br />
                                                                           <div class="checkbox">
 														                        <label class="form-checkbox form-icon">
 															                        <input type="checkbox" ng-model="estado" ng-true-value="{{EstadoEnvio.Estado}}" /> Activo
 														                        </label>
                                                                          </div>
-                                                                        </div>
+                                                                      
                                                                      </div>
                                                                  </div>                
                                                              </div>

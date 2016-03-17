@@ -44,7 +44,10 @@ myapp.controller('ColorController', function ($scope, $http) {
             {
                 ID: "",
                 Descripcion: "",
-                CodigoColor: ""
+                CodigoColor: "",
+                IdUsuario:"",
+                Fecha:"",
+                IdEmpresa:""
             }
     }
 
@@ -59,10 +62,22 @@ myapp.controller('ColorController', function ($scope, $http) {
 
     $scope.add = function ()
     {
-        var Color = {
 
+        var idemp = sessionStorage.getItem("IdEmp");
+        var us = sessionStorage.getItem("users");
+        var hoy = new Date();
+        var dd = hoy.getDate();
+        var mm = hoy.getMonth();
+        var yyyy = hoy.getFullYear();
+        var f = mm + '/' + dd + '/' + yyyy;
+        
+
+        var Color = {
             Descripcion: $scope.descripcion,
-            CodigoColor: $scope.CodigoColor
+            CodigoColor: $scope.CodigoColor,
+            Fecha: f,
+            IdUsuario: us,
+            IdEmpresa:idemp
         }
 
         $http.post(uri + '/Color/Post', Color).
@@ -92,12 +107,21 @@ myapp.controller('ColorController', function ($scope, $http) {
 
     }
     $scope.Update = function () {
-
+        var idemp = sessionStorage.getItem("IdEmp");
+        var us = sessionStorage.getItem("users");
+        var hoy = new Date();
+        var dd = hoy.getDate();
+        var mm = hoy.getMonth();
+        var yyyy = hoy.getFullYear();
+        var f = mm + '/' + dd + '/' + yyyy;
         var Color =
             {
                 ID: $scope.ID,
                 Descripcion: $scope.descripcion,
-                CodigoColor: $scope.CodigoColor
+                CodigoColor: $scope.CodigoColor,
+                Fecha: f,
+                IdUsuario: us,
+                IdEmpresa: idemp
             }
       //  alert(Color.ID);
         $http.put(uri + '/Color/PUT', Color).success(function (data, status, headers, config) {

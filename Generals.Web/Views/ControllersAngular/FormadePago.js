@@ -1,22 +1,24 @@
 ﻿
 var myapp = angular.module('myapp', ['ui.bootstrap', 'ngResource']);
 
-myapp.controller('FornadePagoController', function ($scope, $http) {
+myapp.controller('FormaDePagoController', function ($scope, $http) {
     var uri = "http://localhost:48571/api";
-
+    
     initialize();
     getall();
-    CargarCombos();
+
+
     Mostrar(true, false);
+   
     function getall() {
 
-        $http.get(uri + '/FornadePago').success(function (response) {
+        $http.get(uri + '/FormaDePago').success(function (response) {
 
             $scope.Datas = response;
 
             $scope.result = response;
             //alert(JSON.stringify($scope.result));
-            $scope.predicate = 'Nombre';
+            $scope.predicate = 'Descripcion';
             $scope.reverse = true;
             $scope.currentPage = 1;
             $scope.order = function (predicate) {
@@ -38,65 +40,29 @@ myapp.controller('FornadePagoController', function ($scope, $http) {
         });
 
     }
-    $scope.Cliente = {}
+   
+  
+
+    $scope.FormaDePago = {}
 
     function initialize()
     {
-        $scope.Cliente =
+        $scope.FormaDePago =
             {
                 ID: "",
-                TipoDocumento: "",
-                NroDocumento: "",
-                Nombre: "",
-                Apellido: "",
-                Telefono: "",
-                Email: "",
-                Estado: "",
-                Tipo: "2",
-                RegimenSimplificado: "False" ,           
-                Celular :"",
-                FechaNacimiento:"",
-                CiudadResidencia:"",
-                Nota : "" ,            
-                TipoFornadePago :"",           
-                IdEmpesa:"",
-                Autoretenedores: "False",
-                AplicaAIU: "False",
-                Contacto:"",
-                RecibirEmail: "False",
-                FechaCreacion:"",
-                IdUsuario:""
+                Id_Empresa: "",
+                Descripcion: "",
+                Explicacion: "",
+                DiasCredito: "",
+                Descuento: "",
+                PorcentajeCredito: "",
+                IdUsuario: "",
+                FechaModificacion: ""
             }
     }
+  
 
-    function CargarCombos()
-    {
-        $http.get(uri + '/TipoDocumento').success(function (response) {
-            
-            $scope.Documentos = response;
-            
-        });
-        $http.get(uri + '/TipoFornadePago').success(function (response) {
-           
-           
-            $scope.TipoFornadePagos = response;
-
-        });
-        $http.get(uri + '/Dpto').success(function (response)
-        {
-            $scope.Dptos = response;
-
-        });
-    }
-
-    $scope.CargarMunicipios = function ()
-    {
-        alert($scope.Cliente.Dpto);
-        $http.get(uri + '/Municipios/GetByDpto?id=' + ).success(function (response)
-        {
-            $scope.Municipios = response;
-        });
-    }
+ 
     $scope.nuevo = function ()
     {
         $scope.one = false;
@@ -108,19 +74,29 @@ myapp.controller('FornadePagoController', function ($scope, $http) {
 
     $scope.add = function ()
     {
+       
+        var date = new Date();
+        var idemp = sessionStorage.getItem("IdEmp");
+        var us = sessionStorage.getItem("users");
+        var hoy = new Date();
+        var dd = hoy.getDate();
+        var mm = hoy.getMonth();
+        var yyyy = hoy.getFullYear();
+        var f = mm + '/' + dd + '/' + yyyy;
         //if ($scope.nombre) {
-        var Cliente = {
+        var FormaDePago = {
 
             Descripcion: $scope.descripcion,
-            Estado: $scope.estado
-
+            Id_Empresa: idemp,
+            Explicacion: $scope.explicacion,
+            DiasCredito: $scope.DiasCredito,
+            Descuento: $scope.Descuento,
+            PorcentajeCredito: $scope.PorcentajedeCredito,
+            IdUsuario: us,
+            FechaModificacion: f
         }
 
-        if (Cliente.Estado != true) {
-            Cliente.Estado = 'False';
-        }
-
-        $http.post(uri + '/FornadePago/Post', Cliente).
+        $http.post(uri + '/FormaDePago/Post', FormaDePago).
             success(function (data, status, headers, config) {
 
                 Mostrar(true, false);
@@ -148,18 +124,28 @@ myapp.controller('FornadePagoController', function ($scope, $http) {
     }
     $scope.Update = function () {
 
-        var Cliente =
-            {
-                Id: $scope.id,
-                Descripcion: $scope.descripcion,
-                Estado: $scope.estado
-
-            }
-        if (Cliente.Estado != 'true') {
-            Cliente.Estado = 'False';
+        var date = new Date();
+        var idemp = sessionStorage.getItem("IdEmp");
+        var us = sessionStorage.getItem("users");
+        var hoy = new Date();
+        var dd = hoy.getDate();
+        var mm = hoy.getMonth();
+        var yyyy = hoy.getFullYear();
+        var f = mm + '/' + dd + '/' + yyyy;
+        //if ($scope.nombre) {
+        var FormaDePago = {
+            ID:$scope.id,
+            Descripcion: $scope.descripcion,
+            Id_Empresa: idemp,
+            Explicacion: $scope.explicacion,
+            DiasCredito: $scope.DiasCredito,
+            Descuento: $scope.Descuento,
+            PorcentajeCredito: $scope.PorcentajedeCredito,
+            IdUsuario: us,
+            FechaModificacion: f
         }
 
-        $http.put(uri + '/FornadePago/PUT', Cliente).success(function (data, status, headers, config) {
+        $http.put(uri + '/FormaDePago/PUT', FormaDePago).success(function (data, status, headers, config) {
             getall();
             Clean()
             Mostrar(true, false);
@@ -174,7 +160,7 @@ myapp.controller('FornadePagoController', function ($scope, $http) {
         // alert(codigo);
         //  ('/api/cargo?cod=' + codigo
         if (confirm('Esta Seguro que desea Eliminar el registro?')) {
-            $http.delete(uri + '/FornadePago?Id=' + codigo).success(function (data, status, headers, config) {
+            $http.delete(uri + '/FormaDePago?Id=' + codigo).success(function (data, status, headers, config) {
                 getall();
                 Clean()
                 Mostrar(true, false);
@@ -192,15 +178,14 @@ myapp.controller('FornadePagoController', function ($scope, $http) {
 
     }
 
-    $scope.GetByID = function (Cliente) {
-
-        $scope.descripcion = Cliente.Descripcion;
-
-        $scope.id = Cliente.ID;
-
-        $scope.estado = Cliente.Estado;
-        $scope.Check = $scope.estado;
-
+    $scope.GetByID = function (FormaDePago) {
+        $scope.id = FormaDePago.ID;
+        $scope.descripcion = FormaDePago.Descripcion;
+        $scope.explicacion = FormaDePago.Explicacion;
+        $scope.DiasCredito = FormaDePago.DiasCredito;
+        $scope.Descuento = FormaDePago.Descuento;
+        $scope.PorcentajedeCredito = FormaDePago.PorcentajeCredito;
+      
         Mostrar(false, true);
         $scope.Guardar = false;
         $scope.Modificar = true;

@@ -26,7 +26,7 @@
                                                             <th ><a href="" ng-click="order('Id')">ID</a>  </th>
                                                             <th ><a href="" ng-click="order('Descripcion')">Descripcion</a>  </th>
                                                             <th ><a href="" ng-click="order('Porcentaje')">Porcentaje</a>  </th>
-                                                            <th ><a href="" ng-click="order('Fecha')">Fecha</a>  </th>
+                                                            
                                                             <th >Activo</th>
                                                             <th >Acciones</th>
                                                         </tr>
@@ -37,7 +37,7 @@
                                                              <td> <input type="text" ng-model="search.ID" /></td>  
                                                              <td> <input type="text" ng-model="search.Descripcion" /> </td>  
                                                               <td> <input type="text" ng-model="search.Porcentaje" /> </td>  
-                                                              <td> <input type="text" ng-model="search.Fecha" /> </td>  
+                                                           
                                                               <td></td>
                                                             
                                                              <td></td>
@@ -46,7 +46,7 @@
                                                             <td>{{Iva.ID}}</td>
                                                             <td>{{Iva.Descripcion}}</td> 
                                                               <td>{{Iva.Porcentaje}}</td>
-                                                            <td>{{Iva.Fecha}}</td>                                                                                      
+                                                                                                                                       
                               
                                                             <td >
                                                                 <input type="checkbox" class="checkbox form-checkbox "   ng-model="Iva.Estado" ng-true-value="{{Iva.Estado}}" />

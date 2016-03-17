@@ -44,7 +44,10 @@ myapp.controller('IvaController', function ($scope, $http) {
             Id: "",
             Estado: "",
             Porcentaje: "",
-            Descripcion: ""
+            Descripcion: "",
+            Fecha: "",
+            IdUsuario: "",
+            IdEmpresa:""
         }
         sessionStorage($scope.Iva)
 
@@ -62,14 +65,22 @@ myapp.controller('IvaController', function ($scope, $http) {
 
     $scope.add = function () {
 
-
+        var idemp = sessionStorage.getItem("IdEmp");
+        var us = sessionStorage.getItem("users");
+        var hoy = new Date();
+        var dd = hoy.getDate();
+        var mm = hoy.getMonth();
+        var yyyy = hoy.getFullYear();
+        var f = mm + '/' + dd + '/' + yyyy;
         //if ($scope.nombre) {
         var Iva = {
 
             Descripcion: $scope.descripcion,
             Porcentaje:$scope.porcentaje,
-            Estado: $scope.estado
-
+            Estado: $scope.estado,
+            Fecha: f,
+            IdUsuario: us,
+            IdEmpresa:idemp
         }
 
         if (Iva.Estado != true) {
@@ -104,13 +115,23 @@ myapp.controller('IvaController', function ($scope, $http) {
     }
     $scope.Update = function () {
 
-        var Iva =
-            {
-                Id: $scope.id,
-                Descripcion: $scope.descripcion,
-                Estado: $scope.estado
-
-            }
+        var idemp = sessionStorage.getItem("IdEmp");
+        var us = sessionStorage.getItem("users");
+        var hoy = new Date();
+        var dd = hoy.getDate();
+        var mm = hoy.getMonth();
+        var yyyy = hoy.getFullYear();
+        var f = mm + '/' + dd + '/' + yyyy;
+        //if ($scope.nombre) {
+        var Iva = {
+            ID:$scope.id,
+            Descripcion: $scope.descripcion,
+            Porcentaje: $scope.porcentaje,
+            Estado: $scope.estado,
+            Fecha: f,
+            IdUsuario: us,
+            IdEmpresa: idemp
+        }
         if (Iva.Estado != 'true') {
             Iva.Estado = 'False';
         }
@@ -155,7 +176,7 @@ myapp.controller('IvaController', function ($scope, $http) {
 
         $scope.estado = Iva.Estado;
         $scope.Check = $scope.estado;
-
+        $scope.porcentaje=Iva.Porcentaje
         Mostrar(false, true);
         $scope.Guardar = false;
         $scope.Modificar = true;

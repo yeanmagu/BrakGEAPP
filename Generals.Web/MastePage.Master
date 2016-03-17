@@ -5,7 +5,7 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="defauld">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>BRAKGE</title>
@@ -54,6 +54,21 @@
 
 
     
+   <script src="../../Scripts/angular-mocks.js"></script>
+    <script src="../../Scripts/angular.js"></script>
+    <script src="../../Scripts/angular.min.js"></script>
+    <script src="../../Scripts/angular-resource.min.js"></script>                         
+    <script src="../../Scripts/angular-route.min.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <script src="../../Scripts/bootstrap.js"></script>
+   
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+    <script src="../../js/jquery-2.1.1.min.js"></script>
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/jquery.bpopup.min.js"></script>
+    <script src="../../js/jquery.elevateZoom-3.0.8.min.js"></script>
+    <script src="../../js/jquery.validationEngine-es.js"></script>
+    <script src="../../js/jquery.validationEngine.js"></script>    
 
 
 	<!--SCRIPT-->

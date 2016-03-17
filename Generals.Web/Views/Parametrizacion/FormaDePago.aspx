@@ -1,15 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FormaDePago.aspx.cs" Inherits="Generals.Web.Views.Parametrizacion.FormaDePago" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-     <script src="../ControllersAngular/FormadePago.js"></script>  
+    <script src="../ControllersAngular/FormadePago.js"></script>
     <script src="../js/jquery-2.1.1.min.js"></script>
     <script src="../../template/plugins/pace/pace.min.js"></script>
     <script src="../js/angular.js"></script>
     <script src="../js/angular-resource.js"></script> 
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/ui-bootstrap-tpls-0.11.0.js"></script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-     <div ng-controller="FormadePagoController" class="row" >
+     <div ng-controller="FormaDePagoController" class="row" >
             <div class="row" ng-show="one"  id="Grid">
                 <div class="col-md-12">
                     <div class="table-responsive">
@@ -28,7 +29,7 @@
                                                             <th ><a href="" ng-click="order('DiasCredito')">Dias de Credito</a>  </th>
                                                             <th ><a href="" ng-click="order('Descuento')">Descuento</a>  </th>
                                                             <th ><a href="" ng-click="order('PorcentajeCredito')">Porcentaje de Credito</a>  </th>
-                                                            <th >Activo</th>
+                                                       
                                                             <th >Acciones</th>
                                                         </tr>
                                                     </thead>
@@ -41,8 +42,7 @@
                                                              <td> <input type="text" ng-model="search.Descuento" /> </td>
                                                               <td> <input type="text" ng-model="search.PorcentajeCredito" /></td>  
                                                               <td></td>
-                                                            
-                                                             <td></td>
+                                                          
                                                            </tr> 
                                                          <tr ng-repeat="FormadePago in result | orderBy:predicate:reverse | filter:paginate| filter:search">
                                                             <td>{{FormadePago.ID}}</td>
@@ -50,7 +50,6 @@
                                                             <td>{{FormadePago.DiasCredito}}</td>
                                                             <td>{{FormadePago.Descuento}}</td>
                                                              <td>{{FormadePago.PorcentajeCredito}}</td>
-                                                           
                                                             <td>
                                                                 <input type="button" value="Eliminar" class="btn btn-danger btn-icon " ng-click="removeRow(FormadePago.ID)" />
                                                                   <input type="button" value="Modificar" class="btn btn-mint btn-icon  icon-lg fa fa-trash" ng-model="FormadePago" ng-click="GetByID(FormadePago)" />
@@ -77,7 +76,7 @@
             </div>                                                                     
             <div class="row" id="form" ng-show="two" >
                     <div class="col-md-12">
-                        <div class="table-responsive">
+                        <div  class="table-responsive">
                             <div class="panel formgrid" >
                                 <div class="panel-body">
                                         <div class="col-md-12">
@@ -100,12 +99,12 @@
                                                                              <input type="text" class="form-control" ng-show="false"  ng-model="id"  >
                                                                          </div>
                                                                      </div>    
-                                                                      <div class="col-md-3">
+                                                                     <div class="col-md-3">
                                                                          <div class="form-group">
-                                                                         <label class="control-label">Explicacion</label>
-                                                                        <textarea class="form-control" ng-model="Explicacion"></textarea>
+                                                                           <label class="control-label">Porcentaje de Credito</label>
+                                                                         <input type="text" class="form-control"  ng-model="PorcentajedeCredito" >
                                                                          </div>
-                                                                     </div> 
+                                                                     </div>
                                                                       <div class="col-md-3">
                                                                          <div class="form-group">
                                                                          <label class="control-label">Dias de Credito</label>
@@ -122,12 +121,13 @@
                                                              </div>
                                                               <div class="col-md-12">
                                                                        <div class="row">                                   
-                                                                     <div class="col-md-3">
+                                                                     
+                                                                            <div class="col-md-6">
                                                                          <div class="form-group">
-                                                                           <label class="control-label">Porcentaje de Credito</label>
-                                                                         <input type="text" class="form-control"  ng-model="PorcentajedeCredito" >
+                                                                         <label class="control-label">Explicacion</label>
+                                                                        <textarea class="form-control" ng-model="explicacion"></textarea>
                                                                          </div>
-                                                                     </div>
+                                                                     </div> 
                                                                  </div>                
                                                              </div>
                                                                        
