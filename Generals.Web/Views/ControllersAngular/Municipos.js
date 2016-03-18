@@ -6,7 +6,7 @@ myapp.controller('MunicipiosController', function ($scope, $http) {
 
     initialize();
     getall();
-    CargarCombos();
+   
     Mostrar(true, false);
     function getall() {
 
@@ -38,11 +38,11 @@ myapp.controller('MunicipiosController', function ($scope, $http) {
         });
 
     }
-    $scope.Cliente = {}
+    $scope.Municipios = {}
 
     function initialize()
     {
-        $scope.Cliente =
+        $scope.Municipios =
             {
                 ID: "",
                 TipoDocumento: "",
@@ -69,34 +69,9 @@ myapp.controller('MunicipiosController', function ($scope, $http) {
             }
     }
 
-    function CargarCombos()
-    {
-        $http.get(uri + '/TipoDocumento').success(function (response) {
-            
-            $scope.Documentos = response;
-            
-        });
-        $http.get(uri + '/TipoMunicipios').success(function (response) {
-           
-           
-            $scope.TipoMunicipioss = response;
+    
 
-        });
-        $http.get(uri + '/Dpto').success(function (response)
-        {
-            $scope.Dptos = response;
-
-        });
-    }
-
-    $scope.CargarMunicipios = function ()
-    {
-        alert($scope.Cliente.Dpto);
-        $http.get(uri + '/Municipios/GetByDpto?id=' + ).success(function (response)
-        {
-            $scope.Municipios = response;
-        });
-    }
+ 
     $scope.nuevo = function ()
     {
         $scope.one = false;
@@ -109,18 +84,18 @@ myapp.controller('MunicipiosController', function ($scope, $http) {
     $scope.add = function ()
     {
         //if ($scope.nombre) {
-        var Cliente = {
+        var Municipios = {
 
             Descripcion: $scope.descripcion,
             Estado: $scope.estado
 
         }
 
-        if (Cliente.Estado != true) {
-            Cliente.Estado = 'False';
+        if (Municipios.Estado != true) {
+            Municipios.Estado = 'False';
         }
 
-        $http.post(uri + '/Municipios/Post', Cliente).
+        $http.post(uri + '/Municipios/Post', Municipios).
             success(function (data, status, headers, config) {
 
                 Mostrar(true, false);
@@ -148,18 +123,18 @@ myapp.controller('MunicipiosController', function ($scope, $http) {
     }
     $scope.Update = function () {
 
-        var Cliente =
+        var Municipios =
             {
                 Id: $scope.id,
                 Descripcion: $scope.descripcion,
                 Estado: $scope.estado
 
             }
-        if (Cliente.Estado != 'true') {
-            Cliente.Estado = 'False';
+        if (Municipios.Estado != 'true') {
+            Municipios.Estado = 'False';
         }
 
-        $http.put(uri + '/Municipios/PUT', Cliente).success(function (data, status, headers, config) {
+        $http.put(uri + '/Municipios/PUT', Municipios).success(function (data, status, headers, config) {
             getall();
             Clean()
             Mostrar(true, false);
@@ -192,13 +167,13 @@ myapp.controller('MunicipiosController', function ($scope, $http) {
 
     }
 
-    $scope.GetByID = function (Cliente) {
+    $scope.GetByID = function (Municipios) {
 
-        $scope.descripcion = Cliente.Descripcion;
+        $scope.descripcion = Municipios.Nombre;
 
-        $scope.id = Cliente.ID;
+        $scope.id = Municipios.ID;
 
-        $scope.estado = Cliente.Estado;
+        $scope.estado = Municipios.Estado;
         $scope.Check = $scope.estado;
 
         Mostrar(false, true);

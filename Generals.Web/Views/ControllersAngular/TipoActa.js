@@ -57,8 +57,6 @@ myapp.controller('TipoActaController', function ($scope, $http) {
 
 
     $scope.add = function () {
-
-
         //if ($scope.nombre) {
         var TipoActa = {
 

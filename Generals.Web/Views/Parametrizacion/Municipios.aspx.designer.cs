@@ -10,6 +10,6 @@
 namespace Generals.Web.Views.Parametrizacion {
     
     
-    public partial class Municipio {
+    public partial class Municipios {
     }
 }

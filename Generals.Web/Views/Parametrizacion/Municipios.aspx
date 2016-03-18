@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Municipios.aspx.cs" Inherits="Generals.Web.Views.Parametrizacion.Municipio" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Municipios.aspx.cs" Inherits="Generals.Web.Views.Parametrizacion.Municipios" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-          <script src="../ControllersAngular/Municipio.js"></script>  
+    <script src="../ControllersAngular/Municipos.js"></script>
     <script src="../js/jquery-2.1.1.min.js"></script>
     <script src="../../template/plugins/pace/pace.min.js"></script>
     <script src="../js/angular.js"></script>
@@ -9,7 +9,7 @@
     <script src="../js/ui-bootstrap-tpls-0.11.0.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-      <div ng-controller="MunicipioController" class="row" >
+      <div ng-controller="MunicipiosController" class="row" >
             <div class="row" ng-show="one"  id="Grid">
                 <div class="col-md-12">
                     <div class="table-responsive">
@@ -24,7 +24,8 @@
                                                     <thead>
                                                         <tr class="morris-hover-row-label">
                                                             <th ><a href="" ng-click="order('Id')">ID</a>  </th>
-                                                            <th ><a href="" ng-click="order('Descripcion')">Descripcion</a>  </th>
+                                                            <th ><a href="" ng-click="order('Nombre')">Descripcion</a>  </th>
+                                                            <th ><a href="" ng-click="order('IdDpto')">Departamento</a>  </th>
                                                           <th >Activo</th>
                                                             <th >Acciones</th>
                                                         </tr>
@@ -40,7 +41,11 @@
                                                            </tr> 
                                                          <tr ng-repeat="Municipio in result | orderBy:predicate:reverse | filter:paginate| filter:search">
                                                             <td>{{Municipio.ID}}</td>
-                                                            <td>{{Municipio.Descripcion}}</td> 
+                                                            <td>{{Municipio.Nombre}}</td> 
+                                                             <td>{{Municipio.IdDpto}}</td> 
+                                                              <td >
+                                                                <input type="checkbox" class="checkbox form-checkbox "   ng-model="EstadoEnvio.Estado" ng-true-value="{{EstadoEnvio.Estado}}" />
+                                                            </td>
                                                             <td>
                                                                 <input type="button" value="Eliminar" class="btn btn-danger btn-icon " ng-click="removeRow(Municipio.ID)" />
                                                                   <input type="button" value="Modificar" class="btn btn-mint btn-icon  icon-lg fa fa-trash" ng-model="Municipio" ng-click="GetByID(Municipio)" />
@@ -97,6 +102,15 @@
                                                                           </select>
 												                                </div>
 											                                </div>
+                                                                        <div class="col-md-3">
+                                                                      <br />
+                                                                          <div class="checkbox">
+														                        <label class="form-checkbox form-icon">
+															                        <input type="checkbox" ng-model="estado" ng-true-value="{{Municipio.Estado}}" /> Activo
+														                        </label>
+                                                                         </div>
+                                                                      
+                                                                     </div>
 										                                </div>
 											                        
 										                        <%--</fieldset>--%>

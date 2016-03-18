@@ -43,7 +43,7 @@ myapp.controller('PaisesController', function ($scope, $http) {
         $scope.Paises = {
             Id: "",
             Estado: "",
-            Descripcion: ""
+            Nombre: ""
         }
     }
 
@@ -63,7 +63,7 @@ myapp.controller('PaisesController', function ($scope, $http) {
         //if ($scope.nombre) {
         var Paises = {
 
-            Descripcion: $scope.descripcion,
+            Nombre: $scope.descripcion,
             codigoPostal: $scope.codigoPostal,
             Estado: $scope.estado
         }
@@ -103,7 +103,8 @@ myapp.controller('PaisesController', function ($scope, $http) {
         var Paises =
             {
                 Id: $scope.id,
-                Descripcion: $scope.descripcion,
+                codigoPostal: $scope.codigoPostal,
+                Nombre: $scope.descripcion,
                 Estado: $scope.estado
 
             }
@@ -145,10 +146,11 @@ myapp.controller('PaisesController', function ($scope, $http) {
 
     $scope.GetByID = function (Paises) {
 
-        $scope.descripcion = Paises.Descripcion;
+        $scope.descripcion = Paises.Nombre;
 
         $scope.id = Paises.ID;
-
+        
+        $scope.codigoPostal = Paises.CodigoPostal;
         $scope.estado = Paises.Estado;
         $scope.Check = $scope.estado;
 

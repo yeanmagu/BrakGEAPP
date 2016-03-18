@@ -96,7 +96,7 @@
 												                        <label class="col-lg-1 control-label">Descripcion</label>
 												                        <div class="col-lg-3">
 													                        <input type="text" class="form-control"  ng-model="descripcion" required="required"  placeholder="Descripcion">
-                                                                             <input type="text" class="form-control" ng-show="false"  ng-model="id"  >
+                                                                             <input type="text" class="form-control" ng-show="false"  ng-model="ID"  >
 												                        </div>
                                                                         <label class="col-lg-1 control-label">Porcentaje</label>
                                                                         <div class="col-lg-3">

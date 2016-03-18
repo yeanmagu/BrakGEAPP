@@ -140,18 +140,16 @@
                                                                       <div class="col-sm-3">
 												                                <div class="form-group">
 													                                <label class="control-label">Dpto.</label>
-													                                <select class="form-control" ng-model="Cliente.Dpto" ng-change="CargarMunicipios()" <%--ng-options="Dpto as Dpto.Nombre for Dpto in Dptos track by Dpto.Id"--%>>
-                                                                                             <option value="">--Elige opcion--</option>
-                                                                                            <option ng-repeat="dpto in Dptos" value="dpto.Id "  >{{dpto.Nombre}}</option>
+													                                <select class="form-control" ng-model="Dptos" ng-change="CargarMunicipios(Dptos)">
+                                                                                      <option ng-repeat="dpt in Dptos" value="{{dpt.ID}}">{{dpt.Nombre}}</option>
                                                                                     </select>
 												                                </div>
 											                                </div>
 											                                <div class="col-sm-3">
 												                                <div class="form-group">
 													                               <label class="control-label">Ciudad Res.</label>
-													                               <select class="form-control" ng-model="Cliente.CiudadResidencia" <%--ng-options="Dpto as Dpto.Nombre for Dpto in Dptos track by Dpto.Id"--%>>
-                                                                                             <option value="">--Elige opcion--</option>
-                                                                                            <option ng-repeat="mun in Municipios" value="mun.Id"  >{{mun.Nombre}}</option>
+													                               <select class="form-control" ng-model="CiudadResidencia" >
+                                                                                     <option ng-repeat="mun in Municipios" value="mun.Id">{{mun.Nombre}}</option>
                                                                                     </select>
 												                                </div>
 											                                </div> 

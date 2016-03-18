@@ -9,7 +9,7 @@ myapp.controller('MotivoModificacionesController', function ($scope, $http) {
     Mostrar(true, false);
     function getall() {
 
-        $http.get(uri + '/Modificaciones').success(function (response) {
+        $http.get(uri + '/MotivoModificaciones').success(function (response) {
 
             $scope.Datas = response;
 
@@ -68,11 +68,11 @@ myapp.controller('MotivoModificacionesController', function ($scope, $http) {
 
         }
 
-        if (MotivoModificaciones.Estado != true) {
-            MotivoModificaciones.Estado = 'False';
+        if ($scope.Estado != true) {
+            $scope.Estado = 'False';
         }
 
-        $http.post(uri + '/Modificaciones/Post', MotivoModificaciones).
+        $http.post(uri + '/MotivoModificaciones/Post', MotivoModificaciones).
             success(function (data, status, headers, config) {
 
                 Mostrar(true, false);
@@ -111,7 +111,7 @@ myapp.controller('MotivoModificacionesController', function ($scope, $http) {
             MotivoModificaciones.Estado = 'False';
         }
 
-        $http.put(uri + '/Modificaciones/PUT', MotivoModificaciones).success(function (data, status, headers, config) {
+        $http.put(uri + '/MotivoModificaciones/PUT', MotivoModificaciones).success(function (data, status, headers, config) {
             getall();
             Clean()
             Mostrar(true, false);
@@ -126,7 +126,7 @@ myapp.controller('MotivoModificacionesController', function ($scope, $http) {
         // alert(codigo);
         //  ('/api/cargo?cod=' + codigo
         if (confirm('Esta Seguro que desea Eliminar el registro?')) {
-            $http.delete(uri + '/Modificaciones?Id=' + codigo).success(function (data, status, headers, config) {
+            $http.delete(uri + '/MotivoModificaciones?Id=' + codigo).success(function (data, status, headers, config) {
 
                 alert('Registro Eliminado con Exito !');
                 getall();

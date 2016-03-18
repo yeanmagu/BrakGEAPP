@@ -15,7 +15,7 @@
                     <div class="table-responsive">
                         <div class="panel formgrid" >
                               <div class="panel-body">
-                                   <h4 class="text-thin">MotivoModificaciones</h4>
+                                   <h4 class="text-thin">Motivo Modificaciones</h4>
 									<hr>
                                 <div class="col-md-12">                                     
                                     <div class="row">                                        
@@ -41,6 +41,10 @@
                                                          <tr ng-repeat="MotivoModificaciones in result | orderBy:predicate:reverse | filter:paginate| filter:search">
                                                             <td>{{MotivoModificaciones.ID}}</td>
                                                             <td>{{MotivoModificaciones.Descripcion}}</td> 
+                                                              <td >
+                                                                <input type="checkbox" class="checkbox form-checkbox "   ng-model="MotivoModificaciones.Estado" ng-true-value="{{MotivoModificaciones.Estado}}" />
+                                               
+                                                            </td>
                                                             <td>
                                                                 <input type="button" value="Eliminar" class="btn btn-danger btn-icon " ng-click="removeRow(MotivoModificaciones.ID)" />
                                                                   <input type="button" value="Modificar" class="btn btn-mint btn-icon  icon-lg fa fa-trash" ng-model="MotivoModificaciones" ng-click="GetByID(MotivoModificaciones)" />
@@ -87,7 +91,13 @@
 													                        <input type="text" class="form-control"  ng-model="descripcion" required="required"  placeholder="Descripcion">
                                                                              <input type="text" class="form-control" ng-show="false"  ng-model="id"  >
 												                        </div>
-                                                                       
+                                                                       <div class="col-lg-2">
+                                                                                <div class="checkbox">
+														                        <label class="form-checkbox form-icon">
+															                        <input type="checkbox" ng-model="estado" ng-true-value="{{Estado}}" /> Activo
+														                        </label>
+													                        </div>
+                                                                        </div>
 											                        </div>
 										                        <%--</fieldset>--%>
 										                        <!--===================================================-->

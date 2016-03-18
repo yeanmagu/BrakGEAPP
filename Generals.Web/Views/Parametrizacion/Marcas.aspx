@@ -25,7 +25,7 @@
                                                         <tr class="morris-hover-row-label">
                                                             <th ><a href="" ng-click="order('Id')">ID</a>  </th>
                                                             <th ><a href="" ng-click="order('Descripcion')">Descripción</a>  </th>
-                                                            <th >Activo</th>
+                                                          
                                                             <th >Acciones</th>
                                                         </tr>
                                                     </thead>
@@ -36,19 +36,15 @@
                                                              <td> <input type="text" ng-model="search.Descripcion" /> </td>  
                                                               <td></td>
                                                             
-                                                             <td></td>
                                                            </tr> 
                                                          <tr ng-repeat="Marcas in result | orderBy:predicate:reverse | filter:paginate| filter:search">
-                                                            <td>{{Tipoclientes.ID}}</td>
-                                                            <td>{{Tipoclientes.Descripcion}}</td>                                                                                      
+                                                            <td>{{Marcas.ID}}</td>
+                                                            <td>{{Marcas.Descripcion}}</td>                                                                                      
                               
-                                                            <td >
-                                                                <input type="checkbox" class="checkbox form-checkbox "   ng-model="Tipoclientes.Estado" ng-true-value="{{Tipoclientes.Estado}}" />
-                                               
-                                                            </td>
+                                                           
                                                             <td>
-                                                                <input type="button" value="Eliminar" class="btn btn-danger btn-icon " ng-click="removeRow(Tipoclientes.ID)" />
-                                                                  <input type="button" value="Modificar" class="btn btn-mint btn-icon  icon-lg fa fa-trash" ng-model="Tipoclientes" ng-click="GetByID(Tipoclientes)" />
+                                                                <input type="button" value="Eliminar" class="btn btn-danger btn-icon " ng-click="removeRow(Marcas.ID)" />
+                                                                  <input type="button" value="Modificar" class="btn btn-mint btn-icon  icon-lg fa fa-trash" ng-model="Marcas" ng-click="GetByID(Marcas)" />
                                                                  <%--<button class="btn btn-danger btn-icon btn-circle icon-lg fa fa-trash"  ></button>--%>   
                                                             </td>
 

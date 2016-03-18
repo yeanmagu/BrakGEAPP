@@ -39,19 +39,7 @@ myapp.controller('IvaController', function ($scope, $http) {
     }
     $scope.Iva = {}
 
-    function initialize() {
-        $scope.Iva = {
-            Id: "",
-            Estado: "",
-            Porcentaje: "",
-            Descripcion: "",
-            Fecha: "",
-            IdUsuario: "",
-            IdEmpresa:""
-        }
-        sessionStorage($scope.Iva)
-
-    }
+ 
 
 
 
@@ -124,7 +112,7 @@ myapp.controller('IvaController', function ($scope, $http) {
         var f = mm + '/' + dd + '/' + yyyy;
         //if ($scope.nombre) {
         var Iva = {
-            ID:$scope.id,
+            ID: $scope.ID,
             Descripcion: $scope.descripcion,
             Porcentaje: $scope.porcentaje,
             Estado: $scope.estado,
@@ -167,13 +155,23 @@ myapp.controller('IvaController', function ($scope, $http) {
         ;
 
     }
+    function initialize() {
+        $scope.Iva = {
+            id: "",
+            Estado: "",
+            Porcentaje: "",
+            Descripcion: "",
+            Fecha: "",
+            IdUsuario: "",
+            IdEmpresa: ""
+        }
+        sessionStorage($scope.Iva)
+
+    }
 
     $scope.GetByID = function (Iva) {
-
+        $scope.ID = Iva.ID;
         $scope.descripcion = Iva.Descripcion;
-
-        $scope.id = Iva.ID;
-
         $scope.estado = Iva.Estado;
         $scope.Check = $scope.estado;
         $scope.porcentaje=Iva.Porcentaje

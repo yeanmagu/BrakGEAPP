@@ -7,6 +7,9 @@ myapp.controller('BodegaController', function ($scope, $http) {
     initialize();
     getall();
     Mostrar(true, false);
+    CargarCombos();
+
+
     function getall() {
 
         $http.get(uri + '/Bodega').success(function (response) {
@@ -37,57 +40,43 @@ myapp.controller('BodegaController', function ($scope, $http) {
         });
 
     }
-    $scope.Cliente = {}
+    $scope.Bodega = {}
 
     function initialize()
     {
-        $scope.Cliente =
+        $scope.dpt = {
+            Id:0
+
+        }
+        $scope.Bodega =
             {
                 ID: "",
-                TipoDocumento: "",
-                NroDocumento: "",
+                IDEmpresa: "",
+                Descripcion: "",
                 Nombre: "",
-                Apellido: "",
+                Direccion: "",
                 Telefono: "",
-                Email: "",
-                Estado: "",
-                Tipo: "2",
-                RegimenSimplificado: "False" ,           
-                Celular :"",
-                FechaNacimiento:"",
-                CiudadResidencia:"",
-                Nota : "" ,            
-                TipoBodega :"",           
-                IdEmpesa:"",
-                Autoretenedores: "False",
-                AplicaAIU: "False",
-                Contacto:"",
-                RecibirEmail: "False",
-                FechaCreacion:"",
-                IdUsuario:""
+                Publicidad: "",
+                IdMunicipio: "",
+                Notas: "",
+                IDUsuario: "False" ,           
+                FechaModificacion:"",
+                Estado : "" ,            
+                Resposable :""
             }
     }
     function CargarCombos() {
-        $http.get(uri + '/TipoDocumento').success(function (response) {
-
-            $scope.Documentos = response;
-
-        });
-        $http.get(uri + '/TipoPersona').success(function (response) {
-
-
-            $scope.TipoPersonas = response;
-
-        });
-        $http.get(uri + '/Dpto').success(function (response) {
+      
+        $http.get(uri + '/DPTO').success(function (response) {
             $scope.Dptos = response;
-
+            
         });
     }
-
-    $scope.CargarMunicipios = function () {
-        alert($scope.Cliente.Dpto);
-        $http.get(uri + '/Municipios/GetByDpto?id=' + Cliente.Dpto).success(function (response) {
+    
+    $scope.CargarMunicipios = function (codigo) {
+      
+      //  $http.get(uri + '/Users?id=' + codigoUsuario).success(function (response) {
+        $http.get(uri + '/Municipios?dpto=' + codigo).success(function (response) {
             $scope.Municipios = response;
         });
     }
@@ -104,18 +93,18 @@ myapp.controller('BodegaController', function ($scope, $http) {
     $scope.add = function ()
     {
         //if ($scope.nombre) {
-        var Cliente = {
+        var Bodega = {
 
             Descripcion: $scope.descripcion,
             Estado: $scope.estado
 
         }
 
-        if (Cliente.Estado != true) {
-            Cliente.Estado = 'False';
+        if (Bodega.Estado != true) {
+            Bodega.Estado = 'False';
         }
 
-        $http.post(uri + '/Bodega/Post', Cliente).
+        $http.post(uri + '/Bodega/Post', Bodega).
             success(function (data, status, headers, config) {
 
                 Mostrar(true, false);
@@ -143,18 +132,18 @@ myapp.controller('BodegaController', function ($scope, $http) {
     }
     $scope.Update = function () {
 
-        var Cliente =
+        var Bodega =
             {
                 Id: $scope.id,
                 Descripcion: $scope.descripcion,
                 Estado: $scope.estado
 
             }
-        if (Cliente.Estado != 'true') {
-            Cliente.Estado = 'False';
+        if (Bodega.Estado != 'true') {
+            Bodega.Estado = 'False';
         }
 
-        $http.put(uri + '/Bodega/PUT', Cliente).success(function (data, status, headers, config) {
+        $http.put(uri + '/Bodega/PUT', Bodega).success(function (data, status, headers, config) {
             getall();
             Clean()
             Mostrar(true, false);
@@ -187,13 +176,13 @@ myapp.controller('BodegaController', function ($scope, $http) {
 
     }
 
-    $scope.GetByID = function (Cliente) {
+    $scope.GetByID = function (Bodega) {
 
-        $scope.descripcion = Cliente.Descripcion;
+        $scope.descripcion = Bodega.Descripcion;
 
-        $scope.id = Cliente.ID;
+        $scope.id = Bodega.ID;
 
-        $scope.estado = Cliente.Estado;
+        $scope.estado = Bodega.Estado;
         $scope.Check = $scope.estado;
 
         Mostrar(false, true);

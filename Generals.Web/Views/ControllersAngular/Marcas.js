@@ -44,8 +44,10 @@ myapp.controller('MarcasController', function ($scope, $http) {
         $scope.Marca =
             {
                 ID: "",
-                Descripcion: ""
-               
+                Descripcion: "",
+                IdEmpresa: "",
+                IdUsuario: "",
+                Fecha: ""
             }
     }
 
@@ -61,12 +63,19 @@ myapp.controller('MarcasController', function ($scope, $http) {
 
     $scope.add = function ()
     {
+        var idemp = sessionStorage.getItem("IdEmp");
+        var us = sessionStorage.getItem("users");
+        var hoy = new Date();
+        var dd = hoy.getDate();
+        var mm = hoy.getMonth();
+        var yyyy = hoy.getFullYear();
+        var f = mm + '/' + dd + '/' + yyyy;
         //if ($scope.nombre) {
         var Marcas = {
-
             Descripcion: $scope.descripcion,
-            Estado: $scope.estado
-
+            IdEmpresa: idemp,
+            IdUsuario: us,
+            Fecha:f
         }
 
    
@@ -99,14 +108,21 @@ myapp.controller('MarcasController', function ($scope, $http) {
     }
     $scope.Update = function () {
 
+        var idemp = sessionStorage.getItem("IdEmp");
+        var us = sessionStorage.getItem("users");
+        var hoy = new Date();
+        var dd = hoy.getDate();
+        var mm = hoy.getMonth();
+        var yyyy = hoy.getFullYear();
+        var f = mm + '/' + dd + '/' + yyyy;
         var Marca =
             {
                 Id: $scope.id,
                 Descripcion: $scope.descripcion,
-               
+                IdEmpresa: idemp,
+                IdUsuario: us,
+                Fecha: f
             }
-      
-
         $http.put(uri + '/Marcas/PUT', Marca).success(function (data, status, headers, config) {
             getall();
             Clean()
