@@ -251,6 +251,7 @@
     <Content Include="Views\ControllersAngular\EstadoDocumento.js" />
     <Content Include="Views\ControllersAngular\EstadoEnvio.js" />
     <Content Include="Views\ControllersAngular\FormadePago.js" />
+    <Content Include="Views\ControllersAngular\Grupo.js" />
     <Content Include="Views\ControllersAngular\Iva.js" />
     <Content Include="Views\ControllersAngular\Marcas.js" />
     <Content Include="Views\ControllersAngular\Materiales.js" />
@@ -4273,6 +4274,7 @@
     <Content Include="Views\Parametrizacion\EstadoDocumento.aspx" />
     <Content Include="Views\Parametrizacion\EstadoEnvio.aspx" />
     <Content Include="Views\Parametrizacion\FormaDePago.aspx" />
+    <Content Include="Views\Parametrizacion\Grupo.aspx" />
     <Content Include="Views\Parametrizacion\Iva.aspx" />
     <Content Include="Views\Parametrizacion\Marcas.aspx" />
     <Content Include="Views\Parametrizacion\Municipios.aspx" />
@@ -5983,6 +5985,13 @@
     </Compile>
     <Compile Include="Views\Parametrizacion\FormaDePago.aspx.designer.cs">
       <DependentUpon>FormaDePago.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\Grupo.aspx.cs">
+      <DependentUpon>Grupo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\Grupo.aspx.designer.cs">
+      <DependentUpon>Grupo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Parametrizacion\Iva.aspx.cs">
       <DependentUpon>Iva.aspx</DependentUpon>
