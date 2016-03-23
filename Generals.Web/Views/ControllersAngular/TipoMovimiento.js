@@ -1,10 +1,10 @@
 var myapp = angular.module('myapp', ['ui.bootstrap', 'ngResource']);
-myapp.controller('ActasController', function ($scope, $http) {
+myapp.controller('TipoMovimientoController', function ($scope, $http) {
     var uri = "http://localhost:48571/api";
     initialize();
     getall();
     function getall() {
-        $http.get(uri + '/Actas').success(function (response) {
+        $http.get(uri + '/TipoMovimiento').success(function (response) {
         $scope.Datas = response;
         $scope.result = response;
         $scope.predicate = 'Nombre';
@@ -24,7 +24,7 @@ myapp.controller('ActasController', function ($scope, $http) {
              };
             });
        }
-     $scope.Actas = {}
+     $scope.TipoMovimiento = {}
      $scope.nuevo = function ()
         {
             $scope.one = false;
@@ -32,27 +32,26 @@ myapp.controller('ActasController', function ($scope, $http) {
             $scope.Guardar = true;
             $scope.Modificar = false;
         }
-     $scope.Actas = {}
+     $scope.TipoMovimiento = {}
      function initialize()
         {
-            $scope. Actas =
+            $scope. TipoMovimiento =
             {
                    ID: "",
-    IdDocumento: "",
-    IdTipoActa: "",
-    Fecha: "",
-    Observaciones: "",
+    Descripcion: "",
+    IdBodega: "",
+    Notas: "",
+    IdSw: "",
+    FechaCreacion: "",
     IdUsuario: "",
-    Hora: "",
-    FechaSistema: "",
-    Estado: ""
+    ExcentoDelva: ""
             }
      }
      $scope.add = function ()
      {
-            var Actas = {
+            var TipoMovimiento = {
             }
-            $http.post(uri + '/Actas/Post', Actas).
+            $http.post(uri + '/TipoMovimiento/Post', TipoMovimiento).
                 success(function (data, status, headers, config) {
                 Mostrar(true, false);
                 Clean();
@@ -75,19 +74,18 @@ myapp.controller('ActasController', function ($scope, $http) {
         });
       }
       $scope.Update = function (){
-            var Actas = {
+            var TipoMovimiento = {
                 ID: "",
-    IdDocumento: "",
-    IdTipoActa: "",
-    Fecha: "",
-    Observaciones: "",
+    Descripcion: "",
+    IdBodega: "",
+    Notas: "",
+    IdSw: "",
+    FechaCreacion: "",
     IdUsuario: "",
-    Hora: "",
-    FechaSistema: "",
-    Estado: ""
+    ExcentoDelva: ""
 
             }
-            $http.put(uri + '/Actas/PUT',Actas).success(function (data, status, headers, config) {
+            $http.put(uri + '/TipoMovimiento/PUT',TipoMovimiento).success(function (data, status, headers, config) {
                 Mostrar(true, false);
                 Clean();
                 getall();
@@ -98,7 +96,7 @@ myapp.controller('ActasController', function ($scope, $http) {
        }
       $scope.removeRow = function (codigo) {
             if (confirm('Esta Seguro que desea Eliminar el registro?')) {
-                $http.delete(uri + '/Actas?Id=' + codigo).success(function (data, status, headers, config) {
+                $http.delete(uri + '/TipoMovimiento?Id=' + codigo).success(function (data, status, headers, config) {
                 Mostrar(true, false);
                 Clean();
                 getall();
@@ -110,15 +108,14 @@ myapp.controller('ActasController', function ($scope, $http) {
             return;
             };
        }
-      $scope.GetByID = function (Actas) {
-                   $scope.ID = Actas.ID;
-        $scope.IdDocumento = Actas.IdDocumento;
-        $scope.IdTipoActa = Actas.IdTipoActa;
-        $scope.Fecha = Actas.Fecha;
-        $scope.Observaciones = Actas.Observaciones;
-        $scope.IdUsuario = Actas.IdUsuario;
-        $scope.Hora = Actas.Hora;
-        $scope.FechaSistema = Actas.FechaSistema;
-        $scope.Estado = Actas.Estado;
+      $scope.GetByID = function (TipoMovimiento) {
+                   $scope.ID = TipoMovimiento.ID;
+        $scope.Descripcion = TipoMovimiento.Descripcion;
+        $scope.IdBodega = TipoMovimiento.IdBodega;
+        $scope.Notas = TipoMovimiento.Notas;
+        $scope.IdSw = TipoMovimiento.IdSw;
+        $scope.FechaCreacion = TipoMovimiento.FechaCreacion;
+        $scope.IdUsuario = TipoMovimiento.IdUsuario;
+        $scope.ExcentoDelva = TipoMovimiento.ExcentoDelva;
         }
 });

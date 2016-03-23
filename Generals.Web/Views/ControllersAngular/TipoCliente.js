@@ -1,10 +1,10 @@
 var myapp = angular.module('myapp', ['ui.bootstrap', 'ngResource']);
-myapp.controller('ActasController', function ($scope, $http) {
+myapp.controller('TipoClienteController', function ($scope, $http) {
     var uri = "http://localhost:48571/api";
     initialize();
     getall();
     function getall() {
-        $http.get(uri + '/Actas').success(function (response) {
+        $http.get(uri + '/TipoCliente').success(function (response) {
         $scope.Datas = response;
         $scope.result = response;
         $scope.predicate = 'Nombre';
@@ -24,7 +24,7 @@ myapp.controller('ActasController', function ($scope, $http) {
              };
             });
        }
-     $scope.Actas = {}
+     $scope.TipoCliente = {}
      $scope.nuevo = function ()
         {
             $scope.one = false;
@@ -32,27 +32,21 @@ myapp.controller('ActasController', function ($scope, $http) {
             $scope.Guardar = true;
             $scope.Modificar = false;
         }
-     $scope.Actas = {}
+     $scope.TipoCliente = {}
      function initialize()
         {
-            $scope. Actas =
+            $scope. TipoCliente =
             {
                    ID: "",
-    IdDocumento: "",
-    IdTipoActa: "",
-    Fecha: "",
-    Observaciones: "",
-    IdUsuario: "",
-    Hora: "",
-    FechaSistema: "",
+    Descripcion: "",
     Estado: ""
             }
      }
      $scope.add = function ()
      {
-            var Actas = {
+            var TipoCliente = {
             }
-            $http.post(uri + '/Actas/Post', Actas).
+            $http.post(uri + '/TipoCliente/Post', TipoCliente).
                 success(function (data, status, headers, config) {
                 Mostrar(true, false);
                 Clean();
@@ -75,19 +69,13 @@ myapp.controller('ActasController', function ($scope, $http) {
         });
       }
       $scope.Update = function (){
-            var Actas = {
+            var TipoCliente = {
                 ID: "",
-    IdDocumento: "",
-    IdTipoActa: "",
-    Fecha: "",
-    Observaciones: "",
-    IdUsuario: "",
-    Hora: "",
-    FechaSistema: "",
+    Descripcion: "",
     Estado: ""
 
             }
-            $http.put(uri + '/Actas/PUT',Actas).success(function (data, status, headers, config) {
+            $http.put(uri + '/TipoCliente/PUT',TipoCliente).success(function (data, status, headers, config) {
                 Mostrar(true, false);
                 Clean();
                 getall();
@@ -98,7 +86,7 @@ myapp.controller('ActasController', function ($scope, $http) {
        }
       $scope.removeRow = function (codigo) {
             if (confirm('Esta Seguro que desea Eliminar el registro?')) {
-                $http.delete(uri + '/Actas?Id=' + codigo).success(function (data, status, headers, config) {
+                $http.delete(uri + '/TipoCliente?Id=' + codigo).success(function (data, status, headers, config) {
                 Mostrar(true, false);
                 Clean();
                 getall();
@@ -110,15 +98,9 @@ myapp.controller('ActasController', function ($scope, $http) {
             return;
             };
        }
-      $scope.GetByID = function (Actas) {
-                   $scope.ID = Actas.ID;
-        $scope.IdDocumento = Actas.IdDocumento;
-        $scope.IdTipoActa = Actas.IdTipoActa;
-        $scope.Fecha = Actas.Fecha;
-        $scope.Observaciones = Actas.Observaciones;
-        $scope.IdUsuario = Actas.IdUsuario;
-        $scope.Hora = Actas.Hora;
-        $scope.FechaSistema = Actas.FechaSistema;
-        $scope.Estado = Actas.Estado;
+      $scope.GetByID = function (TipoCliente) {
+                   $scope.ID = TipoCliente.ID;
+        $scope.Descripcion = TipoCliente.Descripcion;
+        $scope.Estado = TipoCliente.Estado;
         }
 });

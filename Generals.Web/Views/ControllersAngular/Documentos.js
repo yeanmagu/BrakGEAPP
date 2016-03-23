@@ -1,10 +1,10 @@
 var myapp = angular.module('myapp', ['ui.bootstrap', 'ngResource']);
-myapp.controller('ActasController', function ($scope, $http) {
+myapp.controller('DocumentosController', function ($scope, $http) {
     var uri = "http://localhost:48571/api";
     initialize();
     getall();
     function getall() {
-        $http.get(uri + '/Actas').success(function (response) {
+        $http.get(uri + '/Documentos').success(function (response) {
         $scope.Datas = response;
         $scope.result = response;
         $scope.predicate = 'Nombre';
@@ -24,7 +24,7 @@ myapp.controller('ActasController', function ($scope, $http) {
              };
             });
        }
-     $scope.Actas = {}
+     $scope.Documentos = {}
      $scope.nuevo = function ()
         {
             $scope.one = false;
@@ -32,27 +32,30 @@ myapp.controller('ActasController', function ($scope, $http) {
             $scope.Guardar = true;
             $scope.Modificar = false;
         }
-     $scope.Actas = {}
+     $scope.Documentos = {}
      function initialize()
         {
-            $scope. Actas =
+            $scope. Documentos =
             {
                    ID: "",
-    IdDocumento: "",
-    IdTipoActa: "",
-    Fecha: "",
-    Observaciones: "",
+    Id_Empresa: "",
+    Id_Bodega: "",
+    DiasValidez: "",
+    TotalSub: "",
+    Total_Descuento: "",
+    Total: "",
+    Notas: "",
     IdUsuario: "",
-    Hora: "",
-    FechaSistema: "",
-    Estado: ""
+    IdDocumentoAnterior: "",
+    EstadoDocumento: "",
+    IdFormaPago: ""
             }
      }
      $scope.add = function ()
      {
-            var Actas = {
+            var Documentos = {
             }
-            $http.post(uri + '/Actas/Post', Actas).
+            $http.post(uri + '/Documentos/Post', Documentos).
                 success(function (data, status, headers, config) {
                 Mostrar(true, false);
                 Clean();
@@ -75,19 +78,22 @@ myapp.controller('ActasController', function ($scope, $http) {
         });
       }
       $scope.Update = function (){
-            var Actas = {
+            var Documentos = {
                 ID: "",
-    IdDocumento: "",
-    IdTipoActa: "",
-    Fecha: "",
-    Observaciones: "",
+    Id_Empresa: "",
+    Id_Bodega: "",
+    DiasValidez: "",
+    TotalSub: "",
+    Total_Descuento: "",
+    Total: "",
+    Notas: "",
     IdUsuario: "",
-    Hora: "",
-    FechaSistema: "",
-    Estado: ""
+    IdDocumentoAnterior: "",
+    EstadoDocumento: "",
+    IdFormaPago: ""
 
             }
-            $http.put(uri + '/Actas/PUT',Actas).success(function (data, status, headers, config) {
+            $http.put(uri + '/Documentos/PUT',Documentos).success(function (data, status, headers, config) {
                 Mostrar(true, false);
                 Clean();
                 getall();
@@ -98,7 +104,7 @@ myapp.controller('ActasController', function ($scope, $http) {
        }
       $scope.removeRow = function (codigo) {
             if (confirm('Esta Seguro que desea Eliminar el registro?')) {
-                $http.delete(uri + '/Actas?Id=' + codigo).success(function (data, status, headers, config) {
+                $http.delete(uri + '/Documentos?Id=' + codigo).success(function (data, status, headers, config) {
                 Mostrar(true, false);
                 Clean();
                 getall();
@@ -110,15 +116,18 @@ myapp.controller('ActasController', function ($scope, $http) {
             return;
             };
        }
-      $scope.GetByID = function (Actas) {
-                   $scope.ID = Actas.ID;
-        $scope.IdDocumento = Actas.IdDocumento;
-        $scope.IdTipoActa = Actas.IdTipoActa;
-        $scope.Fecha = Actas.Fecha;
-        $scope.Observaciones = Actas.Observaciones;
-        $scope.IdUsuario = Actas.IdUsuario;
-        $scope.Hora = Actas.Hora;
-        $scope.FechaSistema = Actas.FechaSistema;
-        $scope.Estado = Actas.Estado;
+      $scope.GetByID = function (Documentos) {
+                   $scope.ID = Documentos.ID;
+        $scope.Id_Empresa = Documentos.Id_Empresa;
+        $scope.Id_Bodega = Documentos.Id_Bodega;
+        $scope.DiasValidez = Documentos.DiasValidez;
+        $scope.TotalSub = Documentos.TotalSub;
+        $scope.Total_Descuento = Documentos.Total_Descuento;
+        $scope.Total = Documentos.Total;
+        $scope.Notas = Documentos.Notas;
+        $scope.IdUsuario = Documentos.IdUsuario;
+        $scope.IdDocumentoAnterior = Documentos.IdDocumentoAnterior;
+        $scope.EstadoDocumento = Documentos.EstadoDocumento;
+        $scope.IdFormaPago = Documentos.IdFormaPago;
         }
 });

@@ -1,10 +1,10 @@
 var myapp = angular.module('myapp', ['ui.bootstrap', 'ngResource']);
-myapp.controller('ActasController', function ($scope, $http) {
+myapp.controller('ProcesosController', function ($scope, $http) {
     var uri = "http://localhost:48571/api";
     initialize();
     getall();
     function getall() {
-        $http.get(uri + '/Actas').success(function (response) {
+        $http.get(uri + '/Procesos').success(function (response) {
         $scope.Datas = response;
         $scope.result = response;
         $scope.predicate = 'Nombre';
@@ -24,7 +24,7 @@ myapp.controller('ActasController', function ($scope, $http) {
              };
             });
        }
-     $scope.Actas = {}
+     $scope.Procesos = {}
      $scope.nuevo = function ()
         {
             $scope.one = false;
@@ -32,27 +32,25 @@ myapp.controller('ActasController', function ($scope, $http) {
             $scope.Guardar = true;
             $scope.Modificar = false;
         }
-     $scope.Actas = {}
+     $scope.Procesos = {}
      function initialize()
         {
-            $scope. Actas =
+            $scope. Procesos =
             {
                    ID: "",
+    IdTipoProceso: "",
     IdDocumento: "",
-    IdTipoActa: "",
-    Fecha: "",
-    Observaciones: "",
+    Descripcion: "",
+    Cantidad: "",
     IdUsuario: "",
-    Hora: "",
-    FechaSistema: "",
-    Estado: ""
+    FechaSistema: ""
             }
      }
      $scope.add = function ()
      {
-            var Actas = {
+            var Procesos = {
             }
-            $http.post(uri + '/Actas/Post', Actas).
+            $http.post(uri + '/Procesos/Post', Procesos).
                 success(function (data, status, headers, config) {
                 Mostrar(true, false);
                 Clean();
@@ -75,19 +73,17 @@ myapp.controller('ActasController', function ($scope, $http) {
         });
       }
       $scope.Update = function (){
-            var Actas = {
+            var Procesos = {
                 ID: "",
+    IdTipoProceso: "",
     IdDocumento: "",
-    IdTipoActa: "",
-    Fecha: "",
-    Observaciones: "",
+    Descripcion: "",
+    Cantidad: "",
     IdUsuario: "",
-    Hora: "",
-    FechaSistema: "",
-    Estado: ""
+    FechaSistema: ""
 
             }
-            $http.put(uri + '/Actas/PUT',Actas).success(function (data, status, headers, config) {
+            $http.put(uri + '/Procesos/PUT',Procesos).success(function (data, status, headers, config) {
                 Mostrar(true, false);
                 Clean();
                 getall();
@@ -98,7 +94,7 @@ myapp.controller('ActasController', function ($scope, $http) {
        }
       $scope.removeRow = function (codigo) {
             if (confirm('Esta Seguro que desea Eliminar el registro?')) {
-                $http.delete(uri + '/Actas?Id=' + codigo).success(function (data, status, headers, config) {
+                $http.delete(uri + '/Procesos?Id=' + codigo).success(function (data, status, headers, config) {
                 Mostrar(true, false);
                 Clean();
                 getall();
@@ -110,15 +106,13 @@ myapp.controller('ActasController', function ($scope, $http) {
             return;
             };
        }
-      $scope.GetByID = function (Actas) {
-                   $scope.ID = Actas.ID;
-        $scope.IdDocumento = Actas.IdDocumento;
-        $scope.IdTipoActa = Actas.IdTipoActa;
-        $scope.Fecha = Actas.Fecha;
-        $scope.Observaciones = Actas.Observaciones;
-        $scope.IdUsuario = Actas.IdUsuario;
-        $scope.Hora = Actas.Hora;
-        $scope.FechaSistema = Actas.FechaSistema;
-        $scope.Estado = Actas.Estado;
+      $scope.GetByID = function (Procesos) {
+                   $scope.ID = Procesos.ID;
+        $scope.IdTipoProceso = Procesos.IdTipoProceso;
+        $scope.IdDocumento = Procesos.IdDocumento;
+        $scope.Descripcion = Procesos.Descripcion;
+        $scope.Cantidad = Procesos.Cantidad;
+        $scope.IdUsuario = Procesos.IdUsuario;
+        $scope.FechaSistema = Procesos.FechaSistema;
         }
 });

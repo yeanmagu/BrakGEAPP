@@ -1,10 +1,10 @@
 var myapp = angular.module('myapp', ['ui.bootstrap', 'ngResource']);
-myapp.controller('ActasController', function ($scope, $http) {
+myapp.controller('DetalleActaController', function ($scope, $http) {
     var uri = "http://localhost:48571/api";
     initialize();
     getall();
     function getall() {
-        $http.get(uri + '/Actas').success(function (response) {
+        $http.get(uri + '/DetalleActa').success(function (response) {
         $scope.Datas = response;
         $scope.result = response;
         $scope.predicate = 'Nombre';
@@ -24,7 +24,7 @@ myapp.controller('ActasController', function ($scope, $http) {
              };
             });
        }
-     $scope.Actas = {}
+     $scope.DetalleActa = {}
      $scope.nuevo = function ()
         {
             $scope.one = false;
@@ -32,27 +32,26 @@ myapp.controller('ActasController', function ($scope, $http) {
             $scope.Guardar = true;
             $scope.Modificar = false;
         }
-     $scope.Actas = {}
+     $scope.DetalleActa = {}
      function initialize()
         {
-            $scope. Actas =
+            $scope. DetalleActa =
             {
                    ID: "",
-    IdDocumento: "",
-    IdTipoActa: "",
-    Fecha: "",
+    IdActa: "",
+    IdTipoMontaje: "",
+    Cantidad: "",
+    Cumple: "",
     Observaciones: "",
-    IdUsuario: "",
-    Hora: "",
-    FechaSistema: "",
-    Estado: ""
+    Estado: "",
+    FechaSistema: ""
             }
      }
      $scope.add = function ()
      {
-            var Actas = {
+            var DetalleActa = {
             }
-            $http.post(uri + '/Actas/Post', Actas).
+            $http.post(uri + '/DetalleActa/Post', DetalleActa).
                 success(function (data, status, headers, config) {
                 Mostrar(true, false);
                 Clean();
@@ -75,19 +74,18 @@ myapp.controller('ActasController', function ($scope, $http) {
         });
       }
       $scope.Update = function (){
-            var Actas = {
+            var DetalleActa = {
                 ID: "",
-    IdDocumento: "",
-    IdTipoActa: "",
-    Fecha: "",
+    IdActa: "",
+    IdTipoMontaje: "",
+    Cantidad: "",
+    Cumple: "",
     Observaciones: "",
-    IdUsuario: "",
-    Hora: "",
-    FechaSistema: "",
-    Estado: ""
+    Estado: "",
+    FechaSistema: ""
 
             }
-            $http.put(uri + '/Actas/PUT',Actas).success(function (data, status, headers, config) {
+            $http.put(uri + '/DetalleActa/PUT',DetalleActa).success(function (data, status, headers, config) {
                 Mostrar(true, false);
                 Clean();
                 getall();
@@ -98,7 +96,7 @@ myapp.controller('ActasController', function ($scope, $http) {
        }
       $scope.removeRow = function (codigo) {
             if (confirm('Esta Seguro que desea Eliminar el registro?')) {
-                $http.delete(uri + '/Actas?Id=' + codigo).success(function (data, status, headers, config) {
+                $http.delete(uri + '/DetalleActa?Id=' + codigo).success(function (data, status, headers, config) {
                 Mostrar(true, false);
                 Clean();
                 getall();
@@ -110,15 +108,14 @@ myapp.controller('ActasController', function ($scope, $http) {
             return;
             };
        }
-      $scope.GetByID = function (Actas) {
-                   $scope.ID = Actas.ID;
-        $scope.IdDocumento = Actas.IdDocumento;
-        $scope.IdTipoActa = Actas.IdTipoActa;
-        $scope.Fecha = Actas.Fecha;
-        $scope.Observaciones = Actas.Observaciones;
-        $scope.IdUsuario = Actas.IdUsuario;
-        $scope.Hora = Actas.Hora;
-        $scope.FechaSistema = Actas.FechaSistema;
-        $scope.Estado = Actas.Estado;
+      $scope.GetByID = function (DetalleActa) {
+                   $scope.ID = DetalleActa.ID;
+        $scope.IdActa = DetalleActa.IdActa;
+        $scope.IdTipoMontaje = DetalleActa.IdTipoMontaje;
+        $scope.Cantidad = DetalleActa.Cantidad;
+        $scope.Cumple = DetalleActa.Cumple;
+        $scope.Observaciones = DetalleActa.Observaciones;
+        $scope.Estado = DetalleActa.Estado;
+        $scope.FechaSistema = DetalleActa.FechaSistema;
         }
 });

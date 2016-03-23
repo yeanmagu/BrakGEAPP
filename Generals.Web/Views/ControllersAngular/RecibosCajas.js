@@ -1,10 +1,10 @@
 var myapp = angular.module('myapp', ['ui.bootstrap', 'ngResource']);
-myapp.controller('ActasController', function ($scope, $http) {
+myapp.controller('RecibosCajasController', function ($scope, $http) {
     var uri = "http://localhost:48571/api";
     initialize();
     getall();
     function getall() {
-        $http.get(uri + '/Actas').success(function (response) {
+        $http.get(uri + '/RecibosCajas').success(function (response) {
         $scope.Datas = response;
         $scope.result = response;
         $scope.predicate = 'Nombre';
@@ -24,7 +24,7 @@ myapp.controller('ActasController', function ($scope, $http) {
              };
             });
        }
-     $scope.Actas = {}
+     $scope.RecibosCajas = {}
      $scope.nuevo = function ()
         {
             $scope.one = false;
@@ -32,27 +32,32 @@ myapp.controller('ActasController', function ($scope, $http) {
             $scope.Guardar = true;
             $scope.Modificar = false;
         }
-     $scope.Actas = {}
+     $scope.RecibosCajas = {}
      function initialize()
         {
-            $scope. Actas =
+            $scope. RecibosCajas =
             {
-                   ID: "",
+                   Id: "",
+    IdEmpresa: "",
+    IdBodega: "",
+    IdCliente: "",
     IdDocumento: "",
-    IdTipoActa: "",
     Fecha: "",
-    Observaciones: "",
+    Notas: "",
+    Anulado: "",
+    Valor: "",
+    Descuento: "",
+    Efectivo: "",
+    Cambio: "",
     IdUsuario: "",
-    Hora: "",
-    FechaSistema: "",
-    Estado: ""
+                IdUsuarioVende:""
             }
      }
      $scope.add = function ()
      {
-            var Actas = {
+            var RecibosCajas = {
             }
-            $http.post(uri + '/Actas/Post', Actas).
+            $http.post(uri + '/RecibosCajas/Post', RecibosCajas).
                 success(function (data, status, headers, config) {
                 Mostrar(true, false);
                 Clean();
@@ -75,19 +80,23 @@ myapp.controller('ActasController', function ($scope, $http) {
         });
       }
       $scope.Update = function (){
-            var Actas = {
-                ID: "",
+            var RecibosCajas = {
+                Id: "",
+    IdEmpresa: "",
+    IdBodega: "",
+    IdCliente: "",
     IdDocumento: "",
-    IdTipoActa: "",
     Fecha: "",
-    Observaciones: "",
+    Notas: "",
+    Anulado: "",
+    Valor: "",
+    Descuento: "",
+    Efectivo: "",
+    Cambio: "",
     IdUsuario: "",
-    Hora: "",
-    FechaSistema: "",
-    Estado: ""
-
+                IdUsuarioVende:""
             }
-            $http.put(uri + '/Actas/PUT',Actas).success(function (data, status, headers, config) {
+            $http.put(uri + '/RecibosCajas/PUT',RecibosCajas).success(function (data, status, headers, config) {
                 Mostrar(true, false);
                 Clean();
                 getall();
@@ -98,7 +107,7 @@ myapp.controller('ActasController', function ($scope, $http) {
        }
       $scope.removeRow = function (codigo) {
             if (confirm('Esta Seguro que desea Eliminar el registro?')) {
-                $http.delete(uri + '/Actas?Id=' + codigo).success(function (data, status, headers, config) {
+                $http.delete(uri + '/RecibosCajas?Id=' + codigo).success(function (data, status, headers, config) {
                 Mostrar(true, false);
                 Clean();
                 getall();
@@ -110,15 +119,20 @@ myapp.controller('ActasController', function ($scope, $http) {
             return;
             };
        }
-      $scope.GetByID = function (Actas) {
-                   $scope.ID = Actas.ID;
-        $scope.IdDocumento = Actas.IdDocumento;
-        $scope.IdTipoActa = Actas.IdTipoActa;
-        $scope.Fecha = Actas.Fecha;
-        $scope.Observaciones = Actas.Observaciones;
-        $scope.IdUsuario = Actas.IdUsuario;
-        $scope.Hora = Actas.Hora;
-        $scope.FechaSistema = Actas.FechaSistema;
-        $scope.Estado = Actas.Estado;
+      $scope.GetByID = function (RecibosCajas) {
+                   $scope.Id = RecibosCajas.Id;
+        $scope.IdEmpresa = RecibosCajas.IdEmpresa;
+        $scope.IdBodega = RecibosCajas.IdBodega;
+        $scope.IdCliente = RecibosCajas.IdCliente;
+        $scope.IdDocumento = RecibosCajas.IdDocumento;
+        $scope.Fecha = RecibosCajas.Fecha;
+        $scope.Notas = RecibosCajas.Notas;
+        $scope.Anulado = RecibosCajas.Anulado;
+        $scope.Valor = RecibosCajas.Valor;
+        $scope.Descuento = RecibosCajas.Descuento;
+        $scope.Efectivo = RecibosCajas.Efectivo;
+        $scope.Cambio = RecibosCajas.Cambio;
+        $scope.IdUsuario = RecibosCajas.IdUsuario;
+        $scope.IdUsuarioVende = RecibosCajas.IdUsuarioVende;
         }
 });

@@ -1,10 +1,10 @@
 var myapp = angular.module('myapp', ['ui.bootstrap', 'ngResource']);
-myapp.controller('ActasController', function ($scope, $http) {
+myapp.controller('RemisionesExternasController', function ($scope, $http) {
     var uri = "http://localhost:48571/api";
     initialize();
     getall();
     function getall() {
-        $http.get(uri + '/Actas').success(function (response) {
+        $http.get(uri + '/RemisionesExternas').success(function (response) {
         $scope.Datas = response;
         $scope.result = response;
         $scope.predicate = 'Nombre';
@@ -24,7 +24,7 @@ myapp.controller('ActasController', function ($scope, $http) {
              };
             });
        }
-     $scope.Actas = {}
+     $scope.RemisionesExternas = {}
      $scope.nuevo = function ()
         {
             $scope.one = false;
@@ -32,27 +32,27 @@ myapp.controller('ActasController', function ($scope, $http) {
             $scope.Guardar = true;
             $scope.Modificar = false;
         }
-     $scope.Actas = {}
+     $scope.RemisionesExternas = {}
      function initialize()
         {
-            $scope. Actas =
+            $scope. RemisionesExternas =
             {
                    ID: "",
-    IdDocumento: "",
-    IdTipoActa: "",
+    IdOrdenProduccion: "",
     Fecha: "",
-    Observaciones: "",
-    IdUsuario: "",
-    Hora: "",
+    IdUsario: "",
     FechaSistema: "",
-    Estado: ""
+    Observaciones: "",
+    IdUsuarioDespachador: "",
+    IdTransportador: "",
+    ReciboPot: ""
             }
      }
      $scope.add = function ()
      {
-            var Actas = {
+            var RemisionesExternas = {
             }
-            $http.post(uri + '/Actas/Post', Actas).
+            $http.post(uri + '/RemisionesExternas/Post', RemisionesExternas).
                 success(function (data, status, headers, config) {
                 Mostrar(true, false);
                 Clean();
@@ -75,19 +75,19 @@ myapp.controller('ActasController', function ($scope, $http) {
         });
       }
       $scope.Update = function (){
-            var Actas = {
+            var RemisionesExternas = {
                 ID: "",
-    IdDocumento: "",
-    IdTipoActa: "",
+    IdOrdenProduccion: "",
     Fecha: "",
-    Observaciones: "",
-    IdUsuario: "",
-    Hora: "",
+    IdUsario: "",
     FechaSistema: "",
-    Estado: ""
+    Observaciones: "",
+    IdUsuarioDespachador: "",
+    IdTransportador: "",
+    ReciboPot: ""
 
             }
-            $http.put(uri + '/Actas/PUT',Actas).success(function (data, status, headers, config) {
+            $http.put(uri + '/RemisionesExternas/PUT',RemisionesExternas).success(function (data, status, headers, config) {
                 Mostrar(true, false);
                 Clean();
                 getall();
@@ -98,7 +98,7 @@ myapp.controller('ActasController', function ($scope, $http) {
        }
       $scope.removeRow = function (codigo) {
             if (confirm('Esta Seguro que desea Eliminar el registro?')) {
-                $http.delete(uri + '/Actas?Id=' + codigo).success(function (data, status, headers, config) {
+                $http.delete(uri + '/RemisionesExternas?Id=' + codigo).success(function (data, status, headers, config) {
                 Mostrar(true, false);
                 Clean();
                 getall();
@@ -110,15 +110,15 @@ myapp.controller('ActasController', function ($scope, $http) {
             return;
             };
        }
-      $scope.GetByID = function (Actas) {
-                   $scope.ID = Actas.ID;
-        $scope.IdDocumento = Actas.IdDocumento;
-        $scope.IdTipoActa = Actas.IdTipoActa;
-        $scope.Fecha = Actas.Fecha;
-        $scope.Observaciones = Actas.Observaciones;
-        $scope.IdUsuario = Actas.IdUsuario;
-        $scope.Hora = Actas.Hora;
-        $scope.FechaSistema = Actas.FechaSistema;
-        $scope.Estado = Actas.Estado;
+      $scope.GetByID = function (RemisionesExternas) {
+                   $scope.ID = RemisionesExternas.ID;
+        $scope.IdOrdenProduccion = RemisionesExternas.IdOrdenProduccion;
+        $scope.Fecha = RemisionesExternas.Fecha;
+        $scope.IdUsario = RemisionesExternas.IdUsario;
+        $scope.FechaSistema = RemisionesExternas.FechaSistema;
+        $scope.Observaciones = RemisionesExternas.Observaciones;
+        $scope.IdUsuarioDespachador = RemisionesExternas.IdUsuarioDespachador;
+        $scope.IdTransportador = RemisionesExternas.IdTransportador;
+        $scope.ReciboPot = RemisionesExternas.ReciboPot;
         }
 });

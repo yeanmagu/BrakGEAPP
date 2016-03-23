@@ -1,10 +1,10 @@
 var myapp = angular.module('myapp', ['ui.bootstrap', 'ngResource']);
-myapp.controller('ActasController', function ($scope, $http) {
+myapp.controller('ItemController', function ($scope, $http) {
     var uri = "http://localhost:48571/api";
     initialize();
     getall();
     function getall() {
-        $http.get(uri + '/Actas').success(function (response) {
+        $http.get(uri + '/Item').success(function (response) {
         $scope.Datas = response;
         $scope.result = response;
         $scope.predicate = 'Nombre';
@@ -24,7 +24,7 @@ myapp.controller('ActasController', function ($scope, $http) {
              };
             });
        }
-     $scope.Actas = {}
+     $scope.Item = {}
      $scope.nuevo = function ()
         {
             $scope.one = false;
@@ -32,27 +32,45 @@ myapp.controller('ActasController', function ($scope, $http) {
             $scope.Guardar = true;
             $scope.Modificar = false;
         }
-     $scope.Actas = {}
+     $scope.Item = {}
      function initialize()
         {
-            $scope. Actas =
+            $scope. Item =
             {
                    ID: "",
-    IdDocumento: "",
-    IdTipoActa: "",
-    Fecha: "",
-    Observaciones: "",
+    IdEmpresa: "",
+    Codigo: "",
+    Descripcion: "",
+    Precio: "",
+    SubGrupo: "",
+    IdIva: "",
+    MaxDescuento: "",
+    CantidadMinima: "",
+    CantidadMaxima: "",
+    Anulado: "",
+    NumeroDecimales: "",
+    Notas: "",
+    IdColor: "",
+    Modelo: "",
+    NroSerie: "",
     IdUsuario: "",
-    Hora: "",
-    FechaSistema: "",
+    FechaCreacion: "",
+    FechaVencimiento: "",
+    ManejaStock: "",
+    IdTalla: "",
+    StockActual: "",
+    DiasReposicion: "",
+    CalificacionABC: "",
+    Unidad: "",
+    IdMarca: "",
     Estado: ""
             }
      }
      $scope.add = function ()
      {
-            var Actas = {
+            var Item = {
             }
-            $http.post(uri + '/Actas/Post', Actas).
+            $http.post(uri + '/Item/Post', Item).
                 success(function (data, status, headers, config) {
                 Mostrar(true, false);
                 Clean();
@@ -75,19 +93,37 @@ myapp.controller('ActasController', function ($scope, $http) {
         });
       }
       $scope.Update = function (){
-            var Actas = {
+            var Item = {
                 ID: "",
-    IdDocumento: "",
-    IdTipoActa: "",
-    Fecha: "",
-    Observaciones: "",
+    IdEmpresa: "",
+    Codigo: "",
+    Descripcion: "",
+    Precio: "",
+    SubGrupo: "",
+    IdIva: "",
+    MaxDescuento: "",
+    CantidadMinima: "",
+    CantidadMaxima: "",
+    Anulado: "",
+    NumeroDecimales: "",
+    Notas: "",
+    IdColor: "",
+    Modelo: "",
+    NroSerie: "",
     IdUsuario: "",
-    Hora: "",
-    FechaSistema: "",
+    FechaCreacion: "",
+    FechaVencimiento: "",
+    ManejaStock: "",
+    IdTalla: "",
+    StockActual: "",
+    DiasReposicion: "",
+    CalificacionABC: "",
+    Unidad: "",
+    IdMarca: "",
     Estado: ""
 
             }
-            $http.put(uri + '/Actas/PUT',Actas).success(function (data, status, headers, config) {
+            $http.put(uri + '/Item/PUT',Item).success(function (data, status, headers, config) {
                 Mostrar(true, false);
                 Clean();
                 getall();
@@ -98,7 +134,7 @@ myapp.controller('ActasController', function ($scope, $http) {
        }
       $scope.removeRow = function (codigo) {
             if (confirm('Esta Seguro que desea Eliminar el registro?')) {
-                $http.delete(uri + '/Actas?Id=' + codigo).success(function (data, status, headers, config) {
+                $http.delete(uri + '/Item?Id=' + codigo).success(function (data, status, headers, config) {
                 Mostrar(true, false);
                 Clean();
                 getall();
@@ -110,15 +146,33 @@ myapp.controller('ActasController', function ($scope, $http) {
             return;
             };
        }
-      $scope.GetByID = function (Actas) {
-                   $scope.ID = Actas.ID;
-        $scope.IdDocumento = Actas.IdDocumento;
-        $scope.IdTipoActa = Actas.IdTipoActa;
-        $scope.Fecha = Actas.Fecha;
-        $scope.Observaciones = Actas.Observaciones;
-        $scope.IdUsuario = Actas.IdUsuario;
-        $scope.Hora = Actas.Hora;
-        $scope.FechaSistema = Actas.FechaSistema;
-        $scope.Estado = Actas.Estado;
+      $scope.GetByID = function (Item) {
+                   $scope.ID = Item.ID;
+        $scope.IdEmpresa = Item.IdEmpresa;
+        $scope.Codigo = Item.Codigo;
+        $scope.Descripcion = Item.Descripcion;
+        $scope.Precio = Item.Precio;
+        $scope.SubGrupo = Item.SubGrupo;
+        $scope.IdIva = Item.IdIva;
+        $scope.MaxDescuento = Item.MaxDescuento;
+        $scope.CantidadMinima = Item.CantidadMinima;
+        $scope.CantidadMaxima = Item.CantidadMaxima;
+        $scope.Anulado = Item.Anulado;
+        $scope.NumeroDecimales = Item.NumeroDecimales;
+        $scope.Notas = Item.Notas;
+        $scope.IdColor = Item.IdColor;
+        $scope.Modelo = Item.Modelo;
+        $scope.NroSerie = Item.NroSerie;
+        $scope.IdUsuario = Item.IdUsuario;
+        $scope.FechaCreacion = Item.FechaCreacion;
+        $scope.FechaVencimiento = Item.FechaVencimiento;
+        $scope.ManejaStock = Item.ManejaStock;
+        $scope.IdTalla = Item.IdTalla;
+        $scope.StockActual = Item.StockActual;
+        $scope.DiasReposicion = Item.DiasReposicion;
+        $scope.CalificacionABC = Item.CalificacionABC;
+        $scope.Unidad = Item.Unidad;
+        $scope.IdMarca = Item.IdMarca;
+        $scope.Estado = Item.Estado;
         }
 });
