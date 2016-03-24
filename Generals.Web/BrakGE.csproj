@@ -4297,12 +4297,14 @@
     <Content Include="Views\Parametrizacion\EstadoEnvio.aspx" />
     <Content Include="Views\Parametrizacion\FormaDePago.aspx" />
     <Content Include="Views\Parametrizacion\Grupo.aspx" />
+    <Content Include="Views\Parametrizacion\Item.aspx" />
     <Content Include="Views\Parametrizacion\Iva.aspx" />
     <Content Include="Views\Parametrizacion\Marcas.aspx" />
     <Content Include="Views\Parametrizacion\Municipios.aspx" />
     <Content Include="Views\Parametrizacion\Materiales.aspx" />
     <Content Include="Views\Parametrizacion\MotivoModificaciones.aspx" />
     <Content Include="Views\Parametrizacion\Paises.aspx" />
+    <Content Include="Views\Parametrizacion\SubGrupo.aspx" />
     <Content Include="Views\Parametrizacion\TipoActa.aspx" />
     <Content Include="Views\Procesos\Actas.aspx" />
     <Content Include="Views\plugins\animate-css\animate.css" />
@@ -6015,6 +6017,13 @@
     <Compile Include="Views\Parametrizacion\Grupo.aspx.designer.cs">
       <DependentUpon>Grupo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Parametrizacion\Item.aspx.cs">
+      <DependentUpon>Item.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\Item.aspx.designer.cs">
+      <DependentUpon>Item.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Parametrizacion\Iva.aspx.cs">
       <DependentUpon>Iva.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -6056,6 +6065,13 @@
     </Compile>
     <Compile Include="Views\Parametrizacion\Paises.aspx.designer.cs">
       <DependentUpon>Paises.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\SubGrupo.aspx.cs">
+      <DependentUpon>SubGrupo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\SubGrupo.aspx.designer.cs">
+      <DependentUpon>SubGrupo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Parametrizacion\TipoActa.aspx.cs">
       <DependentUpon>TipoActa.aspx</DependentUpon>
