@@ -5174,6 +5174,7 @@
     <Content Include="Views\Procesos\ControldeProcesos.aspx" />
     <Content Include="Views\ControllersAngular\ControlDeProcesos.js" />
     <Content Include="Views\Procesos\Modificaciones.aspx" />
+    <Content Include="Views\ProgramacionTarea.aspx" />
     <Content Include="Views\Scripts\AjaxControlToolkit.dll" />
     <Content Include="Views\Scripts\angular-animate.js" />
     <Content Include="Views\Scripts\angular-loader.js" />
@@ -6107,6 +6108,13 @@
     </Compile>
     <Compile Include="Views\Procesos\Modificaciones.aspx.designer.cs">
       <DependentUpon>Modificaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProgramacionTarea.aspx.cs">
+      <DependentUpon>ProgramacionTarea.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ProgramacionTarea.aspx.designer.cs">
+      <DependentUpon>ProgramacionTarea.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebCambioClave.aspx.cs">
       <DependentUpon>WebCambioClave.aspx</DependentUpon>
