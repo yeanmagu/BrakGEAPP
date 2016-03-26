@@ -15,8 +15,8 @@
                     <div class="table-responsive">
                         <div class="panel formgrid" >
                               <div class="panel-body">
-                                   <h4 class="text-thin">Sw</h4>
-										                        <hr>
+                               <h4 class="text-thin">Sw</h4>
+								 <hr>
                                 <div class="col-md-12">                                     
                                     <div class="row">                                        
                                         <div class="col-md-12">
@@ -24,15 +24,13 @@
                                                     <thead>
                                                         <tr class="morris-hover-row-label">
                                                             <th ><a href="" ng-click="order('Id')">ID</a>  </th>
-                                                            <th ><a href="" ng-click="order('Nombre')">Nombre</a>  </th>
-                                                          
+                                                            <th ><a href="" ng-click="order('Descripcion')">Nombre</a>  </th>
                                                             <th >Activo</th>
                                                             <th >Acciones</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                          <tr>  
-                                                      
                                                              <td> <input type="text" ng-model="search.ID" /></td>  
                                                              <td> <input type="text" ng-model="search.Descripcion" /> </td>  
                                                               <td> <input type="text" ng-model="search.CodigoPostal" /> </td>  
@@ -43,7 +41,7 @@
                                                            </tr> 
                                                          <tr ng-repeat="Sw in result | orderBy:predicate:reverse | filter:paginate| filter:search">
                                                             <td>{{Sw.ID}}</td>
-                                                            <td>{{Sw.Nombre}}</td> 
+                                                            <td>{{Sw.Descripcion}}</td> 
                                                           
                                                             <td >
                                                                 <input type="checkbox" class="checkbox form-checkbox "   ng-model="Sw.Estado" ng-true-value="{{Sw.Estado}}" />
@@ -94,8 +92,8 @@
                                                                      <div class="col-md-3">
                                                                          <div class="form-group">
                                                                            <label class="control-label">Descripcion</label>
-                                                                         <input type="text" class="form-control"  ng-model="descripcion" required="required"  placeholder="Descripcion">
-                                                                                    <input type="text" class="form-control" ng-show="false"  ng-model="id"  >
+                                                                         <input type="text" class="form-control"  ng-model="Descripcion" required="required"  placeholder="Descripcion">
+                                                                         <input type="text" class="form-control" ng-show="false"  ng-model="ID"  >
                                                                          </div>
                                                                      </div>  
                                                                       <div class="col-md-3">

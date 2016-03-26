@@ -4,6 +4,7 @@ myapp.controller('TipoMovimientoController', function ($scope, $http) {
     initialize();
     getall();
     CargarCombos();
+    Mostrar(true, false);
     function getall() {
         $http.get(uri + '/TipoMovimiento').success(function (response) {
             $scope.Datas = response;
@@ -25,7 +26,7 @@ myapp.controller('TipoMovimientoController', function ($scope, $http) {
             };
         });
     }
-    $scope.TipoMovimiento = {}
+
     $scope.nuevo = function () {
         $scope.one = false;
         $scope.two = true;
@@ -60,9 +61,10 @@ myapp.controller('TipoMovimientoController', function ($scope, $http) {
             });
     }
     function Mostrar(uno, dos) {
-        $scope.one = false;
-        $scope.two = true;
+        $scope.one = uno; // setting the first div visible when the page loads
+        $scope.two = dos;
     }
+   
     $scope.cancelar = function () {
         Mostrar(true, false);
     }

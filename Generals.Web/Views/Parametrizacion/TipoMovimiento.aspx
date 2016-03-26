@@ -96,16 +96,16 @@
                                                                             <div class="col-sm-3">
 												                                <div class="form-group">
 													                               <label class="control-label">Bodega</label>
-													                               <select class="form-control" ng-model="CiudadResidencia" >
-                                                                                     <option ng-repeat="Bodega in bd" value="mun.Id">{{TipoMovimiento.Nombre}}</option>
+													                               <select class="form-control" ng-model="BodegaCodigo" >
+                                                                                     <option ng-repeat="BodegaCombo in Bodega" value="mun.Id">{{BodegaCombo.Nombre}}</option>
                                                                                     </select>
 												                                </div>
 											                                </div> 
                                                                            <div class="col-sm-3">
 												                                <div class="form-group">
 													                               <label class="control-label">Sw</label>
-													                               <select class="form-control" ng-model="CiudadResidencia" >
-                                                                                     <option ng-repeat="mun in Municipios" value="mun.Id">{{TipoMovimiento.Nombre}}</option>
+													                               <select class="form-control" ng-model="SwCodigo" >
+                                                                                     <option ng-repeat="swCombo in Sw" value="Swc.Id">{{swCombo.Descripcion}}</option>
                                                                                     </select>
 												                                </div>
 											                                </div> 
