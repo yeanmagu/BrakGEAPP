@@ -127,6 +127,14 @@
     <Reference Include="Microsoft.CSharp">
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\SIISO\Resources\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\SIISO\Resources\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ProyectoswebHGI2pblicacion\Generals.Web\bin\Microsoft.ReportViewer.WebForms.dll</HintPath>
@@ -4305,7 +4313,9 @@
     <Content Include="Views\Parametrizacion\MotivoModificaciones.aspx" />
     <Content Include="Views\Parametrizacion\Paises.aspx" />
     <Content Include="Views\Parametrizacion\SubGrupo.aspx" />
+    <Content Include="Views\Parametrizacion\Sw.aspx" />
     <Content Include="Views\Parametrizacion\TipoActa.aspx" />
+    <Content Include="Views\Parametrizacion\TipoMovimiento.aspx" />
     <Content Include="Views\Procesos\Actas.aspx" />
     <Content Include="Views\plugins\animate-css\animate.css" />
     <Content Include="Views\plugins\animate-css\animate.min.css" />
@@ -5174,7 +5184,7 @@
     <Content Include="Views\Procesos\ControldeProcesos.aspx" />
     <Content Include="Views\ControllersAngular\ControlDeProcesos.js" />
     <Content Include="Views\Procesos\Modificaciones.aspx" />
-    <Content Include="Views\ProgramacionTarea.aspx" />
+    <Content Include="Views\Procesos\ProgramacionTarea.aspx" />
     <Content Include="Views\Scripts\AjaxControlToolkit.dll" />
     <Content Include="Views\Scripts\angular-animate.js" />
     <Content Include="Views\Scripts\angular-loader.js" />
@@ -6074,12 +6084,26 @@
     <Compile Include="Views\Parametrizacion\SubGrupo.aspx.designer.cs">
       <DependentUpon>SubGrupo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Parametrizacion\Sw.aspx.cs">
+      <DependentUpon>Sw.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\Sw.aspx.designer.cs">
+      <DependentUpon>Sw.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Parametrizacion\TipoActa.aspx.cs">
       <DependentUpon>TipoActa.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Parametrizacion\TipoActa.aspx.designer.cs">
       <DependentUpon>TipoActa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\TipoMovimiento.aspx.cs">
+      <DependentUpon>TipoMovimiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\TipoMovimiento.aspx.designer.cs">
+      <DependentUpon>TipoMovimiento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Procesos\Actas.aspx.cs">
       <DependentUpon>Actas.aspx</DependentUpon>
@@ -6109,11 +6133,11 @@
     <Compile Include="Views\Procesos\Modificaciones.aspx.designer.cs">
       <DependentUpon>Modificaciones.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\ProgramacionTarea.aspx.cs">
+    <Compile Include="Views\Procesos\ProgramacionTarea.aspx.cs">
       <DependentUpon>ProgramacionTarea.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\ProgramacionTarea.aspx.designer.cs">
+    <Compile Include="Views\Procesos\ProgramacionTarea.aspx.designer.cs">
       <DependentUpon>ProgramacionTarea.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebCambioClave.aspx.cs">
