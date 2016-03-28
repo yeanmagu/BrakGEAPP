@@ -44,15 +44,19 @@ myapp.controller('SwController', function ($scope, $http) {
         {
             ID: "",
             Descripcion: "",
+            IdUsuario:"",
             Estado: ""
         }
     }
 
     $scope.add = function () {
+        var us = sessionStorage.getItem("users");
         var Sw = {
          
             Descripcion: $scope.Descripcion,
-            Estado: "True"
+            Estado: "True",
+            IdUsuario:us
+
         }
 
         $http.post(uri + '/Sw/Post', Sw).
@@ -76,11 +80,11 @@ myapp.controller('SwController', function ($scope, $http) {
     }
 
     function Clean() {
-        $(text).each(function () {
+        $(":text").each(function () {
             $($(this)).val('');
         });
-    }
 
+    }
     $scope.Update = function () {
 
         var Sw = {

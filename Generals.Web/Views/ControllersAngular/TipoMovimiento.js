@@ -1,10 +1,12 @@
 var myapp = angular.module('myapp', ['ui.bootstrap', 'ngResource']);
 myapp.controller('TipoMovimientoController', function ($scope, $http) {
+
     var uri = "http://localhost:48571/api";
     initialize();
     getall();
     CargarCombos();
     Mostrar(true, false);
+
     function getall() {
         $http.get(uri + '/TipoMovimiento').success(function (response) {
             $scope.Datas = response;
@@ -33,6 +35,7 @@ myapp.controller('TipoMovimientoController', function ($scope, $http) {
         $scope.Guardar = true;
         $scope.Modificar = false;
     }
+    $scope.Movimiento = {}
     $scope.TipoMovimiento = {}
     function initialize() {
         $scope.TipoMovimiento =
@@ -47,9 +50,25 @@ myapp.controller('TipoMovimientoController', function ($scope, $http) {
             ExcentoDelva: ""
         }
     }
+
+   
+
     $scope.add = function () {
+        var IdBodeg = document.getElementById("IdBodega").value;
+        var IdSw = document.getElementById("SwCodigo").value;
+         
+        var us = sessionStorage.getItem("users");
+       
         var TipoMovimiento = {
+            
+            Descripcion: $scope.Descripcion,
+            IdBodega: IdBodeg,
+            Notas: $scope.Nota,
+            IdSw: IdSw,
+            IdUsuario: us,
+            ExcentoDelva: "True"
         }
+     
         $http.post(uri + '/TipoMovimiento/Post', TipoMovimiento).
             success(function (data, status, headers, config) {
                 Mostrar(true, false);
@@ -68,11 +87,14 @@ myapp.controller('TipoMovimientoController', function ($scope, $http) {
     $scope.cancelar = function () {
         Mostrar(true, false);
     }
+
     function Clean() {
-        $(text).each(function () {
+        $(":text").each(function () {
             $($(this)).val('');
         });
+
     }
+   
     function CargarCombos() {
 
         $http.get(uri + '/Bodega').success(function (response) {
@@ -85,22 +107,29 @@ myapp.controller('TipoMovimientoController', function ($scope, $http) {
 
         });
     }
-    $scope.Update = function () {
-        var TipoMovimiento = {
-            ID: "",
-            Descripcion: "",
-            IdBodega: "",
-            Notas: "",
-            IdSw: "",
-            FechaCreacion: "",
-            IdUsuario: "",
-            ExcentoDelva: ""
 
+
+    $scope.Update = function () {
+
+        var IdBodeg = document.getElementById("IdBodega").value;
+        var IdSw = document.getElementById("SwCodigo").value;
+
+        var us = sessionStorage.getItem("users");
+        var TipoMovimiento = {
+            ID: $scope.ID,
+            Descripcion: $scope.Descripcion,
+            IdBodega: IdBodeg,
+            Notas: $scope.Nota,
+            IdSw: IdSw,
+            IdUsuario: us,
+            ExcentoDelva: "True"
         }
+
         $http.put(uri + '/TipoMovimiento/PUT', TipoMovimiento).success(function (data, status, headers, config) {
-            Mostrar(true, false);
-            Clean();
+            
             getall();
+            Clean()
+            Mostrar(true, false);
             alert('Registro Actualizado con Exito !');
         }).error(function (data, status, headers, config) {
             alert(data.ExceptionMessage);
@@ -120,14 +149,26 @@ myapp.controller('TipoMovimientoController', function ($scope, $http) {
             return;
         };
     }
+
+
+
     $scope.GetByID = function (TipoMovimiento) {
-        $scope.ID = TipoMovimiento.ID;
-        $scope.Descripcion = TipoMovimiento.Descripcion;
-        $scope.IdBodega = TipoMovimiento.IdBodega;
-        $scope.Notas = TipoMovimiento.Notas;
-        $scope.IdSw = TipoMovimiento.IdSw;
-        $scope.FechaCreacion = TipoMovimiento.FechaCreacion;
-        $scope.IdUsuario = TipoMovimiento.IdUsuario;
-        $scope.ExcentoDelva = TipoMovimiento.ExcentoDelva;
+       
+        $http.get(uri + '/TipoMovimiento?Id=' + TipoMovimiento.ID).success(function (response) {
+            $scope.Movimiento = response;
+             
+       
+         
+            $scope.ID = $scope.Movimiento.ID;
+            $scope.Descripcion = $scope.Movimiento.Descripcion;
+            $scope.IdBodega = $scope.Movimiento.IdBodega;
+            $scope.Nota = $scope.Movimiento.Notas;
+            $scope.SwCodigo = $scope.Movimiento.IdSw;
+           
+        });
+
+        Mostrar(false, true);
+        $scope.Guardar = false;
+        $scope.Modificar = true;
     }
 });

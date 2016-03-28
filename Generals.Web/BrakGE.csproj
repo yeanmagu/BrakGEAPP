@@ -4314,6 +4314,7 @@
     <Content Include="Views\Parametrizacion\Paises.aspx" />
     <Content Include="Views\Parametrizacion\SubGrupo.aspx" />
     <Content Include="Views\Parametrizacion\Sw.aspx" />
+    <Content Include="Views\Parametrizacion\Talla.aspx" />
     <Content Include="Views\Parametrizacion\TipoActa.aspx" />
     <Content Include="Views\Parametrizacion\TipoMovimiento.aspx" />
     <Content Include="Views\Procesos\Actas.aspx" />
@@ -6090,6 +6091,13 @@
     </Compile>
     <Compile Include="Views\Parametrizacion\Sw.aspx.designer.cs">
       <DependentUpon>Sw.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\Talla.aspx.cs">
+      <DependentUpon>Talla.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Parametrizacion\Talla.aspx.designer.cs">
+      <DependentUpon>Talla.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Parametrizacion\TipoActa.aspx.cs">
       <DependentUpon>TipoActa.aspx</DependentUpon>

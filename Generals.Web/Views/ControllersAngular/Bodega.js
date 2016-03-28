@@ -74,8 +74,7 @@ myapp.controller('BodegaController', function ($scope, $http) {
     }
     
     $scope.CargarMunicipios = function (codigo) {
-      
-      //  $http.get(uri + '/Users?id=' + codigoUsuario).success(function (response) {
+  
         $http.get(uri + '/Municipios?dpto=' + codigo).success(function (response) {
             $scope.Municipios = response;
         });

@@ -3,6 +3,8 @@ myapp.controller('ItemController', function ($scope, $http) {
     var uri = "http://localhost:48571/api";
     initialize();
     getall();
+    Mostrar(true, false);
+    CargarCombos();
     function getall() {
         $http.get(uri + '/Item').success(function (response) {
             $scope.Datas = response;
@@ -65,7 +67,41 @@ myapp.controller('ItemController', function ($scope, $http) {
         }
     }
     $scope.add = function () {
+        var idemp = sessionStorage.getItem("IdEmp");
+        var us = sessionStorage.getItem("users");
+        var grup = document.getElementById("IdSubGrupo").value;
+        var Iv = document.getElementById("IdIva").value;
+        var IdCol = document.getElementById("IdColor").value;
+        var Tall = document.getElementById("IdTalla").value;
+        var Marc = document.getElementById("IdMarca").value;
         var Item = {
+ 
+            IdEmpresa: idemp,
+            Codigo: $scope.Codigo,
+            Descripcion: $scope.Descripcion,
+            Precio: $scope.Precio,
+            SubGrupo: grup,
+            IdIva: Iv,
+            MaxDescuento: $scope.MaxDescuento,
+            CantidadMinima: $scope.CantidadMinima,
+            CantidadMaxima: $scope.CantidadMaxima,
+            Anulado: $scope.Anulado,
+            NumeroDecimales: $scope.NumeroDecimales,
+            Notas: $scope.Notas,
+            IdColor: IdCol,
+            Modelo: $scope.Modelo,
+            NroSerie: $scope.NroSerie,
+            IdUsuario: us,
+           
+            FechaVencimiento: $scope.FechaVencimiento,
+            ManejaStock: $scope.ManejaStock,
+            IdTalla: Tall,
+            StockActual: $scope.StockActual,
+            DiasReposicion: $scope.DiasReposicion,
+            CalificacionABC: $scope.CalificacionABC,
+            Unidad: $scope.Unidad,
+            IdMarca: Marc,
+            Estado: "True"
         }
         $http.post(uri + '/Item/Post', Item).
             success(function (data, status, headers, config) {
@@ -78,48 +114,86 @@ myapp.controller('ItemController', function ($scope, $http) {
             });
     }
     function Mostrar(uno, dos) {
-        $scope.one = false;
-        $scope.two = true;
+        $scope.one = uno;
+
+        $scope.two = dos;
     }
     $scope.cancelar = function () {
         Mostrar(true, false);
     }
     function Clean() {
-        $(text).each(function () {
+        $(":text").each(function () {
             $($(this)).val('');
         });
+
+    }
+    function CargarCombos() {
+
+        $http.get(uri + '/SubGrupo').success(function (response) {
+            $scope.SubGrupo = response;
+
+        });
+
+        $http.get(uri + '/Talla').success(function (response) {
+            $scope.Talla = response;
+
+        });
+
+        $http.get(uri + '/Marcas').success(function (response) {
+            $scope.Marca = response;
+
+        });
+
+        $http.get(uri + '/Iva').success(function (response) {
+            $scope.Iva = response;
+
+        });
+
+        $http.get(uri + '/Color').success(function (response) {
+            $scope.Color = response;
+
+        });
+
+
     }
     $scope.Update = function () {
+        var idemp = sessionStorage.getItem("IdEmp");
+        var us = sessionStorage.getItem("users");
+        var grup = document.getElementById("IdSubGrupo").value;
+        var Iv = document.getElementById("IdIva").value;
+        var IdCol = document.getElementById("IdColor").value;
+        var Tall = document.getElementById("IdTalla").value;
+        var Marc = document.getElementById("IdMarca").value;
         var Item = {
-            ID: "",
-            IdEmpresa: "",
-            Codigo: "",
-            Descripcion: "",
-            Precio: "",
-            SubGrupo: "",
-            IdIva: "",
-            MaxDescuento: "",
-            CantidadMinima: "",
-            CantidadMaxima: "",
-            Anulado: "",
-            NumeroDecimales: "",
-            Notas: "",
-            IdColor: "",
-            Modelo: "",
-            NroSerie: "",
-            IdUsuario: "",
-            FechaCreacion: "",
-            FechaVencimiento: "",
-            ManejaStock: "",
-            IdTalla: "",
-            StockActual: "",
-            DiasReposicion: "",
-            CalificacionABC: "",
-            Unidad: "",
-            IdMarca: "",
-            Estado: ""
+            ID:$scope.ID,
+            IdEmpresa: idemp,
+            Codigo: $scope.Codigo,
+            Descripcion: $scope.Descripcion,
+            Precio: $scope.Precio,
+            SubGrupo: grup,
+            IdIva: Iv,
+            MaxDescuento: $scope.MaxDescuento,
+            CantidadMinima: $scope.CantidadMinima,
+            CantidadMaxima: $scope.CantidadMaxima,
+            Anulado: $scope.Anulado,
+            NumeroDecimales: $scope.NumeroDecimales,
+            Notas: $scope.Notas,
+            IdColor: IdCol,
+            Modelo: $scope.Modelo,
+            NroSerie: $scope.NroSerie,
+            IdUsuario: us,
 
+            FechaVencimiento: $scope.FechaVencimiento,
+            ManejaStock: $scope.ManejaStock,
+            IdTalla: Tall,
+            StockActual: $scope.StockActual,
+            DiasReposicion: $scope.DiasReposicion,
+            CalificacionABC: $scope.CalificacionABC,
+            Unidad: $scope.Unidad,
+            IdMarca: Marc,
+            Estado: "True"
         }
+       
         $http.put(uri + '/Item/PUT', Item).success(function (data, status, headers, config) {
             Mostrar(true, false);
             Clean();
@@ -144,32 +218,42 @@ myapp.controller('ItemController', function ($scope, $http) {
         };
     }
     $scope.GetByID = function (Item) {
-        $scope.ID = Item.ID;
-        $scope.IdEmpresa = Item.IdEmpresa;
-        $scope.Codigo = Item.Codigo;
-        $scope.Descripcion = Item.Descripcion;
-        $scope.Precio = Item.Precio;
-        $scope.SubGrupo = Item.SubGrupo;
-        $scope.IdIva = Item.IdIva;
-        $scope.MaxDescuento = Item.MaxDescuento;
-        $scope.CantidadMinima = Item.CantidadMinima;
-        $scope.CantidadMaxima = Item.CantidadMaxima;
-        $scope.Anulado = Item.Anulado;
-        $scope.NumeroDecimales = Item.NumeroDecimales;
-        $scope.Notas = Item.Notas;
-        $scope.IdColor = Item.IdColor;
-        $scope.Modelo = Item.Modelo;
-        $scope.NroSerie = Item.NroSerie;
-        $scope.IdUsuario = Item.IdUsuario;
-        $scope.FechaCreacion = Item.FechaCreacion;
-        $scope.FechaVencimiento = Item.FechaVencimiento;
-        $scope.ManejaStock = Item.ManejaStock;
-        $scope.IdTalla = Item.IdTalla;
-        $scope.StockActual = Item.StockActual;
-        $scope.DiasReposicion = Item.DiasReposicion;
-        $scope.CalificacionABC = Item.CalificacionABC;
-        $scope.Unidad = Item.Unidad;
-        $scope.IdMarca = Item.IdMarca;
-        $scope.Estado = Item.Estado;
+        $http.get(uri + '/Item?Id=' + Item.ID).success(function (response) {
+            $scope.Item = response;
+
+            $scope.ID = $scope.Item.ID;
+
+            $scope.Codigo = $scope.Item.Codigo;
+            $scope.Descripcion = $scope.Item.Descripcion;
+            $scope.Precio = $scope.Item.Precio;
+            $scope.IdSubGrupo = $scope.Item.SubGrupo;
+            $scope.IdIva = $scope.Item.IdIva;
+            $scope.MaxDescuento = $scope.Item.MaxDescuento;
+            $scope.CantidadMinima = $scope.Item.CantidadMinima;
+            $scope.CantidadMaxima = $scope.Item.CantidadMaxima;
+            $scope.Anulado = $scope.Item.Anulado;
+            $scope.NumeroDecimales = $scope.Item.NumeroDecimales;
+            $scope.Notas = $scope.Item.Notas;
+            $scope.IdColor = $scope.Item.IdColor;
+            $scope.Modelo = $scope.Item.Modelo;
+            $scope.NroSerie = $scope.Item.NroSerie;
+          
+            $scope.FechaCreacion = $scope.Item.FechaCreacion;
+            $scope.FechaVencimiento = $scope.Item.FechaVencimiento;
+            $scope.ManejaStock = $scope.Item.ManejaStock;
+            $scope.IdTalla = $scope.Item.IdTalla;
+            $scope.StockActual = $scope.Item.StockActual;
+            $scope.DiasReposicion = $scope.Item.DiasReposicion;
+            $scope.CalificacionABC = $scope.Item.CalificacionABC;
+            $scope.Unidad = $scope.Item.Unidad;
+            $scope.IdMarca = $scope.Item.IdMarca;
+            $scope.Estado = $scope.Item.Estado;
+
+            Mostrar(false, true);
+            $scope.Guardar = false;
+            $scope.Modificar = true;
+
+        });
+
     }
 });

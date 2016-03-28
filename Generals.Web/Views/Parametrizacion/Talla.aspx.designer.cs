@@ -10,6 +10,6 @@
 namespace Generals.Web.Views.Parametrizacion {
     
     
-    public partial class SubGrupo {
+    public partial class Talla {
     }
 }

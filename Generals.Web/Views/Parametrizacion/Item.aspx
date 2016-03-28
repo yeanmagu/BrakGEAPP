@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Item.aspx.cs" Inherits="Generals.Web.Views.Parametrizacion.Item" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script src="../ControllersAngular/Item.js"></script>  
+        <script src="../ControllersAngular/Item.js"></script>  
     <script src="../js/jquery-2.1.1.min.js"></script>
     <script src="../../template/plugins/pace/pace.min.js"></script>
     <script src="../js/angular.js"></script>
@@ -90,28 +90,30 @@
                                                                      <div class="col-md-3">
                                                                          <div class="form-group">
                                                                            <label class="control-label">Descripcion</label>
-                                                                         <input type="text" class="form-control"  ng-model="descripcion" required="required"  placeholder="Descripcion">
-                                                                             <input type="text" class="form-control" ng-show="false"  ng-model="id"  >
+                                                                         <input type="text" class="form-control"  ng-model="Descripcion" required="required"  placeholder="Descripcion">
+                                                                             <input type="text" class="form-control"   ng-model="ID"  >
                                                                          </div>
                                                                      </div>    
                                                                       <div class="col-md-3">
                                                                          <div class="form-group">
                                                                          <label class="control-label">Sub Grupo</label>
-                                                                        <select class="form-control" ng-model="CiudadResidencia" >
-                                                                                     <option ng-repeat="mun in Municipios" value="mun.Id">{{mun.Nombre}}</option>
+                                                                        <select class="form-control" id="IdSubGrupo" >
+                                                                                     <option ng-repeat="mun in SubGrupo" value="mun.ID">{{mun.Descripcion}}</option>
                                                                         </select>
                                                                          </div>
                                                                      </div> 
                                                                       <div class="col-md-3">
                                                                          <div class="form-group">
                                                                          <label class="control-label">Iva</label>
-                                                                         <input type="text" class="form-control"  ng-model="direccion"  >
+                                                                          <select class="form-control" id="IdIva" >
+                                                                                     <option ng-repeat="mun in Iva" value="mun.ID">{{mun.Descripcion}}</option>
+                                                                        </select>
                                                                          </div>
                                                                      </div> 
                                                                      <div class="col-md-3">
                                                                          <div class="form-group">
-                                                                           <label class="col-lg-1 control-label">Maximo Descuento</label>
-                                                                           <input type="text" class="form-control"  ng-model="telefono" >
+                                                                           <label class="control-label">Max Descuento</label>
+                                                                           <input type="text" class="form-control"  ng-model="MaxDescuento" >
                                                                          </div>
                                                                      </div>  
                                                                  </div>                
@@ -121,29 +123,25 @@
                                                                      <div class="col-md-3">
                                                                          <div class="form-group">
                                                                            <label class="control-label">Cantidad Minima</label>
-                                                                         <input type="text" class="form-control"  ng-model="publicidad" >
+                                                                         <input type="text" class="form-control"  ng-model="CantidadMinima" >
                                                                          </div>
                                                                      </div>  
                                                                       <div class="col-sm-3">
 												                                <div class="form-group">
 													                                <label class="control-label">Cantidad Maxima</label>
-													                                <select class="form-control" ng-model="Dptos" ng-change="CargarMunicipios(Dptos)">
-                                                                                      <option ng-repeat="dpt in Dptos" value="{{dpt.ID}}">{{dpt.Nombre}}</option>
-                                                                                    </select>
+													                               <input type="text" class="form-control"  ng-model="CantidadMaxima" >
 												                                </div>
 											                                </div>
 											                                <div class="col-sm-3">
 												                                <div class="form-group">
 													                               <label class="control-label">Anulado</label>
-													                               <select class="form-control" ng-model="CiudadResidencia" >
-                                                                                     <option ng-repeat="mun in Municipios" value="mun.Id">{{mun.Nombre}}</option>
-                                                                                    </select>
+													                               <input type="text" class="form-control"  ng-model="Anulado" >
 												                                </div>
 											                                </div> 
                                                                        <div class="col-md-3">
                                                                   <div class="form-group">
-                                                                    <label class="col-lg-1 control-label">Numero Decimales</label>
-                                                                      <input  class="form-control"  ng-model="responsable" > 
+                                                                    <label class=" control-label">Numero Decimales</label>
+                                                                      <input  class="form-control"  ng-model="NumeroDecimales" > 
                                                                     </div>
                                                                   </div> 
                                                                  </div>                
@@ -153,28 +151,32 @@
                                                                      <div class="col-md-3">
                                                                          <div class="form-group">
                                                                            <label class="control-label">Color</label>
-                                                                         <input type="text" class="form-control"  ng-model="descripcion" required="required"  placeholder="Descripcion">
-                                                                            
+                                                                          <select class="form-control" id="IdColor" >
+                                                                         <option ng-repeat="mun in Color" value="mun.ID">{{mun.Descripcion}}</option>
+                                                                         </select>
                                                                          </div>
                                                                      </div>    
                                                                       <div class="col-md-3">
                                                                          <div class="form-group">
                                                                          <label class="control-label">Modelo</label>
-                                                                         <input type="text" class="form-control"  ng-model="nombre" required="required">
+                                                                         <input type="text" class="form-control"  ng-model="Modelo" required="required">
                                                                          </div>
                                                                      </div> 
                                                                       <div class="col-md-3">
                                                                          <div class="form-group">
                                                                          <label class="control-label">Nª Serie</label>
-                                                                         <input type="text" class="form-control"  ng-model="direccion"  >
+                                                                         <input type="text" class="form-control"  ng-model="NroSerie"  >
                                                                          </div>
                                                                      </div> 
-                                                                     <div class="col-md-3">
+                                                                    
+                                                                             <div class="col-md-3">
                                                                          <div class="form-group">
-                                                                           <label class="col-lg-1 control-label">Fecha de Creacion</label>
-                                                                           <input type="date" style="height:34px" class="form-control"  ng-model="FechaModificacion">
+                                                                         <label class="control-label">Dias Reposicion</label>
+                                                                         <input type="text" class="form-control"  ng-model="DiasReposicion"  >
                                                                          </div>
-                                                                     </div>  
+                                                                     </div> 
+                                                                           
+                                                                            
                                                                  </div>                
                                                              </div>
                                                              <div class="col-md-12">
@@ -182,42 +184,31 @@
                                                                  <div class="col-md-3">
                                                                          <div class="form-group">
                                                                          <label class="control-label">Fecha de Vencimiento</label>
-                                                                         <input type="date" style="height:34px" class="form-control"  ng-model="FechaModificacion">
+                                                                         <input type="date" style="height:34px" class="form-control"  ng-model="FechaVencimiento">
                                                                          </div>
                                                                      </div> 
                                                                    <div class="col-md-3">
                                                                          <div class="form-group">
                                                                          <label class="control-label">Maneja Stock</label>
-                                                                         <input type="text" class="form-control"  ng-model="direccion"  >
+                                                                         <input type="text" class="form-control"  ng-model="ManejaStock"  >
                                                                          </div>
                                                                      </div> 
                                                                    <div class="col-md-3">
                                                                          <div class="form-group">
                                                                          <label class="control-label">Talla</label>
-                                                                         <select class="form-control" ng-model="CiudadResidencia" >
-                                                                                     <option ng-repeat="mun in Talla" value="mun.Id">{{mun.Nombre}}</option>
+                                                                         <select class="form-control" id="IdTalla" >
+                                                                         <option ng-repeat="mun in Talla" value="mun.ID">{{mun.Descripcion}}</option>
                                                                          </select>
                                                                          </div>
                                                                      </div> 
                                                                    <div class="col-md-3">
                                                                          <div class="form-group">
                                                                          <label class="control-label">Stock Actual</label>
-                                                                         <input type="text" class="form-control"  ng-model="direccion"  >
+                                                                         <input type="text" class="form-control"  ng-model="StockActual"  >
                                                                          </div>
                                                                      </div> 
-                                                                    <div class="col-md-3">
-                                                                         <div class="form-group">
-                                                                         <label class="control-label">Dias Reposicion</label>
-                                                                         <input type="text" class="form-control"  ng-model="direccion"  >
-                                                                         </div>
-                                                                     </div> 
-                                                           <%--        <div class="col-md-3">
-                                                                         <div class="form-group">
-                                                                           <label class="col-lg-1 control-label">Nota</label>
-                                                                           <textarea  class="form-control"  ng-model="nota" > </textarea>
-                                                                         </div>
-                                                                     </div>  --%>
-                                                              
+                                                                  
+                                                        
                                                                  </div>                
                                                              </div>
                                                               <div class="col-md-12">
@@ -225,30 +216,43 @@
                                                                  <div class="col-md-3">
                                                                          <div class="form-group">
                                                                          <label class="control-label">Calificacion ABC</label>
-                                                                         <input type="text" style="height:34px" class="form-control"  ng-model="FechaModificacion">
+                                                                         <input type="text" class="form-control"  ng-model="CalificacionABC">
                                                                          </div>
                                                                      </div> 
                                                                    <div class="col-md-3">
                                                                          <div class="form-group">
                                                                          <label class="control-label">Unidad</label>
-                                                                         <input type="text" class="form-control"  ng-model="direccion"  >
+                                                                         <input type="text" class="form-control"  ng-model="Unidad"  >
                                                                          </div>
                                                                      </div> 
                                                                    <div class="col-md-3">
                                                                          <div class="form-group">
                                                                          <label class="control-label">Marca</label>
-                                                                         <select class="form-control" ng-model="CiudadResidencia" >
-                                                                                     <option ng-repeat="mun in Municipios" value="mun.Id">{{mun.Nombre}}</option>
+                                                                         <select class="form-control" id="IdMarca" >
+                                                                         <option ng-repeat="mun in Marca" value="mun.ID">{{mun.Descripcion}}</option>
                                                                          </select>
                                                                          </div>
                                                                      </div>   
+                                                                  
                                                                    <div class="col-md-3">
                                                                          <div class="form-group">
-                                                                           <label class="col-lg-1 control-label">Nota</label>
-                                                                           <textarea  class="form-control"  ng-model="nota" > </textarea>
+                                                                         <label class="control-label">Codigo</label>
+                                                                         <input type="text"" class="form-control"  ng-model="Codigo">
                                                                          </div>
-                                                                     </div>  
-                                                                     <div class="col-md-3">
+                                                                     </div> 
+                                                                 </div>                
+                                                             </div>
+                                                              <div class="col-md-12">
+                                                               <div class="row">  
+                                                                 
+                                                                  
+                                                         <div class="col-md-3">
+                                                                         <div class="form-group">
+                                                                           <label class="col-lg-1 control-label">Nota</label>
+                                                                           <textarea  class="form-control"  ng-model="Notas" > </textarea>
+                                                                         </div>
+                                                                     </div> 
+                                                                      <div class="col-md-3">
                                                                         <br />
                                                                    
                                                                      <div class="checkbox">
@@ -257,8 +261,7 @@
 														               </label>
                                                                      </div>
                                                                   
-                                                                     </div>
-                                                              
+                                                                     </div> 
                                                                  </div>                
                                                              </div>
                                                                    </div>

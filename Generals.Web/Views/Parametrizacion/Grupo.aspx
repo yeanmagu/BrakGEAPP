@@ -91,8 +91,8 @@
                                                                      <div class="col-md-3">
                                                                          <div class="form-group">
                                                                            <label class="control-label">Descripcion</label>
-                                                                         <input type="text" class="form-control"  ng-model="descripcion" required="required"  placeholder="Descripcion">
-                                                                             <input type="text" class="form-control" ng-show="false"  ng-model="id"  >
+                                                                         <input type="text" class="form-control"  ng-model="Descripcion" required="required"  placeholder="Descripcion">
+                                                                             <input type="text" class="form-control" ng-show="false"  ng-model="ID"  >
                                                                          </div>
                                                                      </div>    
                                                                      <div class="col-md-3">

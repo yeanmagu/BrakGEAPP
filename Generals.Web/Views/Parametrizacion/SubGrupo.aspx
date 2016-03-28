@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SubSubGrupo.aspx.cs" Inherits="Generals.Web.Views.Parametrizacion.SubSubGrupo" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SubGrupo.aspx.cs" Inherits="Generals.Web.Views.Parametrizacion.SubGrupo" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
       <script src="../ControllersAngular/SubGrupo.js"></script>  
     <script src="../js/jquery-2.1.1.min.js"></script>
@@ -91,10 +91,18 @@
                                                                      <div class="col-md-3">
                                                                          <div class="form-group">
                                                                            <label class="control-label">Descripcion</label>
-                                                                         <input type="text" class="form-control"  ng-model="descripcion" required="required"  placeholder="Descripcion">
-                                                                             <input type="text" class="form-control" ng-show="false"  ng-model="id"  >
+                                                                         <input type="text" class="form-control"  ng-model="Descripcion" required="required"  placeholder="Descripcion">
+                                                                             <input type="text" class="form-control" ng-show="false"  ng-model="ID"  >
                                                                          </div>
-                                                                     </div>    
+                                                                     </div>  
+                                                                    <div class="col-sm-3">
+												                       <div class="form-group">
+													                     <label class="control-label">Grupo</label>
+													                       <select class="form-control" id="IdGrupo">
+                                                                            <option ng-repeat="GrupoCombo in Grupo" value="{{GrupoCombo.ID}}">{{GrupoCombo.Descripcion}}</option>
+                                                                           </select>
+												                         </div>
+											                            </div>  
                                                                      <div class="col-md-3">
                                                                         <br />
                                                                      <div class="checkbox">
